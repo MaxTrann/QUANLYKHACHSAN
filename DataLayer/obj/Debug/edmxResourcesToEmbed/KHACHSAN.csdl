@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KHACHSAN" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_DatPhong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDKH" Type="Int32" />
+    <Property Name="IDPHONG" Type="Int32" />
+    <Property Name="NGAYDAT" Type="DateTime" Precision="3" />
+    <Property Name="NGAYTRA" Type="DateTime" Precision="3" />
+    <Property Name="SONGAYTHUCO" Type="Int32" />
+    <Property Name="UID" Type="Int32" />
+    <Property Name="IDSP" Type="Int32" />
+    <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_DonVi">
+    <Key>
+      <PropertyRef Name="MADVI" />
+    </Key>
+    <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TENDVI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="FAX" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_KhachHang">
+    <Key>
+      <PropertyRef Name="IDKH" />
+    </Key>
+    <Property Name="IDKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_LoaiPhong">
+    <Key>
+      <PropertyRef Name="IDLOAIPHONG" />
+    </Key>
+    <Property Name="IDLOAIPHONG" Type="Int32" Nullable="false" />
+    <Property Name="TENLOAIPHONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DONGIA" Type="Double" />
+    <Property Name="SONGUOI" Type="Int32" />
+    <Property Name="SOGIUONG" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_Phong">
+    <Key>
+      <PropertyRef Name="IDPHONG" />
+    </Key>
+    <Property Name="IDPHONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENPHONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TRANGTHAI" Type="Boolean" />
+    <Property Name="IDTANG" Type="Int32" Nullable="false" />
+    <Property Name="IDLOAIPHONG" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Phong_ThietBi">
+    <Key>
+      <PropertyRef Name="IDPHONG" />
+      <PropertyRef Name="IDTB" />
+    </Key>
+    <Property Name="IDPHONG" Type="Int32" Nullable="false" />
+    <Property Name="IDTB" Type="Int32" Nullable="false" />
+    <Property Name="SOLUONG" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_SanPham">
+    <Key>
+      <PropertyRef Name="IDSP" />
+    </Key>
+    <Property Name="IDSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DONGIA" Type="Double" />
+  </EntityType>
+  <EntityType Name="tb_Tang">
+    <Key>
+      <PropertyRef Name="IDTANG" />
+    </Key>
+    <Property Name="IDTANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENTANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_ThietBi">
+    <Key>
+      <PropertyRef Name="IDTB" />
+    </Key>
+    <Property Name="IDTB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENTB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DONGIA" Type="Double" />
+  </EntityType>
+  <EntityType Name="tb_Users">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FULLNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MADVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISGROUP" Type="Boolean" />
+    <Property Name="DISABLED" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_DatPhong" EntityType="Self.tb_DatPhong" />
+    <EntitySet Name="tb_DonVi" EntityType="Self.tb_DonVi" />
+    <EntitySet Name="tb_KhachHang" EntityType="Self.tb_KhachHang" />
+    <EntitySet Name="tb_LoaiPhong" EntityType="Self.tb_LoaiPhong" />
+    <EntitySet Name="tb_Phong" EntityType="Self.tb_Phong" />
+    <EntitySet Name="tb_Phong_ThietBi" EntityType="Self.tb_Phong_ThietBi" />
+    <EntitySet Name="tb_SanPham" EntityType="Self.tb_SanPham" />
+    <EntitySet Name="tb_Tang" EntityType="Self.tb_Tang" />
+    <EntitySet Name="tb_ThietBi" EntityType="Self.tb_ThietBi" />
+    <EntitySet Name="tb_Users" EntityType="Self.tb_Users" />
+    <EntitySet Name="tb_Func" EntityType="KHACHSAN.tb_Func" />
+    <EntitySet Name="tb_CongTy" EntityType="KHACHSAN.tb_CongTy" />
+  </EntityContainer>
+  <EntityType Name="tb_Func">
+    <Key>
+      <PropertyRef Name="FUNC_CODE" />
+      <PropertyRef Name="SORT" />
+    </Key>
+    <Property Name="FUNC_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SORT" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISGROUP" Type="Boolean" />
+    <Property Name="PARENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MENU" Type="Boolean" />
+    <Property Name="TIPS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_CongTy">
+    <Key>
+      <PropertyRef Name="MACTY" />
+    </Key>
+    <Property Name="MACTY" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TENCTY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="FAX" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DISABLED" Type="Boolean" />
+  </EntityType>
+</Schema>
