@@ -26,7 +26,6 @@ namespace DataLayer
         }
     
         public virtual DbSet<tb_DatPhong> tb_DatPhong { get; set; }
-        public virtual DbSet<tb_DonVi> tb_DonVi { get; set; }
         public virtual DbSet<tb_KhachHang> tb_KhachHang { get; set; }
         public virtual DbSet<tb_LoaiPhong> tb_LoaiPhong { get; set; }
         public virtual DbSet<tb_Phong> tb_Phong { get; set; }
@@ -37,5 +36,6 @@ namespace DataLayer
         public virtual DbSet<tb_Users> tb_Users { get; set; }
         public virtual DbSet<tb_Func> tb_Func { get; set; }
         public virtual DbSet<tb_CongTy> tb_CongTy { get; set; }
+        public virtual DbSet<tb_DonVi> tb_DonVi { get; set; }
     }
 }

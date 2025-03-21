@@ -43,6 +43,7 @@
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="500" />
           <Property Name="MACTY" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DISABLED" Type="bit" />
         </EntityType>
         <EntityType Name="tb_Func">
           <Key>
@@ -166,18 +167,6 @@
           <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="tb_DonVi">
-          <Key>
-            <PropertyRef Name="MADVI" />
-          </Key>
-          <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TENDVI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="FAX" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="tb_KhachHang">
           <Key>
             <PropertyRef Name="IDKH" />
@@ -256,7 +245,6 @@
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tb_DatPhong" EntityType="Self.tb_DatPhong" />
-          <EntitySet Name="tb_DonVi" EntityType="Self.tb_DonVi" />
           <EntitySet Name="tb_KhachHang" EntityType="Self.tb_KhachHang" />
           <EntitySet Name="tb_LoaiPhong" EntityType="Self.tb_LoaiPhong" />
           <EntitySet Name="tb_Phong" EntityType="Self.tb_Phong" />
@@ -267,6 +255,7 @@
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" />
           <EntitySet Name="tb_Func" EntityType="KHACHSAN.tb_Func" />
           <EntitySet Name="tb_CongTy" EntityType="KHACHSAN.tb_CongTy" />
+          <EntitySet Name="tb_DonVi" EntityType="KHACHSAN.tb_DonVi" />
         </EntityContainer>
         <EntityType Name="tb_Func">
           <Key>
@@ -293,6 +282,19 @@
           <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
+        <EntityType Name="tb_DonVi">
+          <Key>
+            <PropertyRef Name="MADVI" />
+          </Key>
+          <Property Name="MADVI" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TENDVI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="FAX" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DISABLED" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -312,19 +314,6 @@
                 <ScalarProperty Name="IDSP" ColumnName="IDSP" />
                 <ScalarProperty Name="MACTY" ColumnName="MACTY" />
                 <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_DonVi">
-            <EntityTypeMapping TypeName="KHACHSAN.tb_DonVi">
-              <MappingFragment StoreEntitySet="tb_DonVi">
-                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
-                <ScalarProperty Name="TENDVI" ColumnName="TENDVI" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="FAX" ColumnName="FAX" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -434,6 +423,20 @@
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="TENCTY" ColumnName="TENCTY" />
                 <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_DonVi">
+            <EntityTypeMapping TypeName="KHACHSAN.tb_DonVi">
+              <MappingFragment StoreEntitySet="tb_DonVi">
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="TENDVI" ColumnName="TENDVI" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
