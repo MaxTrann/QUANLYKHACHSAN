@@ -11,12 +11,12 @@
         <EntityTypeShape EntityType="KHACHSAN.tb_Phong" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_Phong_ThietBi" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_SanPham" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KHACHSAN.tb_Tang" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_ThietBi" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_Users" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_Func" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="KHACHSAN.tb_CongTy" Width="1.5" PointX="0.75" PointY="1" />
         <EntityTypeShape EntityType="KHACHSAN.tb_DonVi" Width="1.5" PointX="4.75" PointY="1" />
+        <EntityTypeShape EntityType="KHACHSAN.tb_Tang" Width="1.5" PointX="6.75" PointY="6.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

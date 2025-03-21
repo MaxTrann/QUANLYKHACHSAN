@@ -16,5 +16,6 @@ namespace DataLayer
     {
         public int IDTANG { get; set; }
         public string TENTANG { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }

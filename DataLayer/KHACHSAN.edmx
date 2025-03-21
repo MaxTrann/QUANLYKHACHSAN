@@ -112,6 +112,7 @@
           </Key>
           <Property Name="IDTANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENTANG" Type="nvarchar" MaxLength="50" />
+          <Property Name="DISABLED" Type="bit" />
         </EntityType>
         <EntityType Name="tb_ThietBi">
           <Key>
@@ -215,13 +216,6 @@
           <Property Name="TENSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DONGIA" Type="Double" />
         </EntityType>
-        <EntityType Name="tb_Tang">
-          <Key>
-            <PropertyRef Name="IDTANG" />
-          </Key>
-          <Property Name="IDTANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TENTANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="tb_ThietBi">
           <Key>
             <PropertyRef Name="IDTB" />
@@ -250,12 +244,12 @@
           <EntitySet Name="tb_Phong" EntityType="Self.tb_Phong" />
           <EntitySet Name="tb_Phong_ThietBi" EntityType="Self.tb_Phong_ThietBi" />
           <EntitySet Name="tb_SanPham" EntityType="Self.tb_SanPham" />
-          <EntitySet Name="tb_Tang" EntityType="Self.tb_Tang" />
           <EntitySet Name="tb_ThietBi" EntityType="Self.tb_ThietBi" />
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" />
           <EntitySet Name="tb_Func" EntityType="KHACHSAN.tb_Func" />
           <EntitySet Name="tb_CongTy" EntityType="KHACHSAN.tb_CongTy" />
           <EntitySet Name="tb_DonVi" EntityType="KHACHSAN.tb_DonVi" />
+          <EntitySet Name="tb_Tang" EntityType="KHACHSAN.tb_Tang" />
         </EntityContainer>
         <EntityType Name="tb_Func">
           <Key>
@@ -293,6 +287,14 @@
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="MACTY" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DISABLED" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tb_Tang">
+          <Key>
+            <PropertyRef Name="IDTANG" />
+          </Key>
+          <Property Name="IDTANG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENTANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
       </Schema>
@@ -369,14 +371,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_Tang">
-            <EntityTypeMapping TypeName="KHACHSAN.tb_Tang">
-              <MappingFragment StoreEntitySet="tb_Tang">
-                <ScalarProperty Name="IDTANG" ColumnName="IDTANG" />
-                <ScalarProperty Name="TENTANG" ColumnName="TENTANG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_ThietBi">
             <EntityTypeMapping TypeName="KHACHSAN.tb_ThietBi">
               <MappingFragment StoreEntitySet="tb_ThietBi">
@@ -437,6 +431,15 @@
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="TENDVI" ColumnName="TENDVI" />
                 <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Tang">
+            <EntityTypeMapping TypeName="KHACHSAN.tb_Tang">
+              <MappingFragment StoreEntitySet="tb_Tang">
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="TENTANG" ColumnName="TENTANG" />
+                <ScalarProperty Name="IDTANG" ColumnName="IDTANG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

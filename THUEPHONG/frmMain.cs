@@ -114,6 +114,12 @@ namespace THUEPHONG
                         frm.ShowDialog();
                         break;
                     }
+                case "TANG":
+                    {
+                        frmQuanLyTang frm = new frmQuanLyTang();
+                        frm.ShowDialog();
+                        break;
+                    } 
             }
 
         }
