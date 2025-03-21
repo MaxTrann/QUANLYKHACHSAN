@@ -140,15 +140,17 @@ namespace THUEPHONG
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _macty = gvDanhSach.GetFocusedRowCellValue("MACTY").ToString();
-            txtMa.Text = gvDanhSach.GetFocusedRowCellValue("MACTY").ToString() ;
-            txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TENCTY").ToString();
-            txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("SDT").ToString();
-            txtFax.Text = gvDanhSach.GetFocusedRowCellValue("FAX").ToString();
-            txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString();
-            txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString();
-            chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
-
+            if (gvDanhSach.RowCount > 0)
+            {
+                _macty = gvDanhSach.GetFocusedRowCellValue("MACTY").ToString();
+                txtMa.Text = gvDanhSach.GetFocusedRowCellValue("MACTY").ToString() ;
+                txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TENCTY").ToString();
+                txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("SDT").ToString();
+                txtFax.Text = gvDanhSach.GetFocusedRowCellValue("FAX").ToString();
+                txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString();
+                txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString();
+                chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
+            }    
         }
 
         private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
