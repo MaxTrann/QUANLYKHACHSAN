@@ -19,5 +19,6 @@ namespace DataLayer
         public Nullable<double> DONGIA { get; set; }
         public Nullable<int> SONGUOI { get; set; }
         public Nullable<int> SOGIUONG { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }
