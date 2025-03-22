@@ -121,7 +121,13 @@
   <data name="del_icon_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\del_icon_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tick_27px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tick_27px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="del_icon_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\del_icon_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tick_28px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tick_28px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
