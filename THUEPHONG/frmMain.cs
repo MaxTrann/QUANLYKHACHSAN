@@ -65,6 +65,11 @@ namespace THUEPHONG
         }
         void showRoom()
         {
+            _tang = new TANG();
+            _phong = new PHONG();
+
+            gControl.Gallery.Groups.Clear(); // Xóa dữ liệu cũ trước khi nạp mới
+
             var lsTang = _tang.getAll();
             gControl.Gallery.ItemImageLayout = ImageLayoutMode.ZoomInside;
             gControl.Gallery.ImageSize = new Size(64, 64);
@@ -129,6 +134,23 @@ namespace THUEPHONG
                 case "KHACHHANG":
                     {
                         frmKhachHang frm = new frmKhachHang();
+                        frm.ShowDialog();
+                        break;
+                    }
+                case "PHONG":
+                    {
+                        frmPhong frm = new frmPhong();
+                        // Đăng ký sự kiện để cập nhật danh sách phòng sau khi frmPhong đóng
+                        frm.OnDataUpdated += () => showRoom();
+                        frm.FormClosed += (s, args) => showRoom(); // Thêm sự kiện FormClosed để làm mới khi đóng form
+                        frm.ShowDialog();
+                        // Sau khi frmPhong đóng, gọi lại showRoom để chắc chắn cập nhật
+                        showRoom();
+                        break;
+                    }
+                case "SANPHAM":
+                    {
+                        frmSPDV frm = new frmSPDV();
                         frm.ShowDialog();
                         break;
                     }

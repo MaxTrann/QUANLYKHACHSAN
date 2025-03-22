@@ -19,5 +19,6 @@ namespace DataLayer
         public Nullable<bool> TRANGTHAI { get; set; }
         public int IDTANG { get; set; }
         public int IDLOAIPHONG { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }

@@ -103,11 +103,23 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhong.Designer.cs">
+      <DependentUpon>frmPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuanLyTang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmQuanLyTang.Designer.cs">
       <DependentUpon>frmQuanLyTang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSPDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSPDV.Designer.cs">
+      <DependentUpon>frmSPDV.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,8 +141,14 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPhong.resx">
+      <DependentUpon>frmPhong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyTang.resx">
       <DependentUpon>frmQuanLyTang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSPDV.resx">
+      <DependentUpon>frmSPDV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

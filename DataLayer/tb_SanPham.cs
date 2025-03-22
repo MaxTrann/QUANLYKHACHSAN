@@ -17,5 +17,6 @@ namespace DataLayer
         public int IDSP { get; set; }
         public string TENSP { get; set; }
         public Nullable<double> DONGIA { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }
