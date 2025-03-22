@@ -119,7 +119,13 @@ namespace THUEPHONG
                         frmQuanLyTang frm = new frmQuanLyTang();
                         frm.ShowDialog();
                         break;
-                    } 
+                    }
+                case "LOAIPHONG":
+                    {
+                        frmLoaiPhong frm = new frmLoaiPhong();
+                        frm.ShowDialog();
+                        break;
+                    }
             }
 
         }
