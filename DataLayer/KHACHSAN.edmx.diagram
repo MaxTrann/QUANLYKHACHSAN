@@ -5,9 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b24be74c5407440dad6c7097190f0e1a" Name="Diagram1">
-        <EntityTypeShape EntityType="KHACHSAN.tb_DatPhong" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_KhachHang" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KHACHSAN.tb_LoaiPhong" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_Phong" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_Phong_ThietBi" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KHACHSAN.tb_SanPham" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
@@ -17,6 +15,8 @@
         <EntityTypeShape EntityType="KHACHSAN.tb_CongTy" Width="1.5" PointX="0.75" PointY="1" />
         <EntityTypeShape EntityType="KHACHSAN.tb_DonVi" Width="1.5" PointX="4.75" PointY="1" />
         <EntityTypeShape EntityType="KHACHSAN.tb_Tang" Width="1.5" PointX="6.75" PointY="6.5" />
+        <EntityTypeShape EntityType="KHACHSAN.tb_DatPhong" Width="1.5" PointX="2.75" PointY="0.5" />
+        <EntityTypeShape EntityType="KHACHSAN.tb_LoaiPhong" Width="1.5" PointX="2.75" PointY="4.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
