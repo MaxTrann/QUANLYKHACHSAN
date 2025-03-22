@@ -54,6 +54,7 @@
     <Compile Include="CONGTY.cs" />
     <Compile Include="DONVI.cs" />
     <Compile Include="FUNC.cs" />
+    <Compile Include="KHACHHANG.cs" />
     <Compile Include="LOAIPHONG.cs" />
     <Compile Include="PHONG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

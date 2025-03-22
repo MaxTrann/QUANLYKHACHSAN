@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using BusinessLayer;
+using DataLayer;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,33 +10,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLayer;
-using DataLayer;
 
 namespace THUEPHONG
 {
-    public partial class frmLoaiPhong : DevExpress.XtraEditors.XtraForm
+    public partial class frmKhachHang : DevExpress.XtraEditors.XtraForm
     {
-        public frmLoaiPhong()
+        public frmKhachHang()
         {
             InitializeComponent();
         }
-        LOAIPHONG _loaiphong;
+        KHACHHANG _khachhang;
         bool _them;
-        int _idloaiphong;
-
-        private void frmLoaiPhong_Load(object sender, EventArgs e)
+        int _makh;
+        private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            _loaiphong = new LOAIPHONG();
+            _khachhang = new KHACHHANG();
             loadData();
-
             showHideControl(true);
             _enabled(false);
         }
 
         void loadData()
         {
-            gcDanhSach.DataSource = _loaiphong.getAll();
+            gcDanhSach.DataSource = _khachhang.getAll();
             gvDanhSach.OptionsBehavior.Editable = false;
         }
 
@@ -50,20 +48,25 @@ namespace THUEPHONG
 
         void _enabled(bool t)
         {
-            txtLoaiPhong.Enabled = t;
-            nudDonGia.Enabled = t;
-            nudSoNguoi.Enabled = t;
-            nudSoGiuong.Enabled = t;
+            txtHoTen.Enabled = t;
+            txtCCCD.Enabled = t;
+            txtSDT.Enabled = t;
+            txtEmail.Enabled = t;
+            txtDiaChi.Enabled = t;
+            chkNam.Enabled = t;
             chkDisabled.Enabled = t;
         }
         void _reset()
         {
-            txtLoaiPhong.Text = "";
-            nudDonGia.Value = 0;
-            nudSoNguoi.Value = 0;
-            nudSoGiuong.Value = 0;
-            
+            txtHoTen.Text = "";
+            txtCCCD.Text = "";
+            txtSDT.Text = "";
+            txtEmail.Text = "";
+            txtDiaChi.Text = "";
+
+            chkNam.Checked = false;
             chkDisabled.Checked = false;
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -78,7 +81,7 @@ namespace THUEPHONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _loaiphong.delete(_idloaiphong);
+                _khachhang.delete(_makh);
             }
             loadData();
         }
@@ -94,31 +97,33 @@ namespace THUEPHONG
         {
             if (_them)
             {
-                tb_LoaiPhong lp = new tb_LoaiPhong();
-                lp.TENLOAIPHONG = txtLoaiPhong.Text;
-                lp.DONGIA = (int)nudDonGia.Value;
-                lp.SONGUOI = (int) nudSoNguoi.Value;
-                lp.SOGIUONG = (int) nudSoGiuong.Value;
-                lp.DISABLED = chkDisabled.Checked;
-                _loaiphong.add(lp);
+                tb_KhachHang kh = new tb_KhachHang();
+                kh.HOTEN = txtHoTen.Text;
+                kh.SDT = txtSDT.Text;
+                kh.CCCD = txtCCCD.Text;
+                kh.EMAIL = txtEmail.Text;
+                kh.DIACHI = txtDiaChi.Text;
+                kh.GIOITINH = chkNam.Checked;
+                kh.DISABLED = chkDisabled.Checked;
+                _khachhang.add(kh);
             }
             else
             {
-                
-                tb_LoaiPhong lp = _loaiphong.getItem(_idloaiphong);
-                lp.TENLOAIPHONG = txtLoaiPhong.Text;
-                lp.DONGIA = (int)nudDonGia.Value;
-                lp.SONGUOI = (int)nudSoNguoi.Value;
-                lp.SOGIUONG = (int)nudSoGiuong.Value;
-                lp.DISABLED = chkDisabled.Checked;
-                lp.DISABLED = chkDisabled.Checked;
-                _loaiphong.update(lp);
+
+                tb_KhachHang kh = _khachhang.getItem(_makh);
+                kh.HOTEN = txtHoTen.Text;
+                kh.SDT = txtSDT.Text;
+                kh.CCCD = txtCCCD.Text;
+                kh.EMAIL = txtEmail.Text;
+                kh.DIACHI = txtDiaChi.Text;
+                kh.GIOITINH = chkNam.Checked;
+                kh.DISABLED = chkDisabled.Checked;
+                _khachhang.update(kh);
             }
             _them = false;
             loadData();
             _enabled(false);
             showHideControl(true);
-
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
@@ -134,20 +139,6 @@ namespace THUEPHONG
             this.Close();
         }
 
-
-        private void gvDanhSach_Click(object sender, EventArgs e)
-        {
-            if (gvDanhSach.RowCount > 0)
-            {
-                _idloaiphong = Convert.ToInt32(gvDanhSach.GetFocusedRowCellValue("IDLOAIPHONG"));
-                txtLoaiPhong.Text = gvDanhSach.GetFocusedRowCellValue("TENLOAIPHONG").ToString();
-                nudDonGia.Value = Convert.ToDecimal(gvDanhSach.GetFocusedRowCellValue("DONGIA"));
-                nudSoGiuong.Value = Convert.ToDecimal(gvDanhSach.GetFocusedRowCellValue("SOGIUONG"));
-                nudSoNguoi.Value = Convert.ToDecimal(gvDanhSach.GetFocusedRowCellValue("SONGUOI"));
-                chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
-            }
-        }
-
         private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true)
@@ -155,7 +146,22 @@ namespace THUEPHONG
                 Image img = Properties.Resources.del_icon_28px;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
+            }
 
+        }
+
+        private void gvDanhSach_Click(object sender, EventArgs e)
+        {
+            if (gvDanhSach.RowCount > 0)
+            {
+                _makh = Convert.ToInt32(gvDanhSach.GetFocusedRowCellValue("IDKH"));
+                txtHoTen.Text = gvDanhSach.GetFocusedRowCellValue("HOTEN").ToString();
+                txtCCCD.Text = gvDanhSach.GetFocusedRowCellValue("CCCD").ToString();
+                txtSDT.Text = gvDanhSach.GetFocusedRowCellValue("SDT").ToString();
+                txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString();
+                txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString();
+                chkNam.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("GIOITINH").ToString());
+                chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
             }
         }
     }

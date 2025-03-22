@@ -111,6 +111,7 @@ namespace THUEPHONG
             _them = false;
             showHideControl(true);
             _enabled(false);
+            _reset();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

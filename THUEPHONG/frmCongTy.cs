@@ -57,7 +57,7 @@ namespace THUEPHONG
             txtFax.Text = "";
             txtEmail.Text = "";
             txtDiaChi.Text = "";
-            chkDisabled.Text = "";
+            
             chkDisabled.Checked = false;
         }
         void loadData()
@@ -131,6 +131,7 @@ namespace THUEPHONG
             showHideControl(true);
             _enabled(false);
             txtMa.Enabled = false;
+            _reset();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

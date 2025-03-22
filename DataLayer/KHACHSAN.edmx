@@ -72,8 +72,10 @@
           <Property Name="CCCD" Type="nvarchar" MaxLength="12" />
           <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
           <Property Name="SDT" Type="nvarchar" MaxLength="11" />
+          <Property Name="GIOITINH" Type="bit" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DISABLED" Type="bit" />
         </EntityType>
         <EntityType Name="tb_LoaiPhong">
           <Key>
@@ -160,17 +162,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KHACHSAN" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="tb_KhachHang">
-          <Key>
-            <PropertyRef Name="IDKH" />
-          </Key>
-          <Property Name="IDKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-          <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="tb_Phong">
           <Key>
             <PropertyRef Name="IDPHONG" />
@@ -220,7 +211,6 @@
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tb_KhachHang" EntityType="Self.tb_KhachHang" />
           <EntitySet Name="tb_Phong" EntityType="Self.tb_Phong" />
           <EntitySet Name="tb_Phong_ThietBi" EntityType="Self.tb_Phong_ThietBi" />
           <EntitySet Name="tb_SanPham" EntityType="Self.tb_SanPham" />
@@ -232,6 +222,7 @@
           <EntitySet Name="tb_Tang" EntityType="KHACHSAN.tb_Tang" />
           <EntitySet Name="tb_DatPhong" EntityType="KHACHSAN.tb_DatPhong" />
           <EntitySet Name="tb_LoaiPhong" EntityType="KHACHSAN.tb_LoaiPhong" />
+          <EntitySet Name="tb_KhachHang" EntityType="KHACHSAN.tb_KhachHang" />
         </EntityContainer>
         <EntityType Name="tb_Func">
           <Key>
@@ -311,24 +302,25 @@
           <Property Name="SOGIUONG" Type="Int32" />
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
+        <EntityType Name="tb_KhachHang">
+          <Key>
+            <PropertyRef Name="IDKH" />
+          </Key>
+          <Property Name="IDKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="GIOITINH" Type="Boolean" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DISABLED" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KHACHSANStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="tb_KhachHang">
-            <EntityTypeMapping TypeName="KHACHSAN.tb_KhachHang">
-              <MappingFragment StoreEntitySet="tb_KhachHang">
-                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
-                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
-                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_Phong">
             <EntityTypeMapping TypeName="KHACHSAN.tb_Phong">
               <MappingFragment StoreEntitySet="tb_Phong">
@@ -461,6 +453,20 @@
                 <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
                 <ScalarProperty Name="TENLOAIPHONG" ColumnName="TENLOAIPHONG" />
                 <ScalarProperty Name="IDLOAIPHONG" ColumnName="IDLOAIPHONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_KhachHang">
+            <EntityTypeMapping TypeName="KHACHSAN.tb_KhachHang">
+              <MappingFragment StoreEntitySet="tb_KhachHang">
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

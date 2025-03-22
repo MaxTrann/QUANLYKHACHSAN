@@ -18,7 +18,9 @@ namespace DataLayer
         public string CCCD { get; set; }
         public string HOTEN { get; set; }
         public string SDT { get; set; }
+        public Nullable<bool> GIOITINH { get; set; }
         public string EMAIL { get; set; }
         public string DIACHI { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }
