@@ -17,5 +17,6 @@ namespace DataLayer
         public int IDTB { get; set; }
         public string TENTB { get; set; }
         public Nullable<double> DONGIA { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }

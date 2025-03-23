@@ -109,6 +109,12 @@
     <Compile Include="frmPhong.Designer.cs">
       <DependentUpon>frmPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhong_ThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhong_ThietBi.Designer.cs">
+      <DependentUpon>frmPhong_ThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuanLyTang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     </Compile>
     <Compile Include="frmSPDV.Designer.cs">
       <DependentUpon>frmSPDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThietBi.Designer.cs">
+      <DependentUpon>frmThietBi.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,11 +156,17 @@
     <EmbeddedResource Include="frmPhong.resx">
       <DependentUpon>frmPhong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPhong_ThietBi.resx">
+      <DependentUpon>frmPhong_ThietBi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyTang.resx">
       <DependentUpon>frmQuanLyTang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSPDV.resx">
       <DependentUpon>frmSPDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThietBi.resx">
+      <DependentUpon>frmThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -1,6 +1,6 @@
 ﻿namespace THUEPHONG
 {
-    partial class frmPhong
+    partial class frmPhong_ThietBi
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhong_ThietBi));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
@@ -38,23 +38,22 @@
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.DISABLED = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TENPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboTang = new System.Windows.Forms.ComboBox();
-            this.cboLoaiPhong = new System.Windows.Forms.ComboBox();
-            this.chkTrangThai = new System.Windows.Forms.CheckBox();
-            this.txtTenPhong = new System.Windows.Forms.TextBox();
+            this.cboThietBi = new System.Windows.Forms.ComboBox();
+            this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.chkDisabled = new System.Windows.Forms.CheckBox();
+            this.TENPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TENTHIETBI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cboPhong = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -69,8 +68,8 @@
             this.btnThoat});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(738, 47);
-            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.Size = new System.Drawing.Size(787, 47);
+            this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnThem
@@ -139,154 +138,130 @@
             this.gcDanhSach.Location = new System.Drawing.Point(0, 47);
             this.gcDanhSach.MainView = this.gvDanhSach;
             this.gcDanhSach.Name = "gcDanhSach";
-            this.gcDanhSach.Size = new System.Drawing.Size(738, 358);
-            this.gcDanhSach.TabIndex = 5;
+            this.gcDanhSach.Size = new System.Drawing.Size(787, 358);
+            this.gcDanhSach.TabIndex = 6;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
             // 
             // gvDanhSach
             // 
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.DISABLED,
             this.TENPHONG,
-            this.TRANGTHAI});
+            this.TENTHIETBI,
+            this.SOLUONG});
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
-            this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
-            // DISABLED
+            // groupControl1
             // 
-            this.DISABLED.Caption = "DEL";
-            this.DISABLED.FieldName = "DISABLED";
-            this.DISABLED.MaxWidth = 35;
-            this.DISABLED.MinWidth = 30;
-            this.DISABLED.Name = "DISABLED";
-            this.DISABLED.Visible = true;
-            this.DISABLED.VisibleIndex = 0;
-            this.DISABLED.Width = 35;
+            this.groupControl1.Controls.Add(this.cboPhong);
+            this.groupControl1.Controls.Add(this.label2);
+            this.groupControl1.Controls.Add(this.nudSoLuong);
+            this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.cboThietBi);
+            this.groupControl1.Controls.Add(this.label7);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 405);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(787, 102);
+            this.groupControl1.TabIndex = 7;
+            this.groupControl1.Text = "Thông tin";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(265, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Thiết bị";
+            // 
+            // cboThietBi
+            // 
+            this.cboThietBi.FormattingEnabled = true;
+            this.cboThietBi.Location = new System.Drawing.Point(321, 50);
+            this.cboThietBi.Name = "cboThietBi";
+            this.cboThietBi.Size = new System.Drawing.Size(184, 24);
+            this.cboThietBi.TabIndex = 16;
+            // 
+            // nudSoLuong
+            // 
+            this.nudSoLuong.Location = new System.Drawing.Point(624, 51);
+            this.nudSoLuong.Name = "nudSoLuong";
+            this.nudSoLuong.Size = new System.Drawing.Size(120, 23);
+            this.nudSoLuong.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(542, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Số lượng";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Phòng";
             // 
             // TENPHONG
             // 
             this.TENPHONG.Caption = "TÊN PHÒNG";
             this.TENPHONG.FieldName = "TENPHONG";
-            this.TENPHONG.MaxWidth = 250;
-            this.TENPHONG.MinWidth = 200;
+            this.TENPHONG.MaxWidth = 150;
+            this.TENPHONG.MinWidth = 100;
             this.TENPHONG.Name = "TENPHONG";
             this.TENPHONG.Visible = true;
-            this.TENPHONG.VisibleIndex = 1;
-            this.TENPHONG.Width = 250;
+            this.TENPHONG.VisibleIndex = 0;
+            this.TENPHONG.Width = 100;
             // 
-            // TRANGTHAI
+            // TENTHIETBI
             // 
-            this.TRANGTHAI.Caption = "TRẠNG THÁI";
-            this.TRANGTHAI.FieldName = "TRANGTHAI";
-            this.TRANGTHAI.MaxWidth = 140;
-            this.TRANGTHAI.MinWidth = 120;
-            this.TRANGTHAI.Name = "TRANGTHAI";
-            this.TRANGTHAI.Visible = true;
-            this.TRANGTHAI.VisibleIndex = 2;
-            this.TRANGTHAI.Width = 140;
+            this.TENTHIETBI.Caption = "TÊN THIẾT BỊ";
+            this.TENTHIETBI.FieldName = "TENTHIETBI";
+            this.TENTHIETBI.MaxWidth = 200;
+            this.TENTHIETBI.MinWidth = 170;
+            this.TENTHIETBI.Name = "TENTHIETBI";
+            this.TENTHIETBI.Visible = true;
+            this.TENTHIETBI.VisibleIndex = 1;
+            this.TENTHIETBI.Width = 170;
             // 
-            // groupControl1
+            // SOLUONG
             // 
-            this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Controls.Add(this.label1);
-            this.groupControl1.Controls.Add(this.cboTang);
-            this.groupControl1.Controls.Add(this.cboLoaiPhong);
-            this.groupControl1.Controls.Add(this.chkTrangThai);
-            this.groupControl1.Controls.Add(this.txtTenPhong);
-            this.groupControl1.Controls.Add(this.label7);
-            this.groupControl1.Controls.Add(this.chkDisabled);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 405);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(738, 141);
-            this.groupControl1.TabIndex = 6;
-            this.groupControl1.Text = "Thông tin";
+            this.SOLUONG.Caption = "SỐ LƯỢNG";
+            this.SOLUONG.FieldName = "SOLUONG";
+            this.SOLUONG.MaxWidth = 100;
+            this.SOLUONG.MinWidth = 75;
+            this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.Visible = true;
+            this.SOLUONG.VisibleIndex = 2;
+            this.SOLUONG.Width = 94;
             // 
-            // label2
+            // cboPhong
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 16);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Tầng";
+            this.cboPhong.FormattingEnabled = true;
+            this.cboPhong.Location = new System.Drawing.Point(82, 50);
+            this.cboPhong.Name = "cboPhong";
+            this.cboPhong.Size = new System.Drawing.Size(157, 24);
+            this.cboPhong.TabIndex = 21;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(391, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 16);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Loại phòng";
-            // 
-            // cboTang
-            // 
-            this.cboTang.FormattingEnabled = true;
-            this.cboTang.Location = new System.Drawing.Point(148, 90);
-            this.cboTang.Name = "cboTang";
-            this.cboTang.Size = new System.Drawing.Size(216, 24);
-            this.cboTang.TabIndex = 17;
-            // 
-            // cboLoaiPhong
-            // 
-            this.cboLoaiPhong.FormattingEnabled = true;
-            this.cboLoaiPhong.Location = new System.Drawing.Point(476, 47);
-            this.cboLoaiPhong.Name = "cboLoaiPhong";
-            this.cboLoaiPhong.Size = new System.Drawing.Size(184, 24);
-            this.cboLoaiPhong.TabIndex = 16;
-            // 
-            // chkTrangThai
-            // 
-            this.chkTrangThai.AutoSize = true;
-            this.chkTrangThai.Location = new System.Drawing.Point(394, 92);
-            this.chkTrangThai.Name = "chkTrangThai";
-            this.chkTrangThai.Size = new System.Drawing.Size(98, 20);
-            this.chkTrangThai.TabIndex = 15;
-            this.chkTrangThai.Text = "Đã cho thuê";
-            this.chkTrangThai.UseVisualStyleBackColor = true;
-            // 
-            // txtTenPhong
-            // 
-            this.txtTenPhong.Location = new System.Drawing.Point(148, 48);
-            this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.Size = new System.Drawing.Size(216, 23);
-            this.txtTenPhong.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(62, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 16);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Tên phòng";
-            // 
-            // chkDisabled
-            // 
-            this.chkDisabled.AutoSize = true;
-            this.chkDisabled.Location = new System.Drawing.Point(520, 92);
-            this.chkDisabled.Name = "chkDisabled";
-            this.chkDisabled.Size = new System.Drawing.Size(77, 20);
-            this.chkDisabled.TabIndex = 10;
-            this.chkDisabled.Text = "Disabled";
-            this.chkDisabled.UseVisualStyleBackColor = true;
-            // 
-            // frmPhong
+            // frmPhong_ThietBi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 546);
+            this.ClientSize = new System.Drawing.Size(787, 507);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gcDanhSach);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "frmPhong";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Danh mục Phòng";
-            this.Load += new System.EventHandler(this.frmPhong_Load);
+            this.Name = "frmPhong_ThietBi";
+            this.Text = "frmPhong_ThietBi";
+            this.Load += new System.EventHandler(this.frmPhong_ThietBi_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
@@ -294,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,17 +286,15 @@
         private System.Windows.Forms.ToolStripButton btnThoat;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
-        private DevExpress.XtraGrid.Columns.GridColumn DISABLED;
-        private DevExpress.XtraGrid.Columns.GridColumn TENPHONG;
-        private DevExpress.XtraGrid.Columns.GridColumn TRANGTHAI;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.CheckBox chkTrangThai;
-        private System.Windows.Forms.TextBox txtTenPhong;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox chkDisabled;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboTang;
-        private System.Windows.Forms.ComboBox cboLoaiPhong;
+        private System.Windows.Forms.ComboBox cboThietBi;
+        private DevExpress.XtraGrid.Columns.GridColumn TENPHONG;
+        private DevExpress.XtraGrid.Columns.GridColumn TENTHIETBI;
+        private DevExpress.XtraGrid.Columns.GridColumn SOLUONG;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nudSoLuong;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboPhong;
     }
 }

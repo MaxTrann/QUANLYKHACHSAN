@@ -17,5 +17,6 @@ namespace DataLayer
         public int IDPHONG { get; set; }
         public int IDTB { get; set; }
         public Nullable<int> SOLUONG { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
     }
 }

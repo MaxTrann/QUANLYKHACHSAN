@@ -40,30 +40,16 @@ namespace THUEPHONG
             showHideControl(true);
             _enabled(false);
 
-            // Ẩn cột ID để tránh hiển thị
-            //gvDanhSach.Columns["IDTANG"].Visible = true;
-            //gvDanhSach.Columns["IDTANG"].Width = 0;
-
-            //gvDanhSach.Columns["IDLOAIPHONG"].Visible = true;
-            //gvDanhSach.Columns["IDLOAIPHONG"].Width = 0;
-
-
         }
         void loadData()
         {
             var data = from p in db.tb_Phong
-                       join t in db.tb_Tang on p.IDTANG equals t.IDTANG into t_join
-                       from t in t_join.DefaultIfEmpty()
-                       join lp in db.tb_LoaiPhong on p.IDLOAIPHONG equals lp.IDLOAIPHONG into lp_join
-                       from lp in lp_join.DefaultIfEmpty()
                        select new
                        {
                            IDPHONG = p.IDPHONG,
                            TENPHONG = p.TENPHONG,
-                           TANG = t != null ? t.TENTANG : "",         // Đổi tên trường thành TANG
-                           IDTANG = t != null ? t.IDTANG : (int?)null,
-                           LOAIPHONG = lp != null ? lp.TENLOAIPHONG : "", // Đổi tên trường thành LOAIPHONG
-                           IDLOAIPHONG = lp != null ? lp.IDLOAIPHONG : (int?)null,
+                           IDTANG = p.IDTANG,
+                           IDLOAIPHONG = p.IDLOAIPHONG,
                            TRANGTHAI = p.TRANGTHAI,
                            DISABLED = p.DISABLED
                        };
@@ -71,11 +57,47 @@ namespace THUEPHONG
             gcDanhSach.DataSource = data.ToList();
             gvDanhSach.OptionsBehavior.Editable = false;
 
-            // Ẩn cột IDTANG và IDLOAIPHONG nếu cần
-            gvDanhSach.Columns["IDTANG"].Visible = false;
-            gvDanhSach.Columns["IDLOAIPHONG"].Visible = false;
+            // Thêm cột Unbound cho TẦNG và LOẠI PHÒNG
+            if (!gvDanhSach.Columns.Contains(gvDanhSach.Columns["TENTANG"]))
+            {
+                var colTenTang = gvDanhSach.Columns.AddField("TENTANG");
+                colTenTang.UnboundType = DevExpress.Data.UnboundColumnType.String;
+                colTenTang.Caption = "TẦNG";
+                colTenTang.Visible = true;
+            }
 
+            if (!gvDanhSach.Columns.Contains(gvDanhSach.Columns["TENLOAIPHONG"]))
+            {
+                var colTenLoaiPhong = gvDanhSach.Columns.AddField("TENLOAIPHONG");
+                colTenLoaiPhong.UnboundType = DevExpress.Data.UnboundColumnType.String;
+                colTenLoaiPhong.Caption = "LOẠI PHÒNG";
+                colTenLoaiPhong.Visible = true;
+            }
+
+            // Kích hoạt sự kiện Unbound để load dữ liệu cho các cột Unbound
+            gvDanhSach.CustomUnboundColumnData += gvDanhSach_CustomUnboundColumnData;
         }
+
+        private void gvDanhSach_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.IsGetData)
+            {
+                var idTang = Convert.ToInt32(gvDanhSach.GetListSourceRowCellValue(e.ListSourceRowIndex, "IDTANG"));
+                var idLoaiPhong = Convert.ToInt32(gvDanhSach.GetListSourceRowCellValue(e.ListSourceRowIndex, "IDLOAIPHONG"));
+
+                if (e.Column.FieldName == "TENTANG")
+                {
+                    var tang = _tang.getItem(idTang);
+                    e.Value = tang != null ? tang.TENTANG : string.Empty;
+                }
+                else if (e.Column.FieldName == "TENLOAIPHONG")
+                {
+                    var loaiPhong = _loaiphong.getItem(idLoaiPhong);
+                    e.Value = loaiPhong != null ? loaiPhong.TENLOAIPHONG : string.Empty;
+                }
+            }
+        }
+
 
         void loadTang()
         {

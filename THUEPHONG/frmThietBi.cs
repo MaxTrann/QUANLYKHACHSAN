@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors;
+﻿using BusinessLayer;
+using DataLayer;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,29 +10,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLayer;
-using DataLayer;
+
 namespace THUEPHONG
 {
-    public partial class frmSPDV : DevExpress.XtraEditors.XtraForm
+    public partial class frmThietBi : DevExpress.XtraEditors.XtraForm
     {
-        public frmSPDV()
+        public frmThietBi()
         {
             InitializeComponent();
         }
-        SPDV _spdv;
+        THIETBI _thietbi;
         bool _them;
-        int _idsp;
-        private void frmSPDV_Load(object sender, EventArgs e)
+        int _idtb;
+        private void frmThietBi_Load(object sender, EventArgs e)
         {
-            _spdv = new SPDV();
+            _thietbi = new THIETBI();
+
             loadData();
             showHideControl(true);
             _enabled(false);
+
+
         }
         void loadData()
         {
-            gcDanhSach.DataSource = _spdv.getAll();
+            gcDanhSach.DataSource = _thietbi.getAll();
             gvDanhSach.OptionsBehavior.Editable = false;
         }
 
@@ -46,13 +50,13 @@ namespace THUEPHONG
 
         void _enabled(bool t)
         {
-            txtTen.Enabled = t;
+            txtTenThietBi.Enabled = t;
             nudDonGia.Enabled = t;
             chkDisabled.Enabled = t;
         }
         void _reset()
         {
-            txtTen.Text = "";
+            txtTenThietBi.Text = "";
             nudDonGia.Value = 0;
             chkDisabled.Checked = false;
         }
@@ -69,7 +73,7 @@ namespace THUEPHONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _spdv.delete(_idsp);
+                _thietbi.delete(_idtb);
             }
             loadData();
         }
@@ -85,22 +89,22 @@ namespace THUEPHONG
         {
             if (_them)
             {
-                
-                tb_SanPham sp = new tb_SanPham();
-                sp.TENSP = txtTen.Text;
-                sp.DONGIA = (int)nudDonGia.Value;
-                sp.DISABLED = chkDisabled.Checked;
-                _spdv.add(sp);
+
+                tb_ThietBi tb = new tb_ThietBi();
+                tb.TENTB = txtTenThietBi.Text;
+                tb.DONGIA = (int)nudDonGia.Value;
+                tb.DISABLED = chkDisabled.Checked;
+                _thietbi.add(tb);
             }
             else
             {
 
-                
-                tb_SanPham sp = _spdv.getItem(_idsp);
-                sp.TENSP = txtTen.Text;
-                sp.DONGIA = (int)nudDonGia.Value;
-                sp.DISABLED = chkDisabled.Checked;
-                _spdv.update(sp);
+
+                tb_ThietBi tb = _thietbi.getItem(_idtb);
+                tb.TENTB = txtTenThietBi.Text;
+                tb.DONGIA = (int)nudDonGia.Value;
+                tb.DISABLED = chkDisabled.Checked;
+                _thietbi.update(tb);
             }
             _them = false;
             loadData();
@@ -123,8 +127,8 @@ namespace THUEPHONG
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _idsp = Convert.ToInt32(gvDanhSach.GetFocusedRowCellValue("IDSP"));
-            txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TENSP").ToString();
+            _idtb = Convert.ToInt32(gvDanhSach.GetFocusedRowCellValue("IDTB"));
+            txtTenThietBi.Text = gvDanhSach.GetFocusedRowCellValue("TENTB").ToString();
             nudDonGia.Value = Convert.ToDecimal(gvDanhSach.GetFocusedRowCellValue("DONGIA"));
             chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
         }
