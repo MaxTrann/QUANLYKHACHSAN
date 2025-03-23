@@ -107,6 +107,7 @@
           <Property Name="IDPHONG" Type="int" Nullable="false" />
           <Property Name="IDTB" Type="int" Nullable="false" />
           <Property Name="SOLUONG" Type="int" />
+          <Property Name="DISABLED" Type="bit" />
         </EntityType>
         <EntityType Name="tb_SanPham">
           <Key>
@@ -132,6 +133,7 @@
           <Property Name="IDTB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENTB" Type="nvarchar" MaxLength="50" />
           <Property Name="DONGIA" Type="float" />
+          <Property Name="DISABLED" Type="bit" />
         </EntityType>
         <EntityType Name="tb_Users">
           <Key>
@@ -164,23 +166,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KHACHSAN" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="tb_Phong_ThietBi">
-          <Key>
-            <PropertyRef Name="IDPHONG" />
-            <PropertyRef Name="IDTB" />
-          </Key>
-          <Property Name="IDPHONG" Type="Int32" Nullable="false" />
-          <Property Name="IDTB" Type="Int32" Nullable="false" />
-          <Property Name="SOLUONG" Type="Int32" />
-        </EntityType>
-        <EntityType Name="tb_ThietBi">
-          <Key>
-            <PropertyRef Name="IDTB" />
-          </Key>
-          <Property Name="IDTB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TENTB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DONGIA" Type="Double" />
-        </EntityType>
         <EntityType Name="tb_Users">
           <Key>
             <PropertyRef Name="UID" />
@@ -195,8 +180,6 @@
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tb_Phong_ThietBi" EntityType="Self.tb_Phong_ThietBi" />
-          <EntitySet Name="tb_ThietBi" EntityType="Self.tb_ThietBi" />
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" />
           <EntitySet Name="tb_Func" EntityType="KHACHSAN.tb_Func" />
           <EntitySet Name="tb_CongTy" EntityType="KHACHSAN.tb_CongTy" />
@@ -207,6 +190,8 @@
           <EntitySet Name="tb_KhachHang" EntityType="KHACHSAN.tb_KhachHang" />
           <EntitySet Name="tb_Phong" EntityType="KHACHSAN.tb_Phong" />
           <EntitySet Name="tb_SanPham" EntityType="KHACHSAN.tb_SanPham" />
+          <EntitySet Name="tb_ThietBi" EntityType="KHACHSAN.tb_ThietBi" />
+          <EntitySet Name="tb_Phong_ThietBi" EntityType="KHACHSAN.tb_Phong_ThietBi" />
         </EntityContainer>
         <EntityType Name="tb_Func">
           <Key>
@@ -319,30 +304,31 @@
           <Property Name="DONGIA" Type="Double" />
           <Property Name="DISABLED" Type="Boolean" />
         </EntityType>
+        <EntityType Name="tb_ThietBi">
+          <Key>
+            <PropertyRef Name="IDTB" />
+          </Key>
+          <Property Name="IDTB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENTB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DONGIA" Type="Double" />
+          <Property Name="DISABLED" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tb_Phong_ThietBi">
+          <Key>
+            <PropertyRef Name="IDPHONG" />
+            <PropertyRef Name="IDTB" />
+          </Key>
+          <Property Name="IDPHONG" Type="Int32" Nullable="false" />
+          <Property Name="IDTB" Type="Int32" Nullable="false" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <Property Name="DISABLED" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KHACHSANStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="tb_Phong_ThietBi">
-            <EntityTypeMapping TypeName="KHACHSAN.tb_Phong_ThietBi">
-              <MappingFragment StoreEntitySet="tb_Phong_ThietBi">
-                <ScalarProperty Name="IDPHONG" ColumnName="IDPHONG" />
-                <ScalarProperty Name="IDTB" ColumnName="IDTB" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_ThietBi">
-            <EntityTypeMapping TypeName="KHACHSAN.tb_ThietBi">
-              <MappingFragment StoreEntitySet="tb_ThietBi">
-                <ScalarProperty Name="IDTB" ColumnName="IDTB" />
-                <ScalarProperty Name="TENTB" ColumnName="TENTB" />
-                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_Users">
             <EntityTypeMapping TypeName="KHACHSAN.tb_Users">
               <MappingFragment StoreEntitySet="tb_Users">
@@ -473,6 +459,26 @@
                 <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
                 <ScalarProperty Name="TENSP" ColumnName="TENSP" />
                 <ScalarProperty Name="IDSP" ColumnName="IDSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ThietBi">
+            <EntityTypeMapping TypeName="KHACHSAN.tb_ThietBi">
+              <MappingFragment StoreEntitySet="tb_ThietBi">
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="TENTB" ColumnName="TENTB" />
+                <ScalarProperty Name="IDTB" ColumnName="IDTB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Phong_ThietBi">
+            <EntityTypeMapping TypeName="KHACHSAN.tb_Phong_ThietBi">
+              <MappingFragment StoreEntitySet="tb_Phong_ThietBi">
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="IDTB" ColumnName="IDTB" />
+                <ScalarProperty Name="IDPHONG" ColumnName="IDPHONG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
