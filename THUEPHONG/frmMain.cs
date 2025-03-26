@@ -169,6 +169,7 @@ namespace THUEPHONG
                         frmDatPhong frm = new frmDatPhong();
                         frm.ShowDialog(); break;
                     }
+
             }
 
         }

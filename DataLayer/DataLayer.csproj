@@ -78,6 +78,9 @@
     <Compile Include="tb_DatPhong.cs">
       <DependentUpon>KHACHSAN.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_DatPhong_CT.cs">
+      <DependentUpon>KHACHSAN.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_DonVi.cs">
       <DependentUpon>KHACHSAN.tt</DependentUpon>
     </Compile>

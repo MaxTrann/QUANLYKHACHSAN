@@ -70,9 +70,9 @@ namespace BusinessLayer
         public void delete(int idPhong, int idTB)
         {
             tb_Phong_ThietBi _ptb = db.tb_Phong_ThietBi.FirstOrDefault(x => x.IDPHONG == idPhong && x.IDTB == idTB);
-            _ptb.DISABLED = true;
             try
             {
+                db.tb_Phong_ThietBi.Remove(_ptb);
                 db.SaveChanges();
             }
             catch (Exception ex)

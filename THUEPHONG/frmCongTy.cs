@@ -68,10 +68,10 @@ namespace THUEPHONG
         private void btnThem_Click(object sender, EventArgs e)
         {
             _them = true;
-            txtMa.Enabled = true;
             showHideControl(false);
             _enabled(true);
             _reset();
+            txtMa.Enabled = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
