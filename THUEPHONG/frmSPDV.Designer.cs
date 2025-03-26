@@ -256,6 +256,7 @@
             this.Controls.Add(this.gcDanhSach);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmSPDV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh mục Sản Phẩm - Dịch vụ";
             this.Load += new System.EventHandler(this.frmSPDV_Load);
             this.toolStrip1.ResumeLayout(false);

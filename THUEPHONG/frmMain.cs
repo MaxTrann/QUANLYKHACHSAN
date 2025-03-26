@@ -164,6 +164,11 @@ namespace THUEPHONG
                         frmPhong_ThietBi frm = new frmPhong_ThietBi();
                         frm.ShowDialog(); break;
                     }
+                case "DATPHONG":
+                    {
+                        frmDatPhong frm = new frmDatPhong();
+                        frm.ShowDialog(); break;
+                    }
             }
 
         }

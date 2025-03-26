@@ -256,6 +256,7 @@
             this.Controls.Add(this.gcDanhSach);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmThietBi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh mục Thiết bị";
             this.Load += new System.EventHandler(this.frmThietBi_Load);
             this.toolStrip1.ResumeLayout(false);
