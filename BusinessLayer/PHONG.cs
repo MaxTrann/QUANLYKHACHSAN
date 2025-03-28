@@ -78,6 +78,24 @@ namespace BusinessLayer
                 throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
             }
         }
+        // Cập nhật trạng thái phòng
+        public void updateStatus(int idPhong, bool status)
+        {
+            tb_Phong phong = db.tb_Phong.FirstOrDefault(x => x.IDPHONG == idPhong);
+            if (phong != null)
+            {
+                phong.TRANGTHAI = status;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Có lỗi xảy ra khi cập nhật trạng thái phòng: " + ex.Message);
+                }
+            }
+        }
 
     }
 }

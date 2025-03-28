@@ -28,12 +28,13 @@ namespace BusinessLayer
         }
 
         // Thêm mới
-        public void add(tb_DatPhong dp)
+        public tb_DatPhong add(tb_DatPhong dp)
         {
             try
             {
                 db.tb_DatPhong.Add(dp);
                 db.SaveChanges();
+                return dp;
             }
             catch (Exception ex)
             {
@@ -42,29 +43,30 @@ namespace BusinessLayer
         }
 
         // Cập nhật
-        public void update(tb_DatPhong dp)
+        public tb_DatPhong update(tb_DatPhong dp)
         {
             var _dp = db.tb_DatPhong.FirstOrDefault(x => x.IDDP == dp.IDDP);
             if (_dp != null)
             {
                 _dp.IDKH = dp.IDKH;
-                _dp.NGAYDATPHONG = dp.NGAYDATPHONG;
-                _dp.NGAYTRAPHONG = dp.NGAYTRAPHONG;
-                _dp.SOTIEN = dp.SOTIEN;
-                _dp.SONGUOIO = dp.SONGUOIO;
-                _dp.IDUSER = dp.IDUSER;
                 _dp.MACTY = dp.MACTY;
                 _dp.MADVI = dp.MADVI;
-                _dp.STATUS = dp.STATUS;
+                _dp.NGAYDATPHONG = dp.NGAYDATPHONG;
+                _dp.NGAYTRAPHONG = dp.NGAYTRAPHONG;
+                _dp.SONGUOIO = dp.SONGUOIO;
+                _dp.SOTIEN = dp.SOTIEN;
+                _dp.IDUSER = dp.IDUSER;
                 _dp.DISABLED = dp.DISABLED;
                 _dp.THEODOAN = dp.THEODOAN;
                 _dp.GHICHU = dp.GHICHU;
                 _dp.CREATED_DATE = dp.CREATED_DATE;
-                _dp.UPDATE_DATE = dp.UPDATE_DATE;
-                _dp.UPDATE_BY = dp.UPDATE_BY;
+                //_dp.STATUS = dp.STATUS;
+                //_dp.UPDATE_DATE = dp.UPDATE_DATE;
+                //_dp.UPDATE_BY = dp.UPDATE_BY;
                 try
                 {
                     db.SaveChanges();
+                    return dp;
                 }
                 catch (Exception ex)
                 {

@@ -44,14 +44,14 @@
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.btnDatPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSPDV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThanhToan = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.btnDatPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSPDV = new DevExpress.XtraBars.BarButtonItem();
-            this.btnThanhToan = new DevExpress.XtraBars.BarButtonItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -200,6 +200,25 @@
             this.popupMenu1.Name = "popupMenu1";
             this.popupMenu1.Popup += new System.EventHandler(this.popupMenu1_Popup);
             // 
+            // btnDatPhong
+            // 
+            this.btnDatPhong.Caption = "Đặt phòng";
+            this.btnDatPhong.Id = 0;
+            this.btnDatPhong.Name = "btnDatPhong";
+            this.btnDatPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatPhong_ItemClick);
+            // 
+            // btnSPDV
+            // 
+            this.btnSPDV.Caption = "Cập nhật Sản phẩm - Dịch vụ";
+            this.btnSPDV.Id = 1;
+            this.btnSPDV.Name = "btnSPDV";
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Caption = "Thanh toán";
+            this.btnThanhToan.Id = 2;
+            this.btnThanhToan.Name = "btnThanhToan";
+            // 
             // barManager1
             // 
             this.barManager1.DockControls.Add(this.barDockControlTop);
@@ -244,25 +263,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1349, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 765);
-            // 
-            // btnDatPhong
-            // 
-            this.btnDatPhong.Caption = "Đặt phòng";
-            this.btnDatPhong.Id = 0;
-            this.btnDatPhong.Name = "btnDatPhong";
-            this.btnDatPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatPhong_ItemClick);
-            // 
-            // btnSPDV
-            // 
-            this.btnSPDV.Caption = "Cập nhật Sản phẩm - Dịch vụ";
-            this.btnSPDV.Id = 1;
-            this.btnSPDV.Name = "btnSPDV";
-            // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.Caption = "Thanh toán";
-            this.btnThanhToan.Id = 2;
-            this.btnThanhToan.Name = "btnThanhToan";
             // 
             // frmMain
             // 
@@ -309,7 +309,6 @@
         private DevExpress.XtraNavBar.NavBarControl navMain;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList2;
-        private DevExpress.XtraBars.Ribbon.GalleryControl gControl;
         private DevExpress.XtraBars.Ribbon.GalleryControlClient galleryControlClient1;
         private System.Windows.Forms.ImageList imageList3;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
@@ -321,5 +320,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        public DevExpress.XtraBars.Ribbon.GalleryControl gControl;
     }
 }

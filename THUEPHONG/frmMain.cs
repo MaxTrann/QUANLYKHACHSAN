@@ -63,7 +63,7 @@ namespace THUEPHONG
             }
             
         }
-        void showRoom()
+        public void showRoom()
         {
             _tang = new TANG();
             _phong = new PHONG();

@@ -92,6 +92,7 @@
             this.cboKhachHang = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.lblThanhToan = new System.Windows.Forms.Label();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
@@ -346,6 +347,7 @@
             this.GHICHU});
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
             // DISABLED
             // 
@@ -660,6 +662,7 @@
             this.gvSanPham.GridControl = this.gcSanPham;
             this.gvSanPham.Name = "gvSanPham";
             this.gvSanPham.OptionsView.ShowGroupPanel = false;
+            this.gvSanPham.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvSanPham_CustomDrawRowIndicator);
             // 
             // IDSP
             // 
@@ -773,6 +776,7 @@
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(28, 30);
             this.btnAddNew.TabIndex = 17;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // txtGhiChu
             // 
@@ -877,6 +881,7 @@
             this.groupControl5.AppearanceCaption.ForeColor = System.Drawing.Color.Red;
             this.groupControl5.AppearanceCaption.Options.UseFont = true;
             this.groupControl5.AppearanceCaption.Options.UseForeColor = true;
+            this.groupControl5.Controls.Add(this.label10);
             this.groupControl5.Controls.Add(this.txtThanhTien);
             this.groupControl5.Controls.Add(this.lblThanhToan);
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -886,14 +891,27 @@
             this.groupControl5.TabIndex = 2;
             this.groupControl5.Text = "TỔNG THANH TOÁN";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(425, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 24);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "đồng";
+            // 
             // txtThanhTien
             // 
             this.txtThanhTien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThanhTien.ForeColor = System.Drawing.Color.Red;
             this.txtThanhTien.Location = new System.Drawing.Point(147, 44);
             this.txtThanhTien.Name = "txtThanhTien";
+            this.txtThanhTien.ReadOnly = true;
             this.txtThanhTien.Size = new System.Drawing.Size(274, 32);
             this.txtThanhTien.TabIndex = 1;
+            this.txtThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblThanhToan
             // 
@@ -943,6 +961,7 @@
             this.gvSPDV.Name = "gvSPDV";
             this.gvSPDV.OptionsView.ShowFooter = true;
             this.gvSPDV.OptionsView.ShowGroupPanel = false;
+            this.gvSPDV.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvSPDV_CustomDrawRowIndicator);
             this.gvSPDV.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvSPDV_CellValueChanged);
             // 
             // spIDSP
@@ -1072,6 +1091,7 @@
             this.gvDatPhong.OptionsBehavior.Editable = false;
             this.gvDatPhong.OptionsView.ShowFooter = true;
             this.gvDatPhong.OptionsView.ShowGroupPanel = false;
+            this.gvDatPhong.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDatPhong_CustomDrawRowIndicator);
             this.gvDatPhong.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvDatPhong_MouseDown);
             this.gvDatPhong.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvDatPhong_MouseMove);
             this.gvDatPhong.RowCountChanged += new System.EventHandler(this.gvDatPhong_RowCountChanged);
@@ -1266,5 +1286,6 @@
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.SpinEdit spSoNguoi;
         private System.Windows.Forms.TextBox txtThanhTien;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -29,12 +29,13 @@ namespace BusinessLayer
 
 
         // Thêm mới
-        public void add(tb_DatPhong_CT dpct)
+        public tb_DatPhong_CT add(tb_DatPhong_CT dpct)
         {
             try
             {
                 db.tb_DatPhong_CT.Add(dpct);
                 db.SaveChanges();
+                return dpct;
             }
             catch (Exception ex)
             {
@@ -47,6 +48,7 @@ namespace BusinessLayer
             tb_DatPhong_CT _dpct = db.tb_DatPhong_CT.FirstOrDefault(x => x.IDDPCT == dpct.IDDPCT);
             _dpct.IDDP = dpct.IDDP;
             _dpct.IDPHONG = dpct.IDPHONG;
+            _dpct.IDDPCT = dpct.IDDPCT;
             _dpct.NGAY = dpct.NGAY;
             _dpct.DONGIA = dpct.DONGIA;
             _dpct.SONGAYO = dpct.SONGAYO;
@@ -72,6 +74,20 @@ namespace BusinessLayer
             {
                 throw new Exception("Lỗi khi cập nhật đơn đặt phòng: " + ex.Message);
             }
+        }
+        public void deleteAll(int idDP)
+        {
+            List<tb_DatPhong_CT> lst = db.tb_DatPhong_CT.Where(x => x.IDDP == idDP).ToList();
+            try
+            {
+                db.tb_DatPhong_CT.RemoveRange(lst);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
+            }
+
         }
 
 
