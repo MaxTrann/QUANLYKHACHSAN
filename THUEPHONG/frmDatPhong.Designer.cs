@@ -290,6 +290,8 @@
             this.dtDenNgay.Name = "dtDenNgay";
             this.dtDenNgay.Size = new System.Drawing.Size(235, 23);
             this.dtDenNgay.TabIndex = 7;
+            this.dtDenNgay.ValueChanged += new System.EventHandler(this.dtDenNgay_ValueChanged);
+            this.dtDenNgay.Leave += new System.EventHandler(this.dtDenNgay_Leave);
             // 
             // label3
             // 
@@ -304,10 +306,12 @@
             // 
             this.dtTuNgay.CustomFormat = "dd/MM/yyyy";
             this.dtTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTuNgay.Location = new System.Drawing.Point(377, 24);
+            this.dtTuNgay.Location = new System.Drawing.Point(376, 24);
             this.dtTuNgay.Name = "dtTuNgay";
             this.dtTuNgay.Size = new System.Drawing.Size(235, 23);
             this.dtTuNgay.TabIndex = 5;
+            this.dtTuNgay.ValueChanged += new System.EventHandler(this.dtTuNgay_ValueChanged);
+            this.dtTuNgay.Leave += new System.EventHandler(this.dtTuNgay_Leave);
             // 
             // label4
             // 
@@ -347,7 +351,10 @@
             this.GHICHU});
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDanhSach_CustomDrawRowIndicator);
+            this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
+            this.gvDanhSach.DoubleClick += new System.EventHandler(this.gvDanhSach_DoubleClick);
             // 
             // DISABLED
             // 

@@ -68,6 +68,7 @@ namespace THUEPHONG
 
             loadKH();
             loadSP();
+            loadDanhSach();
 
             cboTrangThai.DataSource = TRANGTHAI.getList();
             cboTrangThai.ValueMember = "_value";
@@ -80,6 +81,12 @@ namespace THUEPHONG
             tabDanhDanh.SelectedTabPage = pageDanhSach;
         }
 
+        void loadDanhSach()
+        {
+            _datphong = new DATPHONG();
+            gcDanhSach.DataSource = _datphong.getAll(dtTuNgay.Value, dtDenNgay.Value, _macty, _madvi);
+            gvDanhSach.OptionsBehavior.Editable = false;
+        }
         public void loadKH()
         {
             _khachhang = new KHACHHANG();
@@ -117,15 +124,24 @@ namespace THUEPHONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                _datphong.delete(_idDP);
+                var lstDPCT = _datphongchitiet.getAllByDatPhong(_idDP);
+                foreach ( var item in lstDPCT )
+                {
+                    _phong.updateStatus((int)item.IDPHONG, false);
 
+                }
             }
-
+            loadDanhSach();
+            objMain.gControl.Gallery.Groups.Clear();
+            objMain.showRoom();
         }
 
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             saveData();
+            loadDanhSach();
             objMain.gControl.Gallery.Groups.Clear();
             objMain.showRoom();
             _them = false;
@@ -155,7 +171,7 @@ namespace THUEPHONG
                 dp.IDUSER = 1;              // Gán tạm user ID, có thể cập nhật theo user login thực tế
                 dp.MACTY = _macty;          // Mã công ty
                 dp.MADVI = _madvi;          // Mã đơn vị
-
+                dp.CREATED_DATE = DateTime.Now;
                 // Thêm vào database và nhận lại đối tượng (có ID mới tạo)
                 var _dp = _datphong.add(dp);
                 _idDP = _dp.IDDP;
@@ -170,11 +186,9 @@ namespace THUEPHONG
                     dpct.SONGAYO = (dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days;
                     dpct.DONGIA = int.Parse(gvDatPhong.GetRowCellValue(i, "DONGIA").ToString());
                     dpct.THANHTIEN = dpct.SONGAYO * dpct.DONGIA;
-
-                    // Thêm chi tiết phòng vào database
+                    dpct.NGAY = DateTime.Now;
                     var _dpct =  _datphongchitiet.add(dpct);
 
-                    // Cập nhật trạng thái phòng thành "đã đặt"
                     _phong.updateStatus(int.Parse(dpct.IDPHONG.ToString()), true);
 
                     // ====== XỬ LÝ SẢN PHẨM DỊCH VỤ THEO PHÒNG ======
@@ -199,29 +213,7 @@ namespace THUEPHONG
                                 // Thêm sản phẩm vào database
                                 _datphongsanpham.add(dpsp);
                             }
-                            else
-                            {
-                                // ❗ Trường hợp này hơi thừa: Nếu phòng không trùng, bạn vẫn thêm sản phẩm rỗng (không có IDSP, SOLUONG,...)
-                                // => Có thể bỏ nếu không cần tạo record trống
-                                dpsp = new tb_DatPhong_SanPham();
-                                dpsp.IDDP = _dp.IDDP;
-                                dpsp.IDPHONG = dpct.IDPHONG;
-                                dpsp.IDDPCT = _dpct.IDDPCT;
-                                _datphongsanpham.add(dpsp);
-                            }
                         }
-                    }
-                    else
-                    {
-                        // Nếu KHÔNG có dịch vụ nào được chọn, vẫn thêm 1 dòng "rỗng" cho phòng vào bảng sản phẩm
-                        // Có thể không cần bước này nếu database không yêu cầu
-                        dpsp = new tb_DatPhong_SanPham();
-                        dpsp.IDDP = _dp.IDDP;
-                        dpsp.IDPHONG = dpct.IDPHONG;
-                        dpsp.IDDPCT = _dpct.IDDPCT;
-                        _datphongsanpham.add(dpsp);
-
-
                     }
                 }
             }
@@ -239,8 +231,9 @@ namespace THUEPHONG
                 dp.IDKH = int.Parse(cboKhachHang.SelectedValue.ToString());
                 dp.SOTIEN = double.Parse(txtThanhTien.Text);
                 dp.GHICHU = txtGhiChu.Text;
-                dp.IDUSER = 1;             
-               
+                dp.IDUSER = 1;
+                dp.UPDATE_BY = 1;
+                dp.UPDATE_DATE = DateTime.Now;
                 var _dp = _datphong.update(dp);
 
                 _idDP = _dp.IDDP;
@@ -256,7 +249,7 @@ namespace THUEPHONG
                     dpct.SONGAYO = (dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days;
                     dpct.DONGIA = int.Parse(gvDatPhong.GetRowCellValue(i, "DONGIA").ToString());
                     dpct.THANHTIEN = dpct.SONGAYO * dpct.DONGIA;
-
+                    dpct.NGAY = DateTime.Now;
                    
                     var _dpct = _datphongchitiet.add(dpct);
                     _phong.updateStatus(int.Parse(dpct.IDPHONG.ToString()), true);
@@ -276,23 +269,7 @@ namespace THUEPHONG
                                 dpsp.THANHTIEN = dpsp.SOLUONG * dpsp.DONGIA;
                                 _datphongsanpham.add(dpsp);
                             }
-                            else
-                            {
-                                dpsp = new tb_DatPhong_SanPham();
-                                dpsp.IDDP = _dp.IDDP;
-                                dpsp.IDPHONG = dpct.IDPHONG;
-                                _datphongsanpham.add(dpsp);
-                            }
                         }
-                    }
-                    else
-                    {
-                        dpsp = new tb_DatPhong_SanPham();
-                        dpsp.IDDP = _dp.IDDP;
-                        dpsp.IDPHONG = dpct.IDPHONG;
-                        _datphongsanpham.add(dpsp);
-
-
                     }
                 }
             }
@@ -589,17 +566,19 @@ namespace THUEPHONG
                     {
                         e.Info.ImageIndex = -1;
                         e.Info.DisplayText = (e.RowHandle + 1).ToString();
-
-                        SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
-                        Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
-                        BeginInvoke(new MethodInvoker(delegate { gvSanPham.IndicatorWidth = Math.Max(gvSanPham.IndicatorWidth, _Width); }));
                     }
+                    SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                    Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                    BeginInvoke(new MethodInvoker(delegate { gvSanPham.IndicatorWidth = Math.Max(gvSanPham.IndicatorWidth, _Width); }));
                 }
             }
             else
             {
                 e.Info.ImageIndex = -1;
                 e.Info.DisplayText = string.Format("[{0}]", (e.RowHandle * -1));
+                SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvSanPham); }));
             }
         }
 
@@ -618,17 +597,19 @@ namespace THUEPHONG
                     {
                         e.Info.ImageIndex = -1;
                         e.Info.DisplayText = (e.RowHandle + 1).ToString();
-
-                        SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
-                        Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
-                        BeginInvoke(new MethodInvoker(delegate { gvDatPhong.IndicatorWidth = Math.Max(gvDatPhong.IndicatorWidth, _Width); }));
                     }
+                    SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                    Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                    BeginInvoke(new MethodInvoker(delegate { gvDatPhong.IndicatorWidth = Math.Max(gvDatPhong.IndicatorWidth, _Width); }));
                 }
             }
             else
             {
                 e.Info.ImageIndex = -1;
-
+                e.Info.DisplayText = string.Format("[{0}]", (e.RowHandle * -1));
+                SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvDatPhong); }));
             }
         }
 
@@ -647,17 +628,19 @@ namespace THUEPHONG
                     {
                         e.Info.ImageIndex = -1;
                         e.Info.DisplayText = (e.RowHandle + 1).ToString();
-
-                        SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
-                        Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
-                        BeginInvoke(new MethodInvoker(delegate { gvSPDV.IndicatorWidth = Math.Max(gvSPDV.IndicatorWidth, _Width); }));
                     }
+                    SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                    Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                    BeginInvoke(new MethodInvoker(delegate { gvSPDV.IndicatorWidth = Math.Max(gvSPDV.IndicatorWidth, _Width); }));
                 }
             }
             else
             {
                 e.Info.ImageIndex = -1;
-
+                e.Info.DisplayText = string.Format("[{0}]", (e.RowHandle * -1));
+                SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvSPDV); }));
             }
         }
 
@@ -675,7 +658,146 @@ namespace THUEPHONG
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _idDP = int.Parse(gvDanhSach.GetFocusedRowCellValue("IDDP").ToString());
+            if (gvDanhSach.RowCount > 0)
+            {
+                _idDP = int.Parse(gvDanhSach.GetFocusedRowCellValue("IDDP").ToString());
+                var dp = _datphong.getItem(_idDP);
+                cboKhachHang.SelectedValue = dp.IDKH;
+                dtNgayDat.Value = dp.NGAYDATPHONG.Value;
+                dtNgayTra.Value = dp.NGAYTRAPHONG.Value;
+                spSoNguoi.Text = dp.SONGUOIO.ToString();
+                cboTrangThai.SelectedValue = dp.STATUS;
+                txtGhiChu.Text = dp.GHICHU;
+                txtThanhTien.Text = dp.SOTIEN.Value.ToString("N0");
+
+                loadDP();
+                loadSPDV();
+            }
+        }
+        void loadDP()
+        {
+            gcDatPhong.DataSource = myFunctions.laydulieu(
+                "SELECT A.IDPHONG, A.TENPHONG, C.DONGIA, A.IDTANG, B.TENTANG " + // ← thêm dấu cách ở cuối dòng này
+                "FROM tb_Phong A, tb_Tang B, tb_LoaiPhong C, tb_DatPhong_CT D " +
+                "WHERE A.IDTANG = B.IDTANG AND A.IDLOAIPHONG = C.IDLOAIPHONG AND A.IDPHONG = D.IDPHONG AND D.IDDP = '" + _idDP + "'"
+            );
+        }
+        void loadSPDV()
+        {
+            gcSPDV.DataSource = _datphongsanpham.getAllByDatPhong(_idDP);
+        }
+        private void dtTuNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                loadDanhSach();
+            }
+        }
+
+        private void dtTuNgay_Leave(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                loadDanhSach();
+            }
+        }
+
+        private void dtDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                loadDanhSach();
+            }
+        }
+
+        private void dtDenNgay_Leave(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                loadDanhSach();
+            }
+        }
+
+        private void gvDanhSach_DoubleClick(object sender, EventArgs e)
+        {
+            if (gvDanhSach.RowCount > 0)
+            {
+                _idDP = int.Parse(gvDanhSach.GetFocusedRowCellValue("IDDP").ToString());
+                var dp = _datphong.getItem(_idDP);
+                cboKhachHang.SelectedValue = dp.IDKH;
+                dtNgayDat.Value = dp.NGAYDATPHONG.Value;
+                dtNgayTra.Value = dp.NGAYTRAPHONG.Value;
+                spSoNguoi.Text = dp.SONGUOIO.ToString();
+                cboTrangThai.SelectedValue = dp.STATUS;
+                txtGhiChu.Text = dp.GHICHU;
+                txtThanhTien.Text = dp.SOTIEN.Value.ToString("N0");
+
+                loadDP();
+                loadSPDV();
+            }
+            tabDanhDanh.SelectedTabPage = pageChiTiet;
+        }
+
+        private void gvDanhSach_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (!gvDanhSach.IsGroupRow(e.RowHandle))
+            {
+                if (e.Info.IsRowIndicator)
+                {
+                    if (e.RowHandle < 0)
+                    {
+                        e.Info.ImageIndex = 0;
+                        e.Info.DisplayText = string.Empty;
+                    }
+                    else
+                    {
+                        e.Info.ImageIndex = -1;
+                        e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                    }
+                    SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                    Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                    BeginInvoke(new MethodInvoker(delegate { gvDanhSach.IndicatorWidth = Math.Max(gvDanhSach.IndicatorWidth, _Width); }));
+                }
+            }
+            else
+            {
+                e.Info.ImageIndex = -1;
+                e.Info.DisplayText = string.Format("[{0}]", (e.RowHandle * -1));
+                SizeF _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                Int32 _Width = Convert.ToInt32(_Size.Width) + 20;
+                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gvDanhSach); }));
+            }
+        }
+
+        private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true) 
+            {
+                Image img = Properties.Resources.del_icon_28px;
+                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
+                e.Handled = true;
+            }
+            
 
         }
     }

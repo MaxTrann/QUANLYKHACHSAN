@@ -27,6 +27,11 @@ namespace BusinessLayer
             return db.tb_DatPhong_CT.FirstOrDefault(x => x.IDDPCT == id);
         }
 
+        // Lấy tất cả chi tiết theo ID đơn đặt phòng
+        public List<tb_DatPhong_CT> getAllByDatPhong(int id)
+        {
+            return db.tb_DatPhong_CT.Where(x => x.IDDP == id).ToList();
+        }
 
         // Thêm mới
         public tb_DatPhong_CT add(tb_DatPhong_CT dpct)
