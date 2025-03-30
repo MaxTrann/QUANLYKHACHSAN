@@ -413,6 +413,8 @@
             this.SOTIEN.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
             this.SOTIEN.AppearanceHeader.Options.UseFont = true;
             this.SOTIEN.Caption = "SỐ TIỀN";
+            this.SOTIEN.DisplayFormat.FormatString = "n0";
+            this.SOTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.SOTIEN.FieldName = "SOTIEN";
             this.SOTIEN.MaxWidth = 90;
             this.SOTIEN.MinWidth = 80;
@@ -555,6 +557,7 @@
             this.gcPhong.Name = "gcPhong";
             this.gcPhong.Size = new System.Drawing.Size(357, 902);
             this.gcPhong.TabIndex = 0;
+            this.gcPhong.UseDisabledStatePainter = false;
             this.gcPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPhong});
             this.gcPhong.DragDrop += new System.Windows.Forms.DragEventHandler(this.gcPhong_DragDrop);
@@ -628,6 +631,8 @@
             this.pDONGIA.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
             this.pDONGIA.AppearanceHeader.Options.UseFont = true;
             this.pDONGIA.Caption = "ĐƠN GIÁ";
+            this.pDONGIA.DisplayFormat.FormatString = "n0";
+            this.pDONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.pDONGIA.FieldName = "DONGIA";
             this.pDONGIA.MaxWidth = 100;
             this.pDONGIA.MinWidth = 80;
@@ -656,6 +661,7 @@
             this.gcSanPham.Name = "gcSanPham";
             this.gcSanPham.Size = new System.Drawing.Size(298, 902);
             this.gcSanPham.TabIndex = 0;
+            this.gcSanPham.UseDisabledStatePainter = false;
             this.gcSanPham.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSanPham});
             this.gcSanPham.DoubleClick += new System.EventHandler(this.gcSanPham_DoubleClick);
@@ -697,6 +703,8 @@
             this.DONGIA.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
             this.DONGIA.AppearanceHeader.Options.UseFont = true;
             this.DONGIA.Caption = "ĐƠN GIÁ";
+            this.DONGIA.DisplayFormat.FormatString = "n0";
+            this.DONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.DONGIA.FieldName = "DONGIA";
             this.DONGIA.MaxWidth = 120;
             this.DONGIA.MinWidth = 100;
@@ -911,6 +919,7 @@
             // 
             // txtThanhTien
             // 
+            this.txtThanhTien.BackColor = System.Drawing.Color.White;
             this.txtThanhTien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThanhTien.ForeColor = System.Drawing.Color.Red;
             this.txtThanhTien.Location = new System.Drawing.Point(147, 44);
@@ -951,6 +960,7 @@
             this.gcSPDV.Name = "gcSPDV";
             this.gcSPDV.Size = new System.Drawing.Size(541, 302);
             this.gcSPDV.TabIndex = 1;
+            this.gcSPDV.UseDisabledStatePainter = false;
             this.gcSPDV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSPDV});
             // 
@@ -1035,6 +1045,8 @@
             this.spDONGIA.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
             this.spDONGIA.AppearanceHeader.Options.UseFont = true;
             this.spDONGIA.Caption = "ĐƠN GIÁ";
+            this.spDONGIA.DisplayFormat.FormatString = "n0";
+            this.spDONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spDONGIA.FieldName = "DONGIA";
             this.spDONGIA.MaxWidth = 100;
             this.spDONGIA.MinWidth = 80;
@@ -1081,6 +1093,7 @@
             this.gcDatPhong.Name = "gcDatPhong";
             this.gcDatPhong.Size = new System.Drawing.Size(541, 273);
             this.gcDatPhong.TabIndex = 0;
+            this.gcDatPhong.UseDisabledStatePainter = false;
             this.gcDatPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDatPhong});
             this.gcDatPhong.DragDrop += new System.Windows.Forms.DragEventHandler(this.gcPhong_DragDrop);
@@ -1101,7 +1114,6 @@
             this.gvDatPhong.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gvDatPhong_CustomDrawRowIndicator);
             this.gvDatPhong.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvDatPhong_MouseDown);
             this.gvDatPhong.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvDatPhong_MouseMove);
-            this.gvDatPhong.RowCountChanged += new System.EventHandler(this.gvDatPhong_RowCountChanged);
             // 
             // dpIDPHONG
             // 
@@ -1131,6 +1143,8 @@
             this.dpDONGIA.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
             this.dpDONGIA.AppearanceHeader.Options.UseFont = true;
             this.dpDONGIA.Caption = "ĐƠN GIÁ";
+            this.dpDONGIA.DisplayFormat.FormatString = "n0";
+            this.dpDONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.dpDONGIA.FieldName = "DONGIA";
             this.dpDONGIA.MaxWidth = 120;
             this.dpDONGIA.MinWidth = 100;

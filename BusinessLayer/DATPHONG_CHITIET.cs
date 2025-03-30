@@ -67,19 +67,23 @@ namespace BusinessLayer
                 throw new Exception("Lỗi khi cập nhật đơn đặt phòng: " + ex.Message);
             }
         }
-        public void delete(int idDPCT)
+        public void delete(int idDP, int idPhong)
         {
-            tb_DatPhong_CT _dpct = db.tb_DatPhong_CT.FirstOrDefault(x => x.IDDPCT ==  idDPCT);
+            var _dpct = db.tb_DatPhong_CT.FirstOrDefault(x => x.IDDP == idDP && x.IDPHONG == idPhong);
             try
             {
-                db.tb_DatPhong_CT.Remove(_dpct);
-                db.SaveChanges();
+                if (_dpct != null)
+                {
+                    db.tb_DatPhong_CT.Remove(_dpct);
+                    db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception("Lỗi khi cập nhật đơn đặt phòng: " + ex.Message);
             }
         }
+
         public void deleteAll(int idDP)
         {
             List<tb_DatPhong_CT> lst = db.tb_DatPhong_CT.Where(x => x.IDDP == idDP).ToList();

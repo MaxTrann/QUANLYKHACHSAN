@@ -76,7 +76,20 @@ namespace BusinessLayer
             }
             
         }
-       
+        public void deleteAllByPhong(int idDP, int _idPhong)
+        {
+            List<tb_DatPhong_SanPham> lst = db.tb_DatPhong_SanPham.Where(x => x.IDDP == idDP && x.IDPHONG == _idPhong).ToList();
+            try
+            {
+                db.tb_DatPhong_SanPham.RemoveRange(lst);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi xóa sản phẩm vào đơn đặt phòng: " + ex.Message);
+            }
+
+        }
 
     }
 }

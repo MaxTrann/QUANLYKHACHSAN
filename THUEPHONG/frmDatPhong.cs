@@ -34,6 +34,7 @@ namespace THUEPHONG
         string _macty;
         string _madvi;
         int _idDP = 0;
+        int _rowDatPhong = 0;
 
         List<OBJ_DPSP> lstDPSP;
         SYS_PARAM _param;
@@ -102,13 +103,22 @@ namespace THUEPHONG
             gvSanPham.OptionsBehavior.Editable = false;
 
         }
-
+        void addReset()
+        {
+            DataTable tb = myFunctions.laydulieu("SELECT A.IDPHONG, A.TENPHONG, C.DONGIA, A.IDTANG, B.TENTANG FROM tb_Phong A, tb_Tang B, tb_LoaiPhong C where A.IDTANG= B.IDTANG AND A.TRANGTHAI = 0 AND A.IDLOAIPHONG = C.IDLOAIPHONG");
+            gcPhong.DataSource = tb;
+            gcDatPhong.DataSource = tb.Clone();
+            gvPhong.ExpandAllGroups();
+            gcSPDV.DataSource = _datphongsanpham.getAllByDatPhong(0);
+            txtThanhTien.Text = "0";
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             _them = true;
             showHideControl(false);
             _enabled(true);
             _reset();
+            addReset();
             tabDanhDanh.SelectedTabPage = pageChiTiet;
         }
         private void btnSua_Click(object sender, EventArgs e)
@@ -126,7 +136,7 @@ namespace THUEPHONG
             {
                 _datphong.delete(_idDP);
                 var lstDPCT = _datphongchitiet.getAllByDatPhong(_idDP);
-                foreach ( var item in lstDPCT )
+                foreach (var item in lstDPCT)
                 {
                     _phong.updateStatus((int)item.IDPHONG, false);
 
@@ -141,10 +151,10 @@ namespace THUEPHONG
         private void btnLuu_Click(object sender, EventArgs e)
         {
             saveData();
-            loadDanhSach();
             objMain.gControl.Gallery.Groups.Clear();
             objMain.showRoom();
             _them = false;
+            loadDanhSach();
             _enabled(false);
             showHideControl(true);
 
@@ -167,7 +177,7 @@ namespace THUEPHONG
                 dp.IDKH = int.Parse(cboKhachHang.SelectedValue.ToString());
                 dp.SOTIEN = double.Parse(txtThanhTien.Text);
                 dp.GHICHU = txtGhiChu.Text;
-                dp.DISABLED = false; 
+                dp.DISABLED = false;
                 dp.IDUSER = 1;              // Gán tạm user ID, có thể cập nhật theo user login thực tế
                 dp.MACTY = _macty;          // Mã công ty
                 dp.MADVI = _madvi;          // Mã đơn vị
@@ -187,14 +197,14 @@ namespace THUEPHONG
                     dpct.DONGIA = int.Parse(gvDatPhong.GetRowCellValue(i, "DONGIA").ToString());
                     dpct.THANHTIEN = dpct.SONGAYO * dpct.DONGIA;
                     dpct.NGAY = DateTime.Now;
-                    var _dpct =  _datphongchitiet.add(dpct);
+                    var _dpct = _datphongchitiet.add(dpct);
 
                     _phong.updateStatus(int.Parse(dpct.IDPHONG.ToString()), true);
 
                     // ====== XỬ LÝ SẢN PHẨM DỊCH VỤ THEO PHÒNG ======
 
                     if (gvSPDV.RowCount > 0) // Nếu có dịch vụ nào được chọn
-                    { 
+                    {
                         // Duyệt qua từng dòng sản phẩm dịch vụ trong grid gvSPDV
                         for (int j = 0; j < gvSPDV.RowCount; j++)
                         {
@@ -217,62 +227,89 @@ namespace THUEPHONG
                     }
                 }
             }
-
-            else // update
+            else // Chỉnh sửa
             {
                 tb_DatPhong dp = _datphong.getItem(_idDP);
-                tb_DatPhong_CT dpct;                  
-                tb_DatPhong_SanPham dpsp;
+                if (dp == null)
+                {
+                    MessageBox.Show("Booking not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                // Lấy danh sách phòng ban đầu của đơn đặt phòng
+                var originalRooms = _datphongchitiet.getAllByDatPhong(_idDP).Select(x => x.IDPHONG).ToList();
+
+                // Lấy danh sách phòng hiện tại từ giao diện
+                var currentRooms = new List<int>();
+                for (int i = 0; i < gvDatPhong.RowCount; i++)
+                {
+                    var idPhongVal = gvDatPhong.GetRowCellValue(i, "IDPHONG");
+                    if (idPhongVal != null)
+                        currentRooms.Add(int.Parse(idPhongVal.ToString()));
+                }
+
+                // Cập nhật thông tin đơn đặt phòng
                 dp.NGAYDATPHONG = dtNgayDat.Value;
                 dp.NGAYTRAPHONG = dtNgayTra.Value;
-                dp.SONGUOIO = int.Parse(spSoNguoi.EditValue.ToString());
+                dp.SONGUOIO = int.Parse(spSoNguoi.Value.ToString());
                 dp.STATUS = bool.Parse(cboTrangThai.SelectedValue.ToString());
                 dp.IDKH = int.Parse(cboKhachHang.SelectedValue.ToString());
-                dp.SOTIEN = double.Parse(txtThanhTien.Text);
+                dp.SOTIEN = double.TryParse(txtThanhTien.Text, out double total) ? total : 0;
                 dp.GHICHU = txtGhiChu.Text;
                 dp.IDUSER = 1;
                 dp.UPDATE_BY = 1;
                 dp.UPDATE_DATE = DateTime.Now;
                 var _dp = _datphong.update(dp);
-
                 _idDP = _dp.IDDP;
-                _datphongchitiet.deleteAll(dp.IDDP);
-                _datphongsanpham.deleteAll(dp.IDDP);
 
-                // sau khi xóa hết thì thực hiện thêm lại
+                // Xóa dữ liệu cũ
+                _datphongchitiet.deleteAll(_idDP);
+                _datphongsanpham.deleteAll(_idDP);
+
+                // Thêm chi tiết mới
                 for (int i = 0; i < gvDatPhong.RowCount; i++)
                 {
-                    dpct = new tb_DatPhong_CT();
+                    tb_DatPhong_CT dpct = new tb_DatPhong_CT();
                     dpct.IDDP = _dp.IDDP;
                     dpct.IDPHONG = int.Parse(gvDatPhong.GetRowCellValue(i, "IDPHONG").ToString());
-                    dpct.SONGAYO = (dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days;
+                    dpct.SONGAYO = Math.Max((dtNgayTra.Value - dtNgayDat.Value).Days, 1); // Ít nhất 1 ngày
                     dpct.DONGIA = int.Parse(gvDatPhong.GetRowCellValue(i, "DONGIA").ToString());
-                    dpct.THANHTIEN = dpct.SONGAYO * dpct.DONGIA;
+                    dpct.THANHTIEN = dpct.DONGIA * dpct.SONGAYO;
                     dpct.NGAY = DateTime.Now;
-                   
+
                     var _dpct = _datphongchitiet.add(dpct);
-                    _phong.updateStatus(int.Parse(dpct.IDPHONG.ToString()), true);
-                    if (gvSPDV.RowCount > 0) // Nếu có dịch vụ nào được chọn
+                    _phong.updateStatus((int)dpct.IDPHONG, true); // Đặt phòng: trạng thái true
+
+                    // Thêm dịch vụ cho từng phòng
+                    for (int j = 0; j < gvSPDV.RowCount; j++)
                     {
-                        for (int j = 0; j < gvSPDV.RowCount; j++)
+                        int idPhongSP = int.Parse(gvSPDV.GetRowCellValue(j, "IDPHONG").ToString());
+                        if (dpct.IDPHONG == idPhongSP)
                         {
-                            if (dpct.IDPHONG == int.Parse(gvSPDV.GetRowCellValue(j, "IDPHONG").ToString()))
-                            {
-                                dpsp = new tb_DatPhong_SanPham();
-                                dpsp.IDDP = _dp.IDDP;
-                                dpsp.IDDPCT = _dpct.IDDPCT;
-                                dpsp.IDPHONG = int.Parse(gvSPDV.GetRowCellValue(j, "IDPHONG").ToString());
-                                dpsp.IDSP = int.Parse(gvSPDV.GetRowCellValue(j, "IDSP").ToString());
-                                dpsp.SOLUONG = int.Parse(gvSPDV.GetRowCellValue(j, "SOLUONG").ToString());
-                                dpsp.DONGIA = int.Parse(gvSPDV.GetRowCellValue(j, "DONGIA").ToString());
-                                dpsp.THANHTIEN = dpsp.SOLUONG * dpsp.DONGIA;
-                                _datphongsanpham.add(dpsp);
-                            }
+                            tb_DatPhong_SanPham dpsp = new tb_DatPhong_SanPham();
+                            dpsp.IDDP = _dp.IDDP;
+                            dpsp.IDDPCT = _dpct.IDDPCT;
+                            dpsp.IDPHONG = idPhongSP;
+                            dpsp.IDSP = int.Parse(gvSPDV.GetRowCellValue(j, "IDSP").ToString());
+                            dpsp.SOLUONG = int.Parse(gvSPDV.GetRowCellValue(j, "SOLUONG").ToString());
+                            dpsp.DONGIA = float.Parse(gvSPDV.GetRowCellValue(j, "DONGIA").ToString());
+                            dpsp.THANHTIEN = dpsp.SOLUONG * dpsp.DONGIA;
+                            _datphongsanpham.add(dpsp);
                         }
                     }
                 }
-            }
+
+                // Cập nhật trạng thái cho các phòng bị xóa khỏi đơn đặt phòng
+                var removedRooms = originalRooms.Where(x => !currentRooms.Contains((int)x)).ToList();
+                foreach (var roomId in removedRooms)
+                {
+                    _phong.updateStatus((int)roomId, false);
+                }
+
+                loadDP();
+                loadSPDV();
+                objMain.showRoom();
+            }        
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)
@@ -315,6 +352,11 @@ namespace THUEPHONG
             chkDoan.Enabled = t;
             spSoNguoi.Enabled = t;
             txtGhiChu.Enabled = t;
+            gcPhong.Enabled = t;
+            gcSanPham.Enabled = t;
+            gcDatPhong.Enabled = t;
+            gcSPDV.Enabled = t;
+
 
         }
         void _reset()
@@ -330,19 +372,19 @@ namespace THUEPHONG
 
         private void gvDatPhong_MouseDown(object sender, MouseEventArgs e)
         {
-            if (gvDatPhong.GetFocusedRowCellValue("IDPHONG") != null)
-            {
-                _idPhong = int.Parse(gvDatPhong.GetFocusedRowCellValue("IDPHONG").ToString());
-                _tenPhong = gvDatPhong.GetFocusedRowCellValue("TENPHONG").ToString();
-            }
-
             GridView view = sender as GridView;
             downHitInfor = null;
-            GridHitInfo hitInfor = view.CalcHitInfo(new Point(e.X, e.Y));
+            GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
             if (Control.ModifierKeys != Keys.None) return;
-            if (e.Button == MouseButtons.Left && hitInfor.RowHandle >= 0)
+            if (e.Button == MouseButtons.Left && hitInfo.RowHandle >= 0)
             {
-                downHitInfor = hitInfor;
+                downHitInfor = hitInfo;
+                DataRow row = view.GetDataRow(hitInfo.RowHandle);
+                if (row != null)
+                {
+                    _idPhong = int.Parse(row["IDPHONG"].ToString());
+                    _tenPhong = row["TENPHONG"].ToString();
+                }
             }
         }
 
@@ -356,7 +398,14 @@ namespace THUEPHONG
                 if (!dragRect.Contains(new Point(e.X, e.Y)))
                 {
                     DataRow row = view.GetDataRow(downHitInfor.RowHandle);
-                    view.GridControl.DoDragDrop(row, DragDropEffects.Move);
+                    if (row != null)
+                    {
+                        _tenPhong = row["TENPHONG"].ToString();
+                        if (!string.IsNullOrEmpty(_tenPhong))
+                        {
+                            view.GridControl.DoDragDrop(row, DragDropEffects.Move);
+                        }
+                    }
                     downHitInfor = null;
                     DevExpress.Utils.DXMouseEventArgs.GetMouseArgs(e).Handled = true;
                 }
@@ -369,13 +418,18 @@ namespace THUEPHONG
             if (e.Button == MouseButtons.Left && downHitInfor != null)
             {
                 Size dragSize = SystemInformation.DragSize;
-                Rectangle dragRect = new Rectangle(new Point(downHitInfor.HitPoint.X - dragSize.Width / 2,
-                                                             downHitInfor.HitPoint.Y - dragSize.Height / 2),
-                                                   dragSize);
+                Rectangle dragRect = new Rectangle(new Point(downHitInfor.HitPoint.X - dragSize.Width / 2, downHitInfor.HitPoint.Y - dragSize.Height / 2), dragSize);
                 if (!dragRect.Contains(new Point(e.X, e.Y)))
                 {
                     DataRow row = view.GetDataRow(downHitInfor.RowHandle);
-                    view.GridControl.DoDragDrop(row, DragDropEffects.Move);
+                    if (row != null)
+                    {
+                        _tenPhong = row["TENPHONG"].ToString();
+                        if (!string.IsNullOrEmpty(_tenPhong))
+                        {
+                            view.GridControl.DoDragDrop(row, DragDropEffects.Move);
+                        }
+                    }
                     downHitInfor = null;
                     DevExpress.Utils.DXMouseEventArgs.GetMouseArgs(e).Handled = true;
                 }
@@ -386,11 +440,16 @@ namespace THUEPHONG
         {
             GridView view = sender as GridView;
             downHitInfor = null;
-            GridHitInfo hitInfor = view.CalcHitInfo(new Point(e.X, e.Y));
+            GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
             if (Control.ModifierKeys != Keys.None) return;
-            if (e.Button == MouseButtons.Left && hitInfor.RowHandle >= 0)
+            if (e.Button == MouseButtons.Left && hitInfo.RowHandle >= 0)
             {
-                downHitInfor = hitInfor;
+                downHitInfor = hitInfo;
+                DataRow row = view.GetDataRow(hitInfo.RowHandle);
+                if (row != null)
+                {
+                    _tenPhong = row["TENPHONG"].ToString();
+                }
             }
         }
 
@@ -401,8 +460,17 @@ namespace THUEPHONG
             DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
             if (row != null && table != null && row.Table != table)
             {
+                int removedRoomId = int.Parse(row["IDPHONG"].ToString()); // ← Lưu trước khi xóa
                 table.ImportRow(row);
-                row.Delete();
+                row.Delete(); // ← Xóa sau khi lấy IDPHONG
+
+                // Nếu đang chỉnh sửa
+                if (!_them && _idDP > 0)
+                {
+                    lstDPSP.RemoveAll(sp => sp.IDPHONG == removedRoomId);
+                    loadDPSP();
+                    updateTongTien(); // ← đừng quên cập nhật tổng tiền sau khi xóa
+                }
             }
         }
 
@@ -475,13 +543,11 @@ namespace THUEPHONG
         {
             if (_idPhong == 0)
             {
-                MessageBox.Show("Vui lòng chọn phòng?", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             if (gvSanPham.GetFocusedRowCellValue("IDSP") != null)
             {
-                // Thực hiện logic khi có ID sản phẩm được chọn
                 OBJ_DPSP sp = new OBJ_DPSP();
                 sp.IDSP = int.Parse(gvSanPham.GetFocusedRowCellValue("IDSP").ToString());
                 sp.TENSP = gvSanPham.GetFocusedRowCellValue("TENSP").ToString();
@@ -491,33 +557,33 @@ namespace THUEPHONG
                 sp.SOLUONG = 1;
                 sp.THANHTIEN = sp.DONGIA * sp.SOLUONG;
 
+                bool found = false;
                 foreach (var item in lstDPSP)
                 {
-                    // lần thứ 2 double click 
                     if (item.IDSP == sp.IDSP && item.IDPHONG == sp.IDPHONG)
                     {
-                        item.SOLUONG = item.SOLUONG + 1;
+                        item.SOLUONG++;
                         item.THANHTIEN = item.SOLUONG * item.DONGIA;
-                        loadDPSP();
-                        return;
+                        found = true;
+                        break;
                     }
                 }
-
-                lstDPSP.Add(sp);
+                if (!found)
+                {
+                    lstDPSP.Add(sp);
+                }
             }
             loadDPSP();
             txtThanhTien.Text = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + double.Parse(gvDatPhong.Columns["DONGIA"].SummaryItem.SummaryValue.ToString())).ToString("N0");
+
 
         }
 
         void loadDPSP()
         {
-            List<OBJ_DPSP> lsDP = new List<OBJ_DPSP>();
-            foreach (var item in lstDPSP)
-            {
-                lsDP.Add(item);
-            }
-            gcSPDV.DataSource = lsDP;
+            gcSPDV.DataSource = null;
+            gcSPDV.DataSource = lstDPSP;
+            gcSPDV.RefreshDataSource();
         }
 
         private void gvSPDV_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -545,11 +611,13 @@ namespace THUEPHONG
             if (gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue == null)
                 t = 0;
             else
+            {
                 t = double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString());
-
-            txtThanhTien.Text = (double.Parse(gvDatPhong.Columns["DONGIA"].SummaryItem.SummaryValue.ToString()) + t).ToString("N0");
+            }
+            txtThanhTien.Text = (t + double.Parse(gvDatPhong.Columns["DONGIA"].SummaryItem.SummaryValue.ToString())).ToString("N0");
 
         }
+
 
         private void gvSanPham_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
         {
@@ -676,15 +744,30 @@ namespace THUEPHONG
         }
         void loadDP()
         {
+            _rowDatPhong = 0;
             gcDatPhong.DataSource = myFunctions.laydulieu(
                 "SELECT A.IDPHONG, A.TENPHONG, C.DONGIA, A.IDTANG, B.TENTANG " + // ← thêm dấu cách ở cuối dòng này
                 "FROM tb_Phong A, tb_Tang B, tb_LoaiPhong C, tb_DatPhong_CT D " +
                 "WHERE A.IDTANG = B.IDTANG AND A.IDLOAIPHONG = C.IDLOAIPHONG AND A.IDPHONG = D.IDPHONG AND D.IDDP = '" + _idDP + "'"
             );
+
+            _rowDatPhong = gvDatPhong.RowCount;
         }
         void loadSPDV()
         {
-            gcSPDV.DataSource = _datphongsanpham.getAllByDatPhong(_idDP);
+            lstDPSP = _datphongsanpham.getAllByDatPhong(_idDP).Select(sp => new OBJ_DPSP
+            {
+                IDSP = sp.IDSP.Value,
+                TENSP = _sanpham.getItem(sp.IDSP.Value)?.TENSP, // Giả sử có hàm getItem trong SANPHAM
+                IDPHONG = sp.IDPHONG.Value,
+                TENPHONG = _phong.getItem(sp.IDPHONG.Value)?.TENPHONG, // Giả sử có hàm getItem trong PHONG
+                DONGIA = sp.DONGIA.Value,
+                SOLUONG = sp.SOLUONG.Value,
+                THANHTIEN = sp.THANHTIEN.Value
+            }).ToList();
+            gcSPDV.DataSource = null;
+            gcSPDV.DataSource = lstDPSP;
+            gcSPDV.RefreshDataSource();
         }
         private void dtTuNgay_ValueChanged(object sender, EventArgs e)
         {
@@ -791,14 +874,26 @@ namespace THUEPHONG
 
         private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-            if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true) 
+            if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true)
             {
                 Image img = Properties.Resources.del_icon_28px;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
             }
-            
-
         }
+
+        void updateTongTien()
+        {
+            double tongDV = 0, tongPhong = 0;
+
+            var dv = gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue;
+            var phong = gvDatPhong.Columns["DONGIA"].SummaryItem.SummaryValue;
+
+            if (dv != null) double.TryParse(dv.ToString(), out tongDV);
+            if (phong != null) double.TryParse(phong.ToString(), out tongPhong);
+
+            txtThanhTien.Text = (tongDV + tongPhong).ToString("N0");
+        }
+
     }
 }
