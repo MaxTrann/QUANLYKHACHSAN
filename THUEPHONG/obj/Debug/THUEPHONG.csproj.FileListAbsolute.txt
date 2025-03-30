@@ -200,3 +200,11 @@ D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.csproj.Up2Date
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.exe
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.pdb
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmQuanLyTang.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmLoaiPhong.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmKhachHang.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmPhong.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmSPDV.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmThietBi.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmPhong_ThietBi.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmDatPhong.resources
