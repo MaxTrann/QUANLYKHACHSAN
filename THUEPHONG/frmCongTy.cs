@@ -10,6 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
+
+
+
+
 
 namespace THUEPHONG
 {
@@ -57,7 +64,7 @@ namespace THUEPHONG
             txtFax.Text = "";
             txtEmail.Text = "";
             txtDiaChi.Text = "";
-            
+
             chkDisabled.Checked = false;
         }
         void loadData()
@@ -91,7 +98,7 @@ namespace THUEPHONG
             loadData();
         }
 
-        
+
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -127,7 +134,7 @@ namespace THUEPHONG
 
         private void btnBoQua_Click(object sender, EventArgs e)
         {
-            _them = false ;
+            _them = false;
             showHideControl(true);
             _enabled(false);
             txtMa.Enabled = false;
@@ -144,14 +151,14 @@ namespace THUEPHONG
             if (gvDanhSach.RowCount > 0)
             {
                 _macty = gvDanhSach.GetFocusedRowCellValue("MACTY").ToString();
-                txtMa.Text = gvDanhSach.GetFocusedRowCellValue("MACTY").ToString() ;
+                txtMa.Text = gvDanhSach.GetFocusedRowCellValue("MACTY").ToString();
                 txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TENCTY").ToString();
                 txtDienThoai.Text = gvDanhSach.GetFocusedRowCellValue("SDT").ToString();
                 txtFax.Text = gvDanhSach.GetFocusedRowCellValue("FAX").ToString();
                 txtEmail.Text = gvDanhSach.GetFocusedRowCellValue("EMAIL").ToString();
                 txtDiaChi.Text = gvDanhSach.GetFocusedRowCellValue("DIACHI").ToString();
                 chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
-            }    
+            }
         }
 
         private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -163,6 +170,51 @@ namespace THUEPHONG
                 e.Handled = true;
 
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            XuatReport("DM_CONGTY", "DANH MỤC CÔNG TY");
+        }
+        private void XuatReport(string _rpName, string _rpTitle)
+        {
+            if (_macty != null)
+            {
+                Form frm = new Form();
+                CrystalReportViewer crv = new CrystalReportViewer();
+                crv.ShowGroupTreeButton = false;
+                crv.ShowParameterPanelButton = false;
+                crv.ToolPanelView = ToolPanelViewType.None;
+                TableLogOnInfo Thongtin;
+                ReportDocument doc = new ReportDocument();
+                doc.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\" + _rpName + ".rpt");
+                Thongtin = doc.Database.Tables[0].LogOnInfo;
+                Thongtin.ConnectionInfo.ServerName = myFunctions._srv;
+                Thongtin.ConnectionInfo.DatabaseName = myFunctions._db;
+                Thongtin.ConnectionInfo.UserID = myFunctions._us;
+                Thongtin.ConnectionInfo.Password = myFunctions._pw;
+                doc.Database.Tables[0].ApplyLogOnInfo(Thongtin);
+                try
+                {
+                    doc.SetParameterValue("macty", _macty.ToString());
+                    crv.Dock = DockStyle.Fill;
+                    crv.ReportSource = doc;
+                    crv.Refresh();
+                    frm.Controls.Add(crv);
+                    frm.Text = _rpTitle;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

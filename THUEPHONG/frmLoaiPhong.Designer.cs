@@ -44,23 +44,23 @@
             this.SONGUOI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SOGIUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.nudSoGiuong = new System.Windows.Forms.NumericUpDown();
+            this.nudSoNguoi = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nudDonGia = new System.Windows.Forms.NumericUpDown();
+            this.txtLoaiPhong = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.chkDisabled = new System.Windows.Forms.CheckBox();
-            this.txtLoaiPhong = new System.Windows.Forms.TextBox();
-            this.nudDonGia = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nudSoNguoi = new System.Windows.Forms.NumericUpDown();
-            this.nudSoGiuong = new System.Windows.Forms.NumericUpDown();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDonGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSoNguoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoGiuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoNguoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDonGia)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -188,6 +188,8 @@
             // DONGIA
             // 
             this.DONGIA.Caption = "ĐƠN GIÁ";
+            this.DONGIA.DisplayFormat.FormatString = "n0";
+            this.DONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.DONGIA.FieldName = "DONGIA";
             this.DONGIA.MaxWidth = 140;
             this.DONGIA.MinWidth = 120;
@@ -236,6 +238,67 @@
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "Thông tin";
             // 
+            // nudSoGiuong
+            // 
+            this.nudSoGiuong.Location = new System.Drawing.Point(470, 85);
+            this.nudSoGiuong.Name = "nudSoGiuong";
+            this.nudSoGiuong.Size = new System.Drawing.Size(120, 23);
+            this.nudSoGiuong.TabIndex = 20;
+            // 
+            // nudSoNguoi
+            // 
+            this.nudSoNguoi.Location = new System.Drawing.Point(154, 85);
+            this.nudSoNguoi.Name = "nudSoNguoi";
+            this.nudSoNguoi.Size = new System.Drawing.Size(120, 23);
+            this.nudSoNguoi.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(382, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Số giường";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(73, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Số người";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(396, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Đơn giá";
+            // 
+            // nudDonGia
+            // 
+            this.nudDonGia.Location = new System.Drawing.Point(470, 47);
+            this.nudDonGia.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nudDonGia.Name = "nudDonGia";
+            this.nudDonGia.Size = new System.Drawing.Size(120, 23);
+            this.nudDonGia.TabIndex = 15;
+            this.nudDonGia.ThousandsSeparator = true;
+            // 
+            // txtLoaiPhong
+            // 
+            this.txtLoaiPhong.Location = new System.Drawing.Point(154, 47);
+            this.txtLoaiPhong.Name = "txtLoaiPhong";
+            this.txtLoaiPhong.Size = new System.Drawing.Size(187, 23);
+            this.txtLoaiPhong.TabIndex = 14;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -254,66 +317,6 @@
             this.chkDisabled.TabIndex = 10;
             this.chkDisabled.Text = "Disabled";
             this.chkDisabled.UseVisualStyleBackColor = true;
-            // 
-            // txtLoaiPhong
-            // 
-            this.txtLoaiPhong.Location = new System.Drawing.Point(154, 47);
-            this.txtLoaiPhong.Name = "txtLoaiPhong";
-            this.txtLoaiPhong.Size = new System.Drawing.Size(187, 23);
-            this.txtLoaiPhong.TabIndex = 14;
-            // 
-            // nudDonGia
-            // 
-            this.nudDonGia.Location = new System.Drawing.Point(470, 47);
-            this.nudDonGia.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nudDonGia.Name = "nudDonGia";
-            this.nudDonGia.Size = new System.Drawing.Size(120, 23);
-            this.nudDonGia.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(396, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Đơn giá";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 16);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Số người";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(382, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Số giường";
-            // 
-            // nudSoNguoi
-            // 
-            this.nudSoNguoi.Location = new System.Drawing.Point(154, 85);
-            this.nudSoNguoi.Name = "nudSoNguoi";
-            this.nudSoNguoi.Size = new System.Drawing.Size(120, 23);
-            this.nudSoNguoi.TabIndex = 19;
-            // 
-            // nudSoGiuong
-            // 
-            this.nudSoGiuong.Location = new System.Drawing.Point(470, 85);
-            this.nudSoGiuong.Name = "nudSoGiuong";
-            this.nudSoGiuong.Size = new System.Drawing.Size(120, 23);
-            this.nudSoGiuong.TabIndex = 20;
             // 
             // frmLoaiPhong
             // 
@@ -334,9 +337,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDonGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSoNguoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoGiuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoNguoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDonGia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

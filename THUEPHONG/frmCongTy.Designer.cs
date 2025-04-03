@@ -59,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -75,6 +76,7 @@
             this.btnSua,
             this.btnLuu,
             this.btnBoQua,
+            this.btnPrint,
             this.btnThoat});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -373,6 +375,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên";
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(29, 44);
+            this.btnPrint.Text = "In";
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmCongTy
             // 
             this.Appearance.Options.UseFont = true;
@@ -432,5 +444,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn DIACHI;
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripButton btnPrint;
     }
 }

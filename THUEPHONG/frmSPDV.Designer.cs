@@ -178,6 +178,8 @@
             // DONGIA
             // 
             this.DONGIA.Caption = "ĐƠN GIÁ";
+            this.DONGIA.DisplayFormat.FormatString = "n0";
+            this.DONGIA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.DONGIA.FieldName = "DONGIA";
             this.DONGIA.MaxWidth = 140;
             this.DONGIA.MinWidth = 120;
@@ -211,6 +213,7 @@
             this.nudDonGia.Name = "nudDonGia";
             this.nudDonGia.Size = new System.Drawing.Size(135, 23);
             this.nudDonGia.TabIndex = 17;
+            this.nudDonGia.ThousandsSeparator = true;
             // 
             // label1
             // 
