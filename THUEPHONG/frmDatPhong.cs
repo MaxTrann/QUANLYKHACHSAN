@@ -1,4 +1,7 @@
 ﻿using BusinessLayer;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
 using DataLayer;
 using DevExpress.Utils.Gesture;
 using DevExpress.XtraEditors;
@@ -326,9 +329,49 @@ namespace THUEPHONG
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            // Chưa triển khai
+            XuatReport("PHIEU_DATPHONG", "Phiếu đặt phòng chi tiết");
         }
+        private void XuatReport(string _rpName, string _rpTitle)
+        {
+            if (_idDP != 0)
+            {
+                Form frm = new Form();
+                CrystalReportViewer crv = new CrystalReportViewer();
+                crv.ShowGroupTreeButton = false;
+                crv.ShowParameterPanelButton = false;
+                crv.ToolPanelView = ToolPanelViewType.None;
+                TableLogOnInfo Thongtin;
+                ReportDocument doc = new ReportDocument();
+                doc.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\" + _rpName + ".rpt");
+                Thongtin = doc.Database.Tables[0].LogOnInfo;
+                Thongtin.ConnectionInfo.ServerName = myFunctions._srv;
+                Thongtin.ConnectionInfo.DatabaseName = myFunctions._db;
+                Thongtin.ConnectionInfo.UserID = myFunctions._us;
+                Thongtin.ConnectionInfo.Password = myFunctions._pw;
+                doc.Database.Tables[0].ApplyLogOnInfo(Thongtin);
+                try
+                {
+                    doc.SetParameterValue("@IDDP", _idDP.ToString());
 
+                    crv.Dock = DockStyle.Fill;
+                    crv.ReportSource = doc;
+                    crv.Refresh();
+                    frm.Controls.Add(crv);
+                    frm.Text = _rpTitle;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
