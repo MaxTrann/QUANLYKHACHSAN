@@ -98,32 +98,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tb_KhachHang">
-      <EntityTypeMapping TypeName="KHACHSAN.tb_KhachHang">
-        <MappingFragment StoreEntitySet="tb_KhachHang">
-          <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
-          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
-          <ScalarProperty Name="SDT" ColumnName="SDT" />
-          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
-          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
-          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tb_Phong">
-      <EntityTypeMapping TypeName="KHACHSAN.tb_Phong">
-        <MappingFragment StoreEntitySet="tb_Phong">
-          <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
-          <ScalarProperty Name="IDLOAIPHONG" ColumnName="IDLOAIPHONG" />
-          <ScalarProperty Name="IDTANG" ColumnName="IDTANG" />
-          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
-          <ScalarProperty Name="TENPHONG" ColumnName="TENPHONG" />
-          <ScalarProperty Name="IDPHONG" ColumnName="IDPHONG" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tb_SanPham">
       <EntityTypeMapping TypeName="KHACHSAN.tb_SanPham">
         <MappingFragment StoreEntitySet="tb_SanPham">
@@ -189,6 +163,33 @@
           <ScalarProperty Name="IDDPCT" ColumnName="IDDPCT" />
           <ScalarProperty Name="IDDP" ColumnName="IDDP" />
           <ScalarProperty Name="IDDPSP" ColumnName="IDDPSP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_KhachHang">
+      <EntityTypeMapping TypeName="KHACHSAN.tb_KhachHang">
+        <MappingFragment StoreEntitySet="tb_KhachHang">
+          <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Phong">
+      <EntityTypeMapping TypeName="KHACHSAN.tb_Phong">
+        <MappingFragment StoreEntitySet="tb_Phong">
+          <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+          <ScalarProperty Name="IDLOAIPHONG" ColumnName="IDLOAIPHONG" />
+          <ScalarProperty Name="IDTANG" ColumnName="IDTANG" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="TENPHONG" ColumnName="TENPHONG" />
+          <ScalarProperty Name="IDPHONG" ColumnName="IDPHONG" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

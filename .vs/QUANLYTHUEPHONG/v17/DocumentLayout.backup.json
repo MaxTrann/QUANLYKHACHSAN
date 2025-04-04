@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmdatphongdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmdatphongdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmdatphongdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmdatphongdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\businesslayer\\phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\myfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\myfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,62 +50,92 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmCongTy.cs [Design]",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs",
-              "RelativeDocumentMoniker": "THUEPHONG\\frmCongTy.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs [Design]",
-              "RelativeToolTip": "THUEPHONG\\frmCongTy.cs [Design]",
+              "DocumentIndex": 6,
+              "Title": "frmKhachHang.cs",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmKhachHang.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmKhachHang.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmKhachHang.cs",
+              "RelativeToolTip": "THUEPHONG\\frmKhachHang.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAqwKwAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T15:49:31.388Z"
+              "WhenOpened": "2025-04-04T14:59:30.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PHONG.cs",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\PHONG.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\PHONG.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\PHONG.cs",
+              "RelativeToolTip": "BusinessLayer\\PHONG.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAMwE8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:12:34.248Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "myFunctions.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\myFunctions.cs",
-              "RelativeDocumentMoniker": "THUEPHONG\\myFunctions.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\myFunctions.cs",
-              "RelativeToolTip": "THUEPHONG\\myFunctions.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAswDkAAAAAAAAAAAAAAA==",
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmMain.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmMain.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmMain.cs",
+              "RelativeToolTip": "THUEPHONG\\frmMain.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAcwOoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T15:49:19.563Z"
+              "WhenOpened": "2025-04-04T12:44:12.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmDatPhongDon.cs [Design]",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhongDon.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmDatPhongDon.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhongDon.cs [Design]*",
+              "RelativeToolTip": "THUEPHONG\\frmDatPhongDon.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T12:28:19.266Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "frmDatPhongDon.cs",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhongDon.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmDatPhongDon.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhongDon.cs*",
+              "RelativeToolTip": "THUEPHONG\\frmDatPhongDon.cs*",
+              "ViewState": "AgIAAFEAAAAAAAAAAIAxwGMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T12:30:26.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "frmDatPhong.cs",
               "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhong.cs",
               "RelativeDocumentMoniker": "THUEPHONG\\frmDatPhong.cs",
               "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhong.cs",
               "RelativeToolTip": "THUEPHONG\\frmDatPhong.cs",
-              "ViewState": "AgIAAE8BAAAAAAAAAAAAAFgBAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAADwvyEBAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-03T15:49:11.073Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "frmDatPhong.cs [Design]",
               "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhong.cs",
               "RelativeDocumentMoniker": "THUEPHONG\\frmDatPhong.cs",
               "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhong.cs [Design]",
               "RelativeToolTip": "THUEPHONG\\frmDatPhong.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T15:49:07.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmCongTy.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs",
-              "RelativeDocumentMoniker": "THUEPHONG\\frmCongTy.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs",
-              "RelativeToolTip": "THUEPHONG\\frmCongTy.cs",
-              "ViewState": "AgIAALAAAAAAAAAAAAAAAMsAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T15:49:39.587Z"
+              "WhenOpened": "2025-04-03T15:49:07.429Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

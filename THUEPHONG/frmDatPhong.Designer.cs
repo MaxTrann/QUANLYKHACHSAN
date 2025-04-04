@@ -756,7 +756,7 @@
             0,
             0,
             0});
-            this.spSoNguoi.Location = new System.Drawing.Point(139, 80);
+            this.spSoNguoi.Location = new System.Drawing.Point(162, 80);
             this.spSoNguoi.Name = "spSoNguoi";
             this.spSoNguoi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -766,7 +766,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(69, 84);
+            this.label9.Location = new System.Drawing.Point(92, 84);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 16);
             this.label9.TabIndex = 19;
@@ -777,7 +777,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(535, 16);
+            this.label8.Location = new System.Drawing.Point(558, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 21);
             this.label8.TabIndex = 18;
@@ -787,7 +787,7 @@
             // 
             this.btnAddNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNew.ImageOptions.Image")));
             this.btnAddNew.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAddNew.Location = new System.Drawing.Point(487, 12);
+            this.btnAddNew.Location = new System.Drawing.Point(510, 12);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(28, 30);
             this.btnAddNew.TabIndex = 17;
@@ -795,7 +795,7 @@
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Location = new System.Drawing.Point(139, 111);
+            this.txtGhiChu.Location = new System.Drawing.Point(162, 111);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(376, 23);
             this.txtGhiChu.TabIndex = 16;
@@ -803,7 +803,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 114);
+            this.label7.Location = new System.Drawing.Point(101, 114);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 16);
             this.label7.TabIndex = 15;
@@ -812,7 +812,7 @@
             // chkDoan
             // 
             this.chkDoan.AutoSize = true;
-            this.chkDoan.Location = new System.Drawing.Point(391, 140);
+            this.chkDoan.Location = new System.Drawing.Point(459, 136);
             this.chkDoan.Name = "chkDoan";
             this.chkDoan.Size = new System.Drawing.Size(90, 20);
             this.chkDoan.TabIndex = 14;
@@ -823,7 +823,7 @@
             // cboTrangThai
             // 
             this.cboTrangThai.FormattingEnabled = true;
-            this.cboTrangThai.Location = new System.Drawing.Point(366, 80);
+            this.cboTrangThai.Location = new System.Drawing.Point(389, 80);
             this.cboTrangThai.Name = "cboTrangThai";
             this.cboTrangThai.Size = new System.Drawing.Size(149, 24);
             this.cboTrangThai.TabIndex = 13;
@@ -831,7 +831,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(294, 84);
+            this.label6.Location = new System.Drawing.Point(317, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 16);
             this.label6.TabIndex = 12;
@@ -841,7 +841,7 @@
             // 
             this.dtNgayTra.CustomFormat = "dd/MM/yyyy";
             this.dtNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgayTra.Location = new System.Drawing.Point(366, 47);
+            this.dtNgayTra.Location = new System.Drawing.Point(389, 47);
             this.dtNgayTra.Name = "dtNgayTra";
             this.dtNgayTra.Size = new System.Drawing.Size(149, 23);
             this.dtNgayTra.TabIndex = 11;
@@ -849,7 +849,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(305, 50);
+            this.label2.Location = new System.Drawing.Point(328, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 10;
@@ -859,7 +859,7 @@
             // 
             this.dtNgayDat.CustomFormat = "dd/MM/yyyy";
             this.dtNgayDat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgayDat.Location = new System.Drawing.Point(139, 47);
+            this.dtNgayDat.Location = new System.Drawing.Point(162, 47);
             this.dtNgayDat.Name = "dtNgayDat";
             this.dtNgayDat.Size = new System.Drawing.Size(149, 23);
             this.dtNgayDat.TabIndex = 9;
@@ -867,7 +867,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 50);
+            this.label5.Location = new System.Drawing.Point(93, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 16);
             this.label5.TabIndex = 8;
@@ -876,7 +876,7 @@
             // cboKhachHang
             // 
             this.cboKhachHang.FormattingEnabled = true;
-            this.cboKhachHang.Location = new System.Drawing.Point(139, 15);
+            this.cboKhachHang.Location = new System.Drawing.Point(162, 15);
             this.cboKhachHang.Name = "cboKhachHang";
             this.cboKhachHang.Size = new System.Drawing.Size(342, 24);
             this.cboKhachHang.TabIndex = 1;
@@ -884,7 +884,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 19);
+            this.label1.Location = new System.Drawing.Point(77, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 0;

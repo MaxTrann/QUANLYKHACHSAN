@@ -32,13 +32,13 @@ namespace DataLayer
         public virtual DbSet<tb_Tang> tb_Tang { get; set; }
         public virtual DbSet<tb_DatPhong> tb_DatPhong { get; set; }
         public virtual DbSet<tb_LoaiPhong> tb_LoaiPhong { get; set; }
-        public virtual DbSet<tb_KhachHang> tb_KhachHang { get; set; }
-        public virtual DbSet<tb_Phong> tb_Phong { get; set; }
         public virtual DbSet<tb_SanPham> tb_SanPham { get; set; }
         public virtual DbSet<tb_ThietBi> tb_ThietBi { get; set; }
         public virtual DbSet<tb_Phong_ThietBi> tb_Phong_ThietBi { get; set; }
         public virtual DbSet<tb_DatPhong_CT> tb_DatPhong_CT { get; set; }
         public virtual DbSet<tb_Param> tb_Param { get; set; }
         public virtual DbSet<tb_DatPhong_SanPham> tb_DatPhong_SanPham { get; set; }
+        public virtual DbSet<tb_KhachHang> tb_KhachHang { get; set; }
+        public virtual DbSet<tb_Phong> tb_Phong { get; set; }
     }
 }

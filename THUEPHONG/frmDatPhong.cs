@@ -81,6 +81,7 @@ namespace THUEPHONG
 
             gvPhong.ExpandAllGroups();
             tabDanhDanh.SelectedTabPage = pageDanhSach;
+
         }
 
         void loadDanhSach()

@@ -96,6 +96,7 @@
     <Property Name="GIOITINH" Type="bit" />
     <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="500" />
+    <Property Name="CREATED_DATE" Type="datetime" />
     <Property Name="DISABLED" Type="bit" />
   </EntityType>
   <EntityType Name="tb_LoaiPhong">

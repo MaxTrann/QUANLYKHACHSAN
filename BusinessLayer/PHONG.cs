@@ -97,5 +97,26 @@ namespace BusinessLayer
             }
         }
 
+        // Trả về kiểu OBJ_PHONG thay vì tb_Phong
+        public OBJ_PHONG getItemFull(int idPhong)
+        {
+            var result = (from p in db.tb_Phong
+                          join lp in db.tb_LoaiPhong on p.IDLOAIPHONG equals lp.IDLOAIPHONG
+                          where p.IDPHONG == idPhong
+                          select new OBJ_PHONG
+                          {
+                              IDPHONG = p.IDPHONG,
+                              TENPHONG = p.TENPHONG,
+                              TRANGTHAI = p.TRANGTHAI,
+                              IDTANG = p.IDTANG,
+                              IDLOAIPHONG = p.IDLOAIPHONG,
+                              DISABLED = p.DISABLED,
+                              DONGIA = lp.DONGIA // <-- lấy từ bảng LoaiPhong
+                          }).FirstOrDefault();
+
+            return result;
+        }
+
+
     }
 }

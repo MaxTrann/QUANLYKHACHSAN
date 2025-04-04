@@ -21,8 +21,10 @@ namespace THUEPHONG
         }
         KHACHHANG _khachhang;
         frmDatPhong objDP = (frmDatPhong) Application.OpenForms["frmDatPhong"]; // truy cập một form đang mở từ một form khác
+        frmDatPhongDon objDPDon = (frmDatPhongDon)Application.OpenForms["frmDatPhongDon"]; // truy cập một form đang mở từ một form khác
         bool _them;
         int _makh;
+        public string kh_dp;
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             _khachhang = new KHACHHANG();
@@ -170,8 +172,16 @@ namespace THUEPHONG
         {
             if (gvDanhSach.GetFocusedRowCellValue("IDKH") != null)
             {
-                objDP.loadKH();
-                objDP.setKhachHang(int.Parse(gvDanhSach.GetFocusedRowCellValue("IDKH").ToString()));
+                if (kh_dp == "datphongdon")
+                {
+                    objDPDon.loadKH();
+                    objDPDon.setKH(int.Parse(gvDanhSach.GetFocusedRowCellValue("IDKH").ToString()));
+                }
+                else
+                {
+                    objDP.loadKH();
+                    objDP.setKhachHang(int.Parse(gvDanhSach.GetFocusedRowCellValue("IDKH").ToString()));
+                }
                 this.Close();
             }
         }

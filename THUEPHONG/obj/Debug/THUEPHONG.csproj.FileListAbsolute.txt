@@ -225,3 +225,4 @@ D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\bin\
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\bin\Debug\stdole.dll
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmDatPhongDon.resources

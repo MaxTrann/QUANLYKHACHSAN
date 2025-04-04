@@ -52,6 +52,8 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.imageList4 = new System.Windows.Forms.ImageList(this.components);
+            this.btnChuyenPhong = new DevExpress.XtraBars.BarButtonItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -195,6 +197,7 @@
             this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDatPhong),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSPDV),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChuyenPhong),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnThanhToan)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
@@ -204,6 +207,8 @@
             // 
             this.btnDatPhong.Caption = "Đặt phòng";
             this.btnDatPhong.Id = 0;
+            this.btnDatPhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDatPhong.ImageOptions.Image")));
+            this.btnDatPhong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDatPhong.ImageOptions.LargeImage")));
             this.btnDatPhong.Name = "btnDatPhong";
             this.btnDatPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatPhong_ItemClick);
             // 
@@ -211,13 +216,19 @@
             // 
             this.btnSPDV.Caption = "Cập nhật Sản phẩm - Dịch vụ";
             this.btnSPDV.Id = 1;
+            this.btnSPDV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSPDV.ImageOptions.Image")));
+            this.btnSPDV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSPDV.ImageOptions.LargeImage")));
             this.btnSPDV.Name = "btnSPDV";
+            this.btnSPDV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSPDV_ItemClick);
             // 
             // btnThanhToan
             // 
             this.btnThanhToan.Caption = "Thanh toán";
             this.btnThanhToan.Id = 2;
+            this.btnThanhToan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThanhToan.ImageOptions.Image")));
+            this.btnThanhToan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThanhToan.ImageOptions.LargeImage")));
             this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThanhToan_ItemClick);
             // 
             // barManager1
             // 
@@ -226,11 +237,13 @@
             this.barManager1.DockControls.Add(this.barDockControlLeft);
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
+            this.barManager1.Images = this.imageList4;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnDatPhong,
             this.btnSPDV,
-            this.btnThanhToan});
-            this.barManager1.MaxItemId = 3;
+            this.btnThanhToan,
+            this.btnChuyenPhong});
+            this.barManager1.MaxItemId = 4;
             // 
             // barDockControlTop
             // 
@@ -263,6 +276,23 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1349, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 765);
+            // 
+            // imageList4
+            // 
+            this.imageList4.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList4.ImageStream")));
+            this.imageList4.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList4.Images.SetKeyName(0, "tag_icon.png");
+            this.imageList4.Images.SetKeyName(1, "change_icon.png");
+            this.imageList4.Images.SetKeyName(2, "payment_icon.png");
+            // 
+            // btnChuyenPhong
+            // 
+            this.btnChuyenPhong.Caption = "Chuyển phòng";
+            this.btnChuyenPhong.Id = 3;
+            this.btnChuyenPhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenPhong.ImageOptions.Image")));
+            this.btnChuyenPhong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenPhong.ImageOptions.LargeImage")));
+            this.btnChuyenPhong.Name = "btnChuyenPhong";
+            this.btnChuyenPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenPhong_ItemClick);
             // 
             // frmMain
             // 
@@ -321,5 +351,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         public DevExpress.XtraBars.Ribbon.GalleryControl gControl;
+        private System.Windows.Forms.ImageList imageList4;
+        private DevExpress.XtraBars.BarButtonItem btnChuyenPhong;
     }
 }

@@ -194,14 +194,42 @@ namespace THUEPHONG
             Point point = gControl.PointToClient(Control.MousePosition);
             RibbonHitInfo hitInfo = gControl.CalcHitInfo(point);
             if (hitInfo.InGalleryItem || hitInfo.HitTest == RibbonHitTest.GalleryImage)
-                item = hitInfo.GalleryItem;
+                item = hitInfo.GalleryItem;            
         }
 
         private void btnDatPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var gc_item = new GalleryItem();
-            string id = item.Value.ToString();
-            MessageBox.Show(id);
+            frmDatPhongDon frm = new frmDatPhongDon();
+            frm._idPhong = int.Parse(item.Value.ToString());
+            frm._them = true;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                showRoom(); // phương thức reload lại danh sách phòng, đổi màu theo trạng thái
+            }
+        }
+
+        private void btnChuyenPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDatPhongDon frm = new frmDatPhongDon();
+            frm._idPhong = int.Parse(item.Value.ToString());
+            frm._them = false;
+            frm.ShowDialog();
+        }
+
+        private void btnSPDV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDatPhongDon frm = new frmDatPhongDon();
+            frm._idPhong = int.Parse(item.Value.ToString());
+            frm._them = false;
+            frm.ShowDialog();
+        }
+
+        private void btnThanhToan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDatPhongDon frm = new frmDatPhongDon();
+            frm._idPhong = int.Parse(item.Value.ToString());
+            frm._them = false;
+            frm.ShowDialog();
         }
     }
 }
