@@ -68,7 +68,19 @@ namespace BusinessLayer
                 throw new Exception("Lỗi khi thêm đơn đặt phòng: " + ex.Message);
             }
         }
-
+        public void updateStatus(int idDP)
+        {
+            var _dp = db.tb_DatPhong.FirstOrDefault(x => x.IDDP == idDP);
+            _dp.STATUS = true;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi cập nhật trạng thái đặt phòng: " + ex.Message);
+            }
+        }
         // Cập nhật
         public tb_DatPhong update(tb_DatPhong dp)
         {
@@ -127,5 +139,6 @@ namespace BusinessLayer
                 throw new Exception("Không tìm thấy đơn đặt phòng cần xóa.");
             }
         }
+        
     }
 }

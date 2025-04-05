@@ -375,8 +375,7 @@
             // 
             // searchKH
             // 
-            this.searchKH.EditValue = "";
-            this.searchKH.Location = new System.Drawing.Point(198, 77);
+            this.searchKH.Location = new System.Drawing.Point(198, 78);
             this.searchKH.Name = "searchKH";
             this.searchKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});

@@ -22,15 +22,22 @@ namespace BusinessLayer
 
 
         // Lấy 1 dòng theo IDDPCT
-        public tb_DatPhong_CT getItem(int id)
+        public tb_DatPhong_CT getItem(int idDPCT)
         {
-            return db.tb_DatPhong_CT.FirstOrDefault(x => x.IDDPCT == id);
+            return db.tb_DatPhong_CT.FirstOrDefault(x => x.IDDPCT == idDPCT);
         }
-
+        public tb_DatPhong_CT getItem(int idDP, int idPhong )
+        {
+            return db.tb_DatPhong_CT.FirstOrDefault(x => x.IDDP == idDP && x.IDPHONG == idPhong);
+        }
         // Lấy tất cả chi tiết theo ID đơn đặt phòng
         public List<tb_DatPhong_CT> getAllByDatPhong(int id)
         {
             return db.tb_DatPhong_CT.Where(x => x.IDDP == id).ToList();
+        }
+        public tb_DatPhong_CT getIDDPByPhong(int idPhong)
+        {
+            return db.tb_DatPhong_CT.OrderByDescending(x => x.NGAY).FirstOrDefault(x => x.IDPHONG == idPhong);
         }
 
         // Thêm mới
@@ -98,6 +105,7 @@ namespace BusinessLayer
             }
 
         }
+
 
 
     }

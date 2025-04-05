@@ -36,6 +36,9 @@ namespace THUEPHONG
         string _macty;
         string _madvi;
         List<OBJ_DPSP> lstDPSP;
+        double _tongtien = 0;
+
+        frmMain objMain = (frmMain)Application.OpenForms["frmMain"];
         private void frmDatPhongDon_Load(object sender, EventArgs e)
         {
             _datphong = new DATPHONG();
@@ -64,9 +67,30 @@ namespace THUEPHONG
             loadKH();
             loadSP();
 
-            searchKH.EditValue = 1;
+            var dpct = _datphongct.getIDDPByPhong(_idPhong);
+            if (!_them && dpct != null)
+            {
+                _idDP = (int) dpct.IDDP;
+                var dp = _datphong.getItem(_idDP);
+                searchKH.EditValue = dp.IDKH;
+                dtNgayDat.Value = dp.NGAYDATPHONG.Value;
+                dtNgayTra.Value = DateTime.Now;
+                cboTrangThai.SelectedValue = dp.STATUS;
+                spSoNguoi.Text = dp.SONGUOIO.ToString();
+                txtGhiChu.Text = dp.GHICHU.ToString();
+                txtThanhTien.Text = dp.SOTIEN.Value.ToString("N0");
+
+            }
+            loadSPDV();
+
+            
         }
-        void loadSP ()
+        void loadSPDV()
+        {
+            gcSPDV.DataSource = _datphongsp.getAllByDatPhong(_idDP);
+            lstDPSP = _datphongsp.getAllByDatPhong(_idDP);
+        }
+        void loadSP()
         {
             gcSanPham.DataSource = _sanpham.getAll();
             gvSanPham.OptionsBehavior.Editable = false;
@@ -91,23 +115,40 @@ namespace THUEPHONG
                 return;
             }
             saveData();
+            _tongtien = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phong.getItemFull(_idPhong).DONGIA.Value * Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1));
+            var dp = _datphong.getItem(_idDP);
+            dp.SOTIEN = _tongtien;
+            _datphong.update(dp);
             MessageBox.Show("Lưu thành công! Bạn có thể tiếp tục in hoặc đóng form.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            
             if (_idDP == 0)
             {
                 MessageBox.Show("Vui lòng lưu phiếu đặt phòng trước khi in!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (!_them)
+            {
+                saveData();
+                _tongtien = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phong.getItemFull(_idPhong).DONGIA.Value * Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1));
+                var dp = _datphong.getItem(_idDP);
+                dp.SOTIEN = _tongtien;
+                _datphong.update(dp);
+                _datphong.updateStatus(_idDP);
+                _phong.updateStatus(_idPhong, false);
+                XuatReport("PHIEU_DATPHONG_DON", "Phiếu đặt phòng chi tiết");
+                cboTrangThai.SelectedValue = true;
+                objMain.gControl.Gallery.Groups.Clear();
+                objMain.showRoom();
+            }
 
-            XuatReport("PHIEU_DATPHONG_DON", "Phiếu đặt phòng chi tiết");
-
-            // sau khi in xong thì mới set OK để frmMain cập nhật
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            //// sau khi in xong thì mới set OK để frmMain cập nhật
+            //this.DialogResult = DialogResult.OK;
+            
         }
         private void XuatReport(string _rpName, string _rpTitle)
         {
@@ -173,19 +214,16 @@ namespace THUEPHONG
 
         private void gvSanPham_DoubleClick(object sender, EventArgs e)
         {
-
-        }
-
-        private void gcSanPham_DoubleClick(object sender, EventArgs e)
-        {
-            
-
             if (_idPhong == 0)
             {
                 MessageBox.Show("Phòng hiện tại không hợp lệ. Vui lòng chọn lại phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
+            if (bool.Parse(cboTrangThai.SelectedValue.ToString()) == true)
+            {
+                MessageBox.Show("Phiếu đã hoàn tất không được chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (gvSanPham.GetFocusedRowCellValue("IDSP") != null)
             {
                 OBJ_DPSP sp = new OBJ_DPSP();
@@ -214,8 +252,12 @@ namespace THUEPHONG
                 }
             }
             loadDPSP();
-            txtThanhTien.Text = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phongHienTai.DONGIA.Value).ToString("N0");
+            txtThanhTien.Text = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phongHienTai.DONGIA.Value * Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1)).ToString("N0");
 
+        }
+
+        private void gcSanPham_DoubleClick(object sender, EventArgs e)
+        {
 
         }
         void loadDPSP()
@@ -227,6 +269,11 @@ namespace THUEPHONG
 
         private void gvSPDV_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+            if (bool.Parse(cboTrangThai.SelectedValue.ToString()) == true)
+            {
+                MessageBox.Show("Phiếu đã hoàn tất không được chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (e.Column.FieldName == "SOLUONG")
             {
                 int sl = int.Parse(e.Value.ToString());
@@ -241,7 +288,8 @@ namespace THUEPHONG
                 }
             }
             gvSPDV.UpdateTotalSummary();
-            txtThanhTien.Text = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phongHienTai.DONGIA.Value).ToString("N0");
+            txtThanhTien.Text = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phongHienTai.DONGIA.Value * Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1)).ToString("N0");
+
 
 
         }
@@ -305,7 +353,7 @@ namespace THUEPHONG
                         }
                     }
                 }
-                
+
             }
             else // Chế độ chỉnh sửa
             {

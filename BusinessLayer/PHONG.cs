@@ -117,6 +117,37 @@ namespace BusinessLayer
             return result;
         }
 
+        public bool checkEmpty(int idPhong)
+        {
+            var p = db.tb_Phong.FirstOrDefault(x => x.IDPHONG == idPhong);
+            if (p.TRANGTHAI == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        // Lấy danh sách các phòng trống kèm đầy đủ thông tin
+        public List<OBJ_PHONG> getPhongTrongFull()
+        {
+            var result = (from p in db.tb_Phong
+                          join lp in db.tb_LoaiPhong on p.IDLOAIPHONG equals lp.IDLOAIPHONG
+                          where p.TRANGTHAI == false && p.DISABLED == false
+                          select new OBJ_PHONG
+                          {
+                              IDPHONG = p.IDPHONG,
+                              TENPHONG = p.TENPHONG,
+                              TRANGTHAI = p.TRANGTHAI,
+                              IDTANG = p.IDTANG,
+                              IDLOAIPHONG = p.IDLOAIPHONG,
+                              DISABLED = p.DISABLED,
+                              DONGIA = lp.DONGIA
+                          }).ToList();
+
+            return result;
+        }
 
     }
 }

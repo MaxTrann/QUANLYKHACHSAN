@@ -41,6 +41,11 @@ namespace BusinessLayer
             }
             return lstDPSP;
         }
+        public List<tb_DatPhong_SanPham> getAllByPhong(int idDP, int idDPCT)
+        {
+            return db.tb_DatPhong_SanPham.Where(x => x.IDDP == idDP && x.IDDPCT == idDPCT).ToList();
+            
+        }
         // Lấy danh sách sản phẩm theo ID đơn đặt phòng
         public List<tb_DatPhong_SanPham> getByIDDP(int idDP)
         {
@@ -60,7 +65,24 @@ namespace BusinessLayer
                 throw new Exception("Lỗi khi thêm sản phẩm vào đơn đặt phòng: " + ex.Message);
             }
         }
-
+        public void update(tb_DatPhong_SanPham dpsp)
+        {
+            tb_DatPhong_SanPham sp = db.tb_DatPhong_SanPham.FirstOrDefault(x => x.IDDPSP == dpsp.IDDPSP);
+            sp.IDDP = dpsp.IDDP;
+            sp.IDPHONG = dpsp.IDPHONG;  
+            sp.SOLUONG = dpsp.SOLUONG;
+            sp.NGAY = dpsp.NGAY;
+            sp.DONGIA = dpsp.DONGIA;
+            dpsp.THANHTIEN = dpsp.THANHTIEN;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi cập nhật sản phẩm vào đơn đặt phòng: " + ex.Message);
+            }
+        }
         // Xóa tất cả sản phẩm theo ID đơn đặt phòng (nếu muốn xử lý cập nhật lại)
         public void deleteAll(int idDP)
         {
@@ -90,6 +112,8 @@ namespace BusinessLayer
             }
 
         }
+
+
 
     }
 }

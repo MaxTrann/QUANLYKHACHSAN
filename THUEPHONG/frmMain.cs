@@ -199,6 +199,11 @@ namespace THUEPHONG
 
         private void btnDatPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (_phong.checkEmpty(int.Parse(item.Value.ToString())))
+            {
+                MessageBox.Show("Phòng đã được đặt. Vui lòng chọn phòng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmDatPhongDon frm = new frmDatPhongDon();
             frm._idPhong = int.Parse(item.Value.ToString());
             frm._them = true;
@@ -210,14 +215,23 @@ namespace THUEPHONG
 
         private void btnChuyenPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmDatPhongDon frm = new frmDatPhongDon();
+            if (!_phong.checkEmpty(int.Parse(item.Value.ToString())))
+            {
+                MessageBox.Show("Phòng chưa đặt không được phép chuyển. Vui lòng chọn phòng đã đặt.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            frmChuyenPhong frm = new frmChuyenPhong();
             frm._idPhong = int.Parse(item.Value.ToString());
-            frm._them = false;
             frm.ShowDialog();
         }
 
         private void btnSPDV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!_phong.checkEmpty(int.Parse(item.Value.ToString())))
+            {
+                MessageBox.Show("Phòng chưa được đặt nên không cập nhật Sản phẩm - dịch vụ được. Vui lòng chọn phòng đã đặt.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmDatPhongDon frm = new frmDatPhongDon();
             frm._idPhong = int.Parse(item.Value.ToString());
             frm._them = false;
@@ -226,6 +240,11 @@ namespace THUEPHONG
 
         private void btnThanhToan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!_phong.checkEmpty(int.Parse(item.Value.ToString())))
+            {
+                MessageBox.Show("Phòng chưa được đặt nên không thể thanh toán. Vui lòng chọn phòng đã đặt.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmDatPhongDon frm = new frmDatPhongDon();
             frm._idPhong = int.Parse(item.Value.ToString());
             frm._them = false;
