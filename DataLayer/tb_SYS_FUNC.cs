@@ -12,15 +12,14 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_Users
+    public partial class tb_SYS_FUNC
     {
-        public int UID { get; set; }
-        public string FULLNAME { get; set; }
-        public string USERNAME { get; set; }
-        public string PASSWORD { get; set; }
-        public string MACTY { get; set; }
-        public string MADVI { get; set; }
+        public string FUNC_CODE { get; set; }
+        public int SORT { get; set; }
+        public string DESCRIPTION { get; set; }
         public Nullable<bool> ISGROUP { get; set; }
-        public Nullable<bool> DISABLED { get; set; }
+        public string PARENT { get; set; }
+        public Nullable<bool> MENU { get; set; }
+        public string TIPS { get; set; }
     }
 }

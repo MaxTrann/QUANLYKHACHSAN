@@ -71,10 +71,16 @@ namespace THUEPHONG
             if (!_them && dpct != null)
             {
                 _idDP = (int) dpct.IDDP;
+                _tongtien = TinhTongTien();
+                txtThanhTien.Text = _tongtien.ToString("N0");
                 var dp = _datphong.getItem(_idDP);
                 searchKH.EditValue = dp.IDKH;
                 dtNgayDat.Value = dp.NGAYDATPHONG.Value;
-                dtNgayTra.Value = DateTime.Now;
+                
+                if (dp.NGAYDATPHONG.Value.ToShortDateString() == DateTime.Now.ToShortDateString())
+                    dtNgayTra.Value = dp.NGAYDATPHONG.Value.AddDays(1);
+                else
+                    dtNgayTra.Value = DateTime.Now;
                 cboTrangThai.SelectedValue = dp.STATUS;
                 spSoNguoi.Text = dp.SONGUOIO.ToString();
                 txtGhiChu.Text = dp.GHICHU.ToString();
@@ -83,7 +89,31 @@ namespace THUEPHONG
             }
             loadSPDV();
 
-            
+            dtNgayDat.ValueChanged += dtNgay_ValueChanged;
+            dtNgayTra.ValueChanged += dtNgay_ValueChanged;
+
+            TongTienCapNhat(); // Gọi lại hàm tính tổng tiền sau khi load xong
+
+        }
+        void TongTienCapNhat()
+        {
+            int soNgayO = Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1);
+            double tongDV = 0;
+            double.TryParse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue?.ToString(), out tongDV);
+
+            _tongtien = tongDV + _phongHienTai.DONGIA.Value * soNgayO;
+            txtThanhTien.Text = _tongtien.ToString("N0");
+        }
+
+        private void dtNgay_ValueChanged(object sender, EventArgs e)
+        {
+            // Tính và cập nhật lại tổng tiền
+            double tongDV = 0;
+            double.TryParse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue?.ToString(), out tongDV);
+            int soNgayO = Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1);
+            double tongTien = tongDV + _phongHienTai.DONGIA.Value * soNgayO;
+
+            txtThanhTien.Text = tongTien.ToString("N0");
         }
         void loadSPDV()
         {
@@ -107,6 +137,14 @@ namespace THUEPHONG
         {
             searchKH.EditValue = idKH;
         }
+        private double TinhTongTien()
+        {
+            double tongDV = 0;
+            double.TryParse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue?.ToString(), out tongDV);
+            int soNgayO = Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1);
+            return tongDV + _phongHienTai.DONGIA.Value * soNgayO;
+        }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (searchKH.EditValue == null || searchKH.EditValue.ToString() == "")
@@ -115,10 +153,12 @@ namespace THUEPHONG
                 return;
             }
             saveData();
-            _tongtien = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phong.getItemFull(_idPhong).DONGIA.Value * Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1));
+            _tongtien = TinhTongTien();
             var dp = _datphong.getItem(_idDP);
             dp.SOTIEN = _tongtien;
             _datphong.update(dp);
+            // Sau khi lưu thì chuyển trạng thái về chế độ sửa
+            _them = false;
             MessageBox.Show("Lưu thành công! Bạn có thể tiếp tục in hoặc đóng form.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -134,7 +174,7 @@ namespace THUEPHONG
             if (!_them)
             {
                 saveData();
-                _tongtien = (double.Parse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString()) + _phong.getItemFull(_idPhong).DONGIA.Value * Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1));
+                _tongtien = TinhTongTien();
                 var dp = _datphong.getItem(_idDP);
                 dp.SOTIEN = _tongtien;
                 _datphong.update(dp);

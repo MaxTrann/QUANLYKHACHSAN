@@ -1,4 +1,4 @@
-﻿using BusinessLayer;
+﻿ using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
 using System;
@@ -101,7 +101,7 @@ namespace THUEPHONG
         }
 
         private void btnThem_Click(object sender, EventArgs e)
-        {
+        { 
             _them = true;
             showHideControl(false);
             _enabled(true);
@@ -126,23 +126,38 @@ namespace THUEPHONG
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            int idPhong = Convert.ToInt32(cboPhong.SelectedValue);
+            int idTB = Convert.ToInt32(cboThietBi.SelectedValue);
+            int soLuong = Convert.ToInt32(nudSoLuong.Value);
+
             if (_them)
             {
-                tb_Phong_ThietBi ptb = new tb_Phong_ThietBi();
-                ptb.IDPHONG = Convert.ToInt32(cboPhong.SelectedValue);
-                ptb.IDTB = Convert.ToInt32(cboThietBi.SelectedValue);
-                ptb.SOLUONG = Convert.ToInt32(nudSoLuong.Value);
+                // Kiểm tra trùng trước khi thêm
+                var existing = _ptb.getItem(idPhong, idTB);
+                if (existing != null)
+                {
+                    MessageBox.Show("Thiết bị này đã tồn tại trong phòng!\nBạn có thể nhấn 'Sửa' để thay đổi số lượng.",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                tb_Phong_ThietBi ptb = new tb_Phong_ThietBi
+                {
+                    IDPHONG = idPhong,
+                    IDTB = idTB,
+                    SOLUONG = soLuong
+                };
                 _ptb.add(ptb);
             }
             else
             {
-                // Sửa
+                // Sửa thiết bị
                 tb_Phong_ThietBi ptb = _ptb.getItem(_idPhong, _idTB);
                 if (ptb != null)
                 {
-                    ptb.IDPHONG = Convert.ToInt32(cboPhong.SelectedValue);
-                    ptb.IDTB = Convert.ToInt32(cboThietBi.SelectedValue);
-                    ptb.SOLUONG = Convert.ToInt32(nudSoLuong.Value);
+                    ptb.IDPHONG = idPhong;
+                    ptb.IDTB = idTB;
+                    ptb.SOLUONG = soLuong;
                     _ptb.update(ptb);
                 }
             }

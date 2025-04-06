@@ -38,6 +38,7 @@ namespace THUEPHONG
         string _madvi;
         int _idDP = 0;
         int _rowDatPhong = 0;
+        double _tongtien = 0;
 
         List<OBJ_DPSP> lstDPSP;
         SYS_PARAM _param;
@@ -78,10 +79,19 @@ namespace THUEPHONG
 
             showHideControl(true);
             _enabled(false);
-
+             
             gvPhong.ExpandAllGroups();
             tabDanhDanh.SelectedTabPage = pageDanhSach;
 
+            dtNgayDat.ValueChanged += dtNgay_ValueChanged;
+            dtNgayTra.ValueChanged += dtNgay_ValueChanged;
+
+
+        }
+        private void dtNgay_ValueChanged(object sender, EventArgs e)
+        {
+
+            updateTongTien();
         }
 
         void loadDanhSach()
@@ -131,6 +141,11 @@ namespace THUEPHONG
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (bool.Parse(cboTrangThai.SelectedValue.ToString()) == true)
+            {
+                MessageBox.Show("Phiếu đã hoàn tất không được chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             _them = false;
             _enabled(true);
             showHideControl(false);
@@ -167,15 +182,25 @@ namespace THUEPHONG
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            if (dtNgayTra.Value.Date <= dtNgayDat.Value.Date)
+            {
+                MessageBox.Show("Ngày trả phải sau ngày đặt ít nhất 1 ngày.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 saveData();
                 loadDanhSach(); // Làm mới danh sách
                 objMain.gControl.Gallery.Groups.Clear();
                 objMain.showRoom();
+
+                
+
                 _them = false;
                 _enabled(false);
                 showHideControl(true);
+
                 
             }
             catch (Exception ex)
@@ -330,7 +355,47 @@ namespace THUEPHONG
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            XuatReport("PHIEU_DATPHONG", "Phiếu đặt phòng chi tiết");
+            if (dtNgayTra.Value.Date <= dtNgayDat.Value.Date)
+            {
+                MessageBox.Show("Ngày trả phải sau ngày đặt ít nhất 1 ngày.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!_them)
+            {
+                saveData();
+                // Tính lại tiền
+                double tongDV = 0, tongPhong = 0;
+                int songayo = Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1);
+                if (gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue != null)
+                    double.TryParse(gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue.ToString(), out tongDV);
+
+                for (int i = 0; i < gvDatPhong.RowCount; i++)
+                {
+                    var donGia = gvDatPhong.GetRowCellValue(i, "DONGIA");
+                    if (donGia != null)
+                        tongPhong += Convert.ToDouble(donGia) * songayo;
+                }
+                _tongtien = tongPhong + tongDV;
+
+                var dp = _datphong.getItem(_idDP);
+                dp.SOTIEN = _tongtien;
+                _datphong.update(dp);
+                _datphong.updateStatus(_idDP);
+                for (int i = 0; i < gvDatPhong.RowCount; i++)
+                {
+                    var idPhong = gvDatPhong.GetRowCellValue(i, "IDPHONG");
+                    if (idPhong != null)
+                    {
+                        _phong.updateStatus(int.Parse(idPhong.ToString()), false);
+                    }
+                }
+
+                XuatReport("PHIEU_DATPHONG", "Phiếu đặt phòng chi tiết");
+                cboTrangThai.SelectedValue = true;
+                objMain.gControl.Gallery.Groups.Clear();
+                objMain.showRoom();
+            }
+            //XuatReport("PHIEU_DATPHONG", "Phiếu đặt phòng chi tiết");
         }
         private void XuatReport(string _rpName, string _rpTitle)
         {
@@ -1016,15 +1081,42 @@ namespace THUEPHONG
 
         void updateTongTien()
         {
-            double tongDV = 0, tongPhong = 0;
+            double tongDV = 0;
+            double tongPhong = 0;
+            int soNgayO = Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1);
 
+            // Tổng dịch vụ
             var dv = gvSPDV.Columns["THANHTIEN"].SummaryItem.SummaryValue;
-            var phong = gvDatPhong.Columns["DONGIA"].SummaryItem.SummaryValue;
+            if (dv != null)
+                double.TryParse(dv.ToString(), out tongDV);
 
-            if (dv != null) double.TryParse(dv.ToString(), out tongDV);
-            if (phong != null) double.TryParse(phong.ToString(), out tongPhong);
+            // Tổng tiền phòng (phải nhân số ngày ở)
+            for (int i = 0; i < gvDatPhong.RowCount; i++)
+            {
+                var gia = gvDatPhong.GetRowCellValue(i, "DONGIA");
+                if (gia != null)
+                {
+                    tongPhong += Convert.ToDouble(gia) * soNgayO;
+                }
+            }
 
             txtThanhTien.Text = (tongDV + tongPhong).ToString("N0");
+        }
+
+        private void gvDanhSach_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            if (e.Column.FieldName == "STATUS")
+            {
+                bool trangThai = Convert.ToBoolean(gvDanhSach.GetRowCellValue(e.RowHandle, "STATUS"));
+                if (trangThai)
+                {
+                    e.Appearance.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    e.Appearance.BackColor = Color.MistyRose;
+                }
+            }
         }
     }
 }

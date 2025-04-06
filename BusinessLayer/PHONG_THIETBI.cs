@@ -41,6 +41,12 @@ namespace BusinessLayer
 
         public void add(tb_Phong_ThietBi ptb)
         {
+            var existing = db.tb_Phong_ThietBi.FirstOrDefault(x => x.IDPHONG == ptb.IDPHONG && x.IDTB == ptb.IDTB);
+            if (existing != null)
+            {
+                throw new Exception("Thiết bị đã tồn tại trong phòng.");
+            }
+
             try
             {
                 db.tb_Phong_ThietBi.Add(ptb);
@@ -48,7 +54,7 @@ namespace BusinessLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu." + ex.Message);
+                throw new Exception("Có lỗi xảy ra khi lưu dữ liệu: " + ex.Message);
             }
         }
 

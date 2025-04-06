@@ -26,13 +26,13 @@ namespace THUEPHONG
 
         TANG _tang;
         PHONG _phong;
-        FUNC _func;
+        SYS_FUNC _func;
         GalleryItem item = null;
         private void frmMain_Load(object sender, EventArgs e)
         {
             _tang = new TANG();
             _phong = new PHONG();
-            _func = new FUNC();
+            _func = new SYS_FUNC();
             
             leftMenu();
             showRoom();

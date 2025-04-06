@@ -1,0 +1,22 @@
+Những bug chưa được fix:
+Tính tiền từ menuPopup, lỗi đang gặp ví dụ như đặt từ ngày 6 -> 10 thì txt đang tính tiền là 4 ngày ở điều này ok, nhưng đến ngày 7 chúng ta bấm thanh toán thì txtThanhtien sẽ sửa do tôi đã chỉnh thêm khi mà cái dt nó thay đổi sẽ tính lại tiền ngay lập tức. Thì câu hỏi đặt ra là ta vẫn tính ở 4 ngày hay 1 ngày.
+
+
+Những cái chưa ràng buộc:
+
+
+
+Những cái đã ràng buộc:
+- Khi đã nhấn in để thanh toán -> cboTrangThai = Đã hoàn tất -> sẽ ko thể nhấn sp đc ở đặt phòng đơn, ko nhấn được nút sửa ở frmDatPhong
+- Không cho thêm trùng ở phòng thiết bị -> Thông báo
+
+
+Những cái chỉnh sửa riêng:
+- Thuê phòng:
+
+
+- Quản lý người dùng:
+	- Thêm icon cho group
+	- Tắt chế độ Upper cho username ở frmUser
+
+Encryptor.Encrypt(user.PASSWORD, "qwert@123!poiuy", true);
