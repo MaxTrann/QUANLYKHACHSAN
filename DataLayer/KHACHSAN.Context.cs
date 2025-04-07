@@ -44,5 +44,7 @@ namespace DataLayer
         public virtual DbSet<tb_Tang> tb_Tang { get; set; }
         public virtual DbSet<tb_ThietBi> tb_ThietBi { get; set; }
         public virtual DbSet<tb_SYS_REPORT> tb_SYS_REPORT { get; set; }
+        public virtual DbSet<V_USER_NOTIN_GROUP> V_USER_NOTIN_GROUP { get; set; }
+        public virtual DbSet<V_USER_IN_GROUP> V_USER_IN_GROUP { get; set; }
     }
 }

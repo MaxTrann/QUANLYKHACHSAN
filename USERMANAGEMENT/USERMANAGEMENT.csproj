@@ -78,6 +78,18 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmShowGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowGroups.Designer.cs">
+      <DependentUpon>frmShowGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowMembers.Designer.cs">
+      <DependentUpon>frmShowMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowGroups.resx">
+      <DependentUpon>frmShowGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowMembers.resx">
+      <DependentUpon>frmShowMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>

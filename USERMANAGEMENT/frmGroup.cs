@@ -28,10 +28,12 @@ namespace USERMANAGEMENT
         public bool _them;
         SYS_USER _sysUser;
         tb_SYS_USER _user;
-
+        SYS_GROUP _sysGroup;
+        VIEW_USER_IN_GROUP _vUserInGroup;
         private void frmGroup_Load(object sender, EventArgs e)
         {
             _sysUser = new SYS_USER();
+            _sysGroup = new SYS_GROUP();
             if (!_them)
             {
                 var user = _sysUser.getItem(_idUser);
@@ -40,6 +42,7 @@ namespace USERMANAGEMENT
                 _madvi = user.MADVI;
                 txtMoTa.Text = user.FULLNAME;
                 txtTenNhom.ReadOnly = true;
+                loadUserInGroup(_idUser);
             }
             else
             {
@@ -49,7 +52,13 @@ namespace USERMANAGEMENT
             
 
         }
+        public void loadUserInGroup(int idGroup)
+        {
+            _vUserInGroup = new VIEW_USER_IN_GROUP();
+            gcThanhVien.DataSource = _vUserInGroup.getUserInGroup(_macty, _madvi, idGroup);
+            gvThanhVien.OptionsBehavior.Editable = false;
 
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (txtTenNhom.Text.Trim() == "")
@@ -97,6 +106,24 @@ namespace USERMANAGEMENT
                 _sysUser.update(_user);
             }
             objMain.loadUser(_macty, _madvi);
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            frmShowMembers frm = new frmShowMembers();
+            frm._idGroup = _idUser;
+            frm._macty = _macty;
+            frm._madvi = _madvi;
+            frm.ShowDialog();
+        }
+
+        private void btnBot_Click(object sender, EventArgs e)
+        {
+            if (gvThanhVien.GetFocusedRowCellValue("IDUSER") != null)
+            {
+                _sysGroup.delGroup(int.Parse(gvThanhVien.GetFocusedRowCellValue("IDUSER").ToString()), _idUser);
+                loadUserInGroup(_idUser);
+            }
         }
     }
 }

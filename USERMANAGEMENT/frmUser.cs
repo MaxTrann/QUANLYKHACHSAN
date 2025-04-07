@@ -29,9 +29,12 @@ namespace USERMANAGEMENT
         public bool _them;
         SYS_USER _sysUser;
         tb_SYS_USER _user;
+        SYS_GROUP _sysGroup;
+        VIEW_USER_IN_GROUP _vUserInGroup;
         private void frmUser_Load(object sender, EventArgs e)
         {
             _sysUser = new SYS_USER();
+            _sysGroup = new SYS_GROUP();
             if (!_them)
             {
                 var user = _sysUser.getItem(_idUser);
@@ -44,6 +47,8 @@ namespace USERMANAGEMENT
 
                 txtPass.Text = Encryptor.Decrypt(user.PASSWORD, "qwert@123!poiuy", true);
                 txtRePass.Text = Encryptor.Decrypt(user.PASSWORD, "qwert@123!poiuy", true);
+
+                loadGroupByUser(_idUser);
             }
             else
             {
@@ -53,7 +58,12 @@ namespace USERMANAGEMENT
                 chkDisabled.Checked = false;
             }
         }
-
+        public void loadGroupByUser(int idUser)
+        {
+            _vUserInGroup = new VIEW_USER_IN_GROUP();
+            gcThanhVien.DataSource = _vUserInGroup.getGroupByUser(_macty, _madvi, idUser);
+            gvThanhVien.OptionsBehavior.Editable = false;
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text.Trim() == "")
@@ -114,6 +124,21 @@ namespace USERMANAGEMENT
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            frmShowGroups frm = new frmShowGroups();
+            frm._idUser = _idUser;
+            frm._macty = _macty;
+            frm._madvi = _madvi;
+            frm.ShowDialog();
+        }
+
+        private void btnBot_Click(object sender, EventArgs e)
+        {
+            _sysGroup.delGroup(_idUser, int.Parse(gvThanhVien.GetFocusedRowCellValue("IDUSER").ToString()));
+            loadGroupByUser(_idUser);
         }
     }
 }

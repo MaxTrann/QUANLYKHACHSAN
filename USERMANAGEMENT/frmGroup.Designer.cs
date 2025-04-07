@@ -96,7 +96,7 @@
             // txtTenNhom
             // 
             this.txtTenNhom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTenNhom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenNhom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenNhom.Location = new System.Drawing.Point(260, 69);
             this.txtTenNhom.Name = "txtTenNhom";
             this.txtTenNhom.Size = new System.Drawing.Size(228, 34);
@@ -131,6 +131,7 @@
             this.btnBot.Size = new System.Drawing.Size(119, 38);
             this.btnBot.TabIndex = 2;
             this.btnBot.Text = "Bớt";
+            this.btnBot.Click += new System.EventHandler(this.btnBot_Click);
             // 
             // btnThem
             // 
@@ -142,6 +143,7 @@
             this.btnThem.Size = new System.Drawing.Size(119, 38);
             this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // gcThanhVien
             // 
@@ -173,8 +175,6 @@
             this.IDUSER.MaxWidth = 30;
             this.IDUSER.MinWidth = 25;
             this.IDUSER.Name = "IDUSER";
-            this.IDUSER.Visible = true;
-            this.IDUSER.VisibleIndex = 0;
             this.IDUSER.Width = 30;
             // 
             // USERNAME
@@ -187,7 +187,7 @@
             this.USERNAME.MinWidth = 80;
             this.USERNAME.Name = "USERNAME";
             this.USERNAME.Visible = true;
-            this.USERNAME.VisibleIndex = 1;
+            this.USERNAME.VisibleIndex = 0;
             this.USERNAME.Width = 94;
             // 
             // FULLNAME
@@ -200,7 +200,7 @@
             this.FULLNAME.MinWidth = 100;
             this.FULLNAME.Name = "FULLNAME";
             this.FULLNAME.Visible = true;
-            this.FULLNAME.VisibleIndex = 2;
+            this.FULLNAME.VisibleIndex = 1;
             this.FULLNAME.Width = 100;
             // 
             // btnLuu

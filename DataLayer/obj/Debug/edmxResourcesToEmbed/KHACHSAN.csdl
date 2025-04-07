@@ -20,6 +20,8 @@
     <EntitySet Name="tb_Tang" EntityType="KHACHSAN.tb_Tang" />
     <EntitySet Name="tb_ThietBi" EntityType="KHACHSAN.tb_ThietBi" />
     <EntitySet Name="tb_SYS_REPORT" EntityType="KHACHSAN.tb_SYS_REPORT" />
+    <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="KHACHSAN.V_USER_NOTIN_GROUP" />
+    <EntitySet Name="V_USER_IN_GROUP" EntityType="KHACHSAN.V_USER_IN_GROUP" />
   </EntityContainer>
   <EntityType Name="tb_CongTy">
     <Key>
@@ -240,5 +242,38 @@
     <Property Name="THANGNAM" Type="Boolean" />
     <Property Name="MACTY" Type="Boolean" />
     <Property Name="MADVI" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="V_USER_NOTIN_GROUP">
+    <Key>
+      <PropertyRef Name="IDUSER" />
+      <PropertyRef Name="MACTY" />
+      <PropertyRef Name="MADVI" />
+    </Key>
+    <Property Name="IDUSER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MACTY" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MADVI" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ISGROUP" Type="Boolean" />
+    <Property Name="LAST_PWD_CHANGED" Type="DateTime" Precision="3" />
+    <Property Name="DISABLED" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="V_USER_IN_GROUP">
+    <Key>
+      <PropertyRef Name="GROUP" />
+      <PropertyRef Name="MEMBER" />
+    </Key>
+    <Property Name="IDUSER" Type="Int32" />
+    <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ISGROUP" Type="Boolean" />
+    <Property Name="LAST_PWD_CHANGED" Type="DateTime" Precision="3" />
+    <Property Name="DISABLED" Type="Boolean" />
+    <Property Name="GROUP" Type="Int32" Nullable="false" />
+    <Property Name="MEMBER" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

@@ -225,6 +225,43 @@
           <Property Name="DONGIA" Type="float" />
           <Property Name="DISABLED" Type="bit" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HOTELS.dbo.V_USER_IN_GROUP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_USER_IN_GROUP">
+          <Key>
+            <PropertyRef Name="GROUP" />
+            <PropertyRef Name="MEMBER" />
+          </Key>
+          <Property Name="IDUSER" Type="int" />
+          <Property Name="FULLNAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+          <Property Name="MACTY" Type="nvarchar" MaxLength="10" />
+          <Property Name="MADVI" Type="nvarchar" MaxLength="10" />
+          <Property Name="ISGROUP" Type="bit" />
+          <Property Name="LAST_PWD_CHANGED" Type="datetime" />
+          <Property Name="DISABLED" Type="bit" />
+          <Property Name="GROUP" Type="int" Nullable="false" />
+          <Property Name="MEMBER" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HOTELS.dbo.V_USER_NOTIN_GROUP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_USER_NOTIN_GROUP">
+          <Key>
+            <PropertyRef Name="IDUSER" />
+            <PropertyRef Name="MACTY" />
+            <PropertyRef Name="MADVI" />
+          </Key>
+          <Property Name="IDUSER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FULLNAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+          <Property Name="MACTY" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MADVI" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ISGROUP" Type="bit" />
+          <Property Name="LAST_PWD_CHANGED" Type="datetime" />
+          <Property Name="DISABLED" Type="bit" />
+        </EntityType>
         <EntityContainer Name="KHACHSANStoreContainer">
           <EntitySet Name="tb_CongTy" EntityType="Self.tb_CongTy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_DatPhong" EntityType="Self.tb_DatPhong" Schema="dbo" store:Type="Tables" />
@@ -245,6 +282,34 @@
           <EntitySet Name="tb_SYS_USER" EntityType="Self.tb_SYS_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Tang" EntityType="Self.tb_Tang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_ThietBi" EntityType="Self.tb_ThietBi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_USER_IN_GROUP" EntityType="Self.V_USER_IN_GROUP" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_USER_IN_GROUP].[IDUSER] AS [IDUSER], 
+    [V_USER_IN_GROUP].[FULLNAME] AS [FULLNAME], 
+    [V_USER_IN_GROUP].[USERNAME] AS [USERNAME], 
+    [V_USER_IN_GROUP].[PASSWORD] AS [PASSWORD], 
+    [V_USER_IN_GROUP].[MACTY] AS [MACTY], 
+    [V_USER_IN_GROUP].[MADVI] AS [MADVI], 
+    [V_USER_IN_GROUP].[ISGROUP] AS [ISGROUP], 
+    [V_USER_IN_GROUP].[LAST_PWD_CHANGED] AS [LAST_PWD_CHANGED], 
+    [V_USER_IN_GROUP].[DISABLED] AS [DISABLED], 
+    [V_USER_IN_GROUP].[GROUP] AS [GROUP], 
+    [V_USER_IN_GROUP].[MEMBER] AS [MEMBER]
+    FROM [dbo].[V_USER_IN_GROUP] AS [V_USER_IN_GROUP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="Self.V_USER_NOTIN_GROUP" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_USER_NOTIN_GROUP].[IDUSER] AS [IDUSER], 
+    [V_USER_NOTIN_GROUP].[FULLNAME] AS [FULLNAME], 
+    [V_USER_NOTIN_GROUP].[USERNAME] AS [USERNAME], 
+    [V_USER_NOTIN_GROUP].[PASSWORD] AS [PASSWORD], 
+    [V_USER_NOTIN_GROUP].[MACTY] AS [MACTY], 
+    [V_USER_NOTIN_GROUP].[MADVI] AS [MADVI], 
+    [V_USER_NOTIN_GROUP].[ISGROUP] AS [ISGROUP], 
+    [V_USER_NOTIN_GROUP].[LAST_PWD_CHANGED] AS [LAST_PWD_CHANGED], 
+    [V_USER_NOTIN_GROUP].[DISABLED] AS [DISABLED]
+    FROM [dbo].[V_USER_NOTIN_GROUP] AS [V_USER_NOTIN_GROUP]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -270,6 +335,8 @@
           <EntitySet Name="tb_Tang" EntityType="KHACHSAN.tb_Tang" />
           <EntitySet Name="tb_ThietBi" EntityType="KHACHSAN.tb_ThietBi" />
           <EntitySet Name="tb_SYS_REPORT" EntityType="KHACHSAN.tb_SYS_REPORT" />
+          <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="KHACHSAN.V_USER_NOTIN_GROUP" />
+          <EntitySet Name="V_USER_IN_GROUP" EntityType="KHACHSAN.V_USER_IN_GROUP" />
         </EntityContainer>
         <EntityType Name="tb_CongTy">
           <Key>
@@ -490,6 +557,39 @@
           <Property Name="THANGNAM" Type="Boolean" />
           <Property Name="MACTY" Type="Boolean" />
           <Property Name="MADVI" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_USER_NOTIN_GROUP">
+          <Key>
+            <PropertyRef Name="IDUSER" />
+            <PropertyRef Name="MACTY" />
+            <PropertyRef Name="MADVI" />
+          </Key>
+          <Property Name="IDUSER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MACTY" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ISGROUP" Type="Boolean" />
+          <Property Name="LAST_PWD_CHANGED" Type="DateTime" Precision="3" />
+          <Property Name="DISABLED" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_USER_IN_GROUP">
+          <Key>
+            <PropertyRef Name="GROUP" />
+            <PropertyRef Name="MEMBER" />
+          </Key>
+          <Property Name="IDUSER" Type="Int32" />
+          <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MACTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MADVI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ISGROUP" Type="Boolean" />
+          <Property Name="LAST_PWD_CHANGED" Type="DateTime" Precision="3" />
+          <Property Name="DISABLED" Type="Boolean" />
+          <Property Name="GROUP" Type="Int32" Nullable="false" />
+          <Property Name="MEMBER" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -727,6 +827,38 @@
                 <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_USER_NOTIN_GROUP">
+            <EntityTypeMapping TypeName="KHACHSAN.V_USER_NOTIN_GROUP">
+              <MappingFragment StoreEntitySet="V_USER_NOTIN_GROUP">
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_USER_IN_GROUP">
+            <EntityTypeMapping TypeName="KHACHSAN.V_USER_IN_GROUP">
+              <MappingFragment StoreEntitySet="V_USER_IN_GROUP">
+                <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
+                <ScalarProperty Name="GROUP" ColumnName="GROUP" />
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="LAST_PWD_CHANGED" ColumnName="LAST_PWD_CHANGED" />
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="MADVI" ColumnName="MADVI" />
+                <ScalarProperty Name="MACTY" ColumnName="MACTY" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

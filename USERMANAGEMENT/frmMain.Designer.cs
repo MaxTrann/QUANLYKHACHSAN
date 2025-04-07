@@ -191,9 +191,10 @@
             // pnNhom
             // 
             this.pnNhom.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnNhom.Location = new System.Drawing.Point(849, 0);
+            this.pnNhom.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhom.Location = new System.Drawing.Point(846, 0);
             this.pnNhom.Name = "pnNhom";
-            this.pnNhom.Size = new System.Drawing.Size(442, 33);
+            this.pnNhom.Size = new System.Drawing.Size(445, 33);
             this.pnNhom.TabIndex = 0;
             // 
             // gvUser
