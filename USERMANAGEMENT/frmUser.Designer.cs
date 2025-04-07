@@ -262,12 +262,12 @@
             this.FULLNAME.AppearanceHeader.Options.UseFont = true;
             this.FULLNAME.Caption = "FULLNAME";
             this.FULLNAME.FieldName = "FULLNAME";
-            this.FULLNAME.MaxWidth = 120;
-            this.FULLNAME.MinWidth = 100;
+            this.FULLNAME.MaxWidth = 150;
+            this.FULLNAME.MinWidth = 120;
             this.FULLNAME.Name = "FULLNAME";
             this.FULLNAME.Visible = true;
             this.FULLNAME.VisibleIndex = 1;
-            this.FULLNAME.Width = 100;
+            this.FULLNAME.Width = 120;
             // 
             // btnThoat
             // 
