@@ -266,5 +266,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="V_FUNC_SYS_RIGHT">
+      <EntityTypeMapping TypeName="KHACHSAN.V_FUNC_SYS_RIGHT">
+        <MappingFragment StoreEntitySet="V_FUNC_SYS_RIGHT">
+          <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+          <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+          <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+          <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -23,6 +23,10 @@ namespace BusinessLayer
         {
             return db.tb_SYS_USER.Where(x => x.MACTY == macty && x.MADVI == madvi).ToList();
         }
+        public List<tb_SYS_USER> getUserbyDViFunc(string macty, string madvi)
+        {
+            return db.tb_SYS_USER.Where(x => x.MACTY == macty && x.MADVI == madvi && x.DISABLED == false).OrderByDescending(x => x.ISGROUP).ToList();
+        }
         public tb_SYS_USER getItem(int idUser)
         {
             return db.tb_SYS_USER.FirstOrDefault(u => u.IDUSER == idUser);

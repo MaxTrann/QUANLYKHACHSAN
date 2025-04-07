@@ -226,6 +226,22 @@
           <Property Name="DISABLED" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'HOTELS.dbo.V_FUNC_SYS_RIGHT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_FUNC_SYS_RIGHT">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+            <PropertyRef Name="SORT" />
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="ISGROUP" Type="bit" />
+          <Property Name="PARENT" Type="nvarchar" MaxLength="50" />
+          <Property Name="SORT" Type="int" Nullable="false" />
+          <Property Name="IDUSER" Type="int" Nullable="false" />
+          <Property Name="QUYEN" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'HOTELS.dbo.V_USER_IN_GROUP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_USER_IN_GROUP">
           <Key>
@@ -282,6 +298,17 @@ warning 6002: The table/view 'HOTELS.dbo.V_USER_NOTIN_GROUP' does not have a pri
           <EntitySet Name="tb_SYS_USER" EntityType="Self.tb_SYS_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Tang" EntityType="Self.tb_Tang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_ThietBi" EntityType="Self.tb_ThietBi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_FUNC_SYS_RIGHT" EntityType="Self.V_FUNC_SYS_RIGHT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_FUNC_SYS_RIGHT].[FUNC_CODE] AS [FUNC_CODE], 
+    [V_FUNC_SYS_RIGHT].[DESCRIPTION] AS [DESCRIPTION], 
+    [V_FUNC_SYS_RIGHT].[ISGROUP] AS [ISGROUP], 
+    [V_FUNC_SYS_RIGHT].[PARENT] AS [PARENT], 
+    [V_FUNC_SYS_RIGHT].[SORT] AS [SORT], 
+    [V_FUNC_SYS_RIGHT].[IDUSER] AS [IDUSER], 
+    [V_FUNC_SYS_RIGHT].[QUYEN] AS [QUYEN]
+    FROM [dbo].[V_FUNC_SYS_RIGHT] AS [V_FUNC_SYS_RIGHT]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_USER_IN_GROUP" EntityType="Self.V_USER_IN_GROUP" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_USER_IN_GROUP].[IDUSER] AS [IDUSER], 
@@ -337,6 +364,7 @@ warning 6002: The table/view 'HOTELS.dbo.V_USER_NOTIN_GROUP' does not have a pri
           <EntitySet Name="tb_SYS_REPORT" EntityType="KHACHSAN.tb_SYS_REPORT" />
           <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="KHACHSAN.V_USER_NOTIN_GROUP" />
           <EntitySet Name="V_USER_IN_GROUP" EntityType="KHACHSAN.V_USER_IN_GROUP" />
+          <EntitySet Name="V_FUNC_SYS_RIGHT" EntityType="KHACHSAN.V_FUNC_SYS_RIGHT" />
         </EntityContainer>
         <EntityType Name="tb_CongTy">
           <Key>
@@ -590,6 +618,20 @@ warning 6002: The table/view 'HOTELS.dbo.V_USER_NOTIN_GROUP' does not have a pri
           <Property Name="DISABLED" Type="Boolean" />
           <Property Name="GROUP" Type="Int32" Nullable="false" />
           <Property Name="MEMBER" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_FUNC_SYS_RIGHT">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+            <PropertyRef Name="SORT" />
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ISGROUP" Type="Boolean" />
+          <Property Name="PARENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SORT" Type="Int32" Nullable="false" />
+          <Property Name="IDUSER" Type="Int32" Nullable="false" />
+          <Property Name="QUYEN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -859,6 +901,19 @@ warning 6002: The table/view 'HOTELS.dbo.V_USER_NOTIN_GROUP' does not have a pri
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
                 <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
                 <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_FUNC_SYS_RIGHT">
+            <EntityTypeMapping TypeName="KHACHSAN.V_FUNC_SYS_RIGHT">
+              <MappingFragment StoreEntitySet="V_FUNC_SYS_RIGHT">
+                <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

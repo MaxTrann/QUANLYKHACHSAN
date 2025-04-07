@@ -143,7 +143,11 @@ namespace USERMANAGEMENT
 
         private void btnChucNang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            frmPhanQuyenChucNang frm = new frmPhanQuyenChucNang();
+            frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+            frm._macty = _macty;
+            frm._madvi = _madvi;
+            frm.ShowDialog();
         }
 
         private void btnBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

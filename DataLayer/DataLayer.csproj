@@ -129,6 +129,9 @@
     <Compile Include="tb_ThietBi.cs">
       <DependentUpon>KHACHSAN.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_FUNC_SYS_RIGHT.cs">
+      <DependentUpon>KHACHSAN.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_USER_IN_GROUP.cs">
       <DependentUpon>KHACHSAN.tt</DependentUpon>
     </Compile>
