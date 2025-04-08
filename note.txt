@@ -3,13 +3,13 @@ Tính tiền từ menuPopup, lỗi đang gặp ví dụ như đặt từ ngày 6
 
 
 Những cái chưa ràng buộc:
-
+Chưa có thể phân quyền được chỗ menuPopup vì nó ko có nằm trong func_code, nếu để vấn hợp lí thì đây đc coi như là quyền tối thiểu một nhân viên có thể làm được
 
 
 Những cái đã ràng buộc:
 - Khi đã nhấn in để thanh toán -> cboTrangThai = Đã hoàn tất -> sẽ ko thể nhấn sp đc ở đặt phòng đơn, ko nhấn được nút sửa ở frmDatPhong
 - Không cho thêm trùng ở phòng thiết bị -> Thông báo
-
+- Đã ràng buộc phần quyền cho tất cả fun_code
 
 Những cái chỉnh sửa riêng:
 - Thuê phòng:

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer;
 using BusinessLayer;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace THUEPHONG
 {
@@ -21,6 +22,15 @@ namespace THUEPHONG
             InitializeComponent();
             db = Entities.CreateEntities();
         }
+        public frmPhong(tb_SYS_USER user, int right)
+        {
+            InitializeComponent();
+            db = Entities.CreateEntities();
+            this._user = user;
+            this._right = right;
+        }
+        tb_SYS_USER _user;
+        int _right;
         PHONG _phong;
         TANG _tang;
         LOAIPHONG _loaiphong;
@@ -143,6 +153,11 @@ namespace THUEPHONG
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             _them = true;
             showHideControl(false);
             _enabled(true);
@@ -151,6 +166,11 @@ namespace THUEPHONG
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _phong.delete(_idphong);
@@ -161,6 +181,11 @@ namespace THUEPHONG
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             _them = false;
             showHideControl(false);
             _enabled(true);

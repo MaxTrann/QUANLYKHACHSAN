@@ -143,31 +143,31 @@ namespace THUEPHONG
                         }
                     case "DONVI":
                         {
-                            frmDonVi frm = new frmDonVi();
+                            frmDonVi frm = new frmDonVi(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }
                     case "TANG":
                         {
-                            frmQuanLyTang frm = new frmQuanLyTang();
+                            frmQuanLyTang frm = new frmQuanLyTang(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }
                     case "LOAIPHONG":
                         {
-                            frmLoaiPhong frm = new frmLoaiPhong();
+                            frmLoaiPhong frm = new frmLoaiPhong(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }
                     case "KHACHHANG":
                         {
-                            frmKhachHang frm = new frmKhachHang();
+                            frmKhachHang frm = new frmKhachHang(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }
                     case "PHONG":
                         {
-                            frmPhong frm = new frmPhong();
+                            frmPhong frm = new frmPhong(_user, _uRight.USER_RIGHT.Value);
                             // Đăng ký sự kiện để cập nhật danh sách phòng sau khi frmPhong đóng
                             frm.OnDataUpdated += () => showRoom();
                             frm.FormClosed += (s, args) => showRoom(); // Thêm sự kiện FormClosed để làm mới khi đóng form
@@ -178,23 +178,23 @@ namespace THUEPHONG
                         }
                     case "SANPHAM":
                         {
-                            frmSPDV frm = new frmSPDV();
+                            frmSPDV frm = new frmSPDV(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog();
                             break;
                         }
                     case "THIETBI":
                         {
-                            frmThietBi frm = new frmThietBi();
+                            frmThietBi frm = new frmThietBi(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog(); break;
                         }
                     case "PHONG_THIETBI":
                         {
-                            frmPhong_ThietBi frm = new frmPhong_ThietBi();
+                            frmPhong_ThietBi frm = new frmPhong_ThietBi(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog(); break;
                         }
                     case "DATPHONG":
                         {
-                            frmDatPhong frm = new frmDatPhong();
+                            frmDatPhong frm = new frmDatPhong(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog(); break;
                         }
                 }

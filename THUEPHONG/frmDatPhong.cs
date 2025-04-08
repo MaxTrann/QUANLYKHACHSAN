@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace THUEPHONG
 {
@@ -29,6 +30,17 @@ namespace THUEPHONG
             gcPhong.DataSource = tb;
             gcDatPhong.DataSource = tb.Clone();
         }
+        public frmDatPhong(tb_SYS_USER user, int right)
+        {
+            InitializeComponent();
+            DataTable tb = myFunctions.laydulieu("SELECT A.IDPHONG, A.TENPHONG, C.DONGIA, A.IDTANG, B.TENTANG FROM tb_Phong A, tb_Tang B, tb_LoaiPhong C where A.IDTANG= B.IDTANG AND A.TRANGTHAI = 0 AND A.IDLOAIPHONG = C.IDLOAIPHONG");
+            gcPhong.DataSource = tb;
+            gcDatPhong.DataSource = tb.Clone();
+            this._user = user;
+            this._right = right;
+        }
+        tb_SYS_USER _user;
+        int _right;
 
         frmMain objMain = (frmMain)Application.OpenForms["frmMain"];
         bool _them;
@@ -129,6 +141,11 @@ namespace THUEPHONG
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             _them = true;
             showHideControl(false);
             _enabled(true);
@@ -141,6 +158,11 @@ namespace THUEPHONG
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (bool.Parse(cboTrangThai.SelectedValue.ToString()) == true)
             {
                 MessageBox.Show("Phiếu đã hoàn tất không được chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -166,6 +188,11 @@ namespace THUEPHONG
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _datphong.delete(_idDP);

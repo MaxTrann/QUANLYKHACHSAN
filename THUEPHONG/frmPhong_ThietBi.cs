@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace THUEPHONG
 {
@@ -19,7 +20,14 @@ namespace THUEPHONG
         {
             InitializeComponent();
         }
-
+        public frmPhong_ThietBi(tb_SYS_USER user, int right)
+        {
+            InitializeComponent();
+            this._user = user;
+            this._right = right;
+        }
+        tb_SYS_USER _user;
+        int _right;
         PHONG_THIETBI _ptb;
         PHONG _phong;
         THIETBI _thietbi;
@@ -101,7 +109,12 @@ namespace THUEPHONG
         }
 
         private void btnThem_Click(object sender, EventArgs e)
-        { 
+        {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             _them = true;
             showHideControl(false);
             _enabled(true);
@@ -110,6 +123,11 @@ namespace THUEPHONG
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (MessageBox.Show("Xóa thiết bị khỏi phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 _ptb.delete(_idPhong, _idTB);
@@ -119,6 +137,11 @@ namespace THUEPHONG
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (_right == 1)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             _them = false;
             showHideControl(false);
             _enabled(true);
