@@ -23,6 +23,7 @@
     <EntitySet Name="V_USER_NOTIN_GROUP" EntityType="KHACHSAN.V_USER_NOTIN_GROUP" />
     <EntitySet Name="V_USER_IN_GROUP" EntityType="KHACHSAN.V_USER_IN_GROUP" />
     <EntitySet Name="V_FUNC_SYS_RIGHT" EntityType="KHACHSAN.V_FUNC_SYS_RIGHT" />
+    <EntitySet Name="V_REP_SYS_RIGHT_REP" EntityType="KHACHSAN.V_REP_SYS_RIGHT_REP" />
   </EntityContainer>
   <EntityType Name="tb_CongTy">
     <Key>
@@ -288,6 +289,18 @@
     <Property Name="ISGROUP" Type="Boolean" />
     <Property Name="PARENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SORT" Type="Int32" Nullable="false" />
+    <Property Name="IDUSER" Type="Int32" Nullable="false" />
+    <Property Name="QUYEN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_REP_SYS_RIGHT_REP">
+    <Key>
+      <PropertyRef Name="REP_CODE" />
+      <PropertyRef Name="IDUSER" />
+    </Key>
+    <Property Name="REP_CODE" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REP_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VISIBLED" Type="Boolean" />
     <Property Name="IDUSER" Type="Int32" Nullable="false" />
     <Property Name="QUYEN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>

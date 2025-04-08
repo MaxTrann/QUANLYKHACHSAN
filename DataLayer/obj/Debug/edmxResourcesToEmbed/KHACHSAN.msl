@@ -279,5 +279,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="V_REP_SYS_RIGHT_REP">
+      <EntityTypeMapping TypeName="KHACHSAN.V_REP_SYS_RIGHT_REP">
+        <MappingFragment StoreEntitySet="V_REP_SYS_RIGHT_REP">
+          <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+          <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+          <ScalarProperty Name="VISIBLED" ColumnName="VISIBLED" />
+          <ScalarProperty Name="REP_NAME" ColumnName="REP_NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="REP_CODE" ColumnName="REP_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -132,6 +132,9 @@
     <Compile Include="V_FUNC_SYS_RIGHT.cs">
       <DependentUpon>KHACHSAN.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_REP_SYS_RIGHT_REP.cs">
+      <DependentUpon>KHACHSAN.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_USER_IN_GROUP.cs">
       <DependentUpon>KHACHSAN.tt</DependentUpon>
     </Compile>

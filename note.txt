@@ -18,5 +18,6 @@ Những cái chỉnh sửa riêng:
 - Quản lý người dùng:
 	- Thêm icon cho group
 	- Tắt chế độ Upper cho username ở frmUser
+	- Sửa lại load theo Group ở frmMain
 
 Encryptor.Encrypt(user.PASSWORD, "qwert@123!poiuy", true);

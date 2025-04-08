@@ -21,7 +21,7 @@ namespace BusinessLayer
         }
         public List<tb_SYS_USER> getUserbyDVI(string macty, string madvi)
         {
-            return db.tb_SYS_USER.Where(x => x.MACTY == macty && x.MADVI == madvi).ToList();
+            return db.tb_SYS_USER.Where(x => x.MACTY == macty && x.MADVI == madvi).OrderByDescending(x => x.ISGROUP).ToList();
         }
         public List<tb_SYS_USER> getUserbyDViFunc(string macty, string madvi)
         {

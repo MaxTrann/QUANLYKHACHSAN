@@ -119,7 +119,7 @@ namespace USERMANAGEMENT
             frm._them = true;
             frm._macty = _macty;
             frm._madvi = _madvi;
-            frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+            
             frm.ShowDialog();
         }
 
@@ -152,7 +152,11 @@ namespace USERMANAGEMENT
 
         private void btnBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            frmPhanQuyenBaoCao frm = new frmPhanQuyenBaoCao();
+            frm._idUser = int.Parse(gvUser.GetFocusedRowCellValue("IDUSER").ToString());
+            frm._macty = _macty;
+            frm._madvi = _madvi;
+            frm.ShowDialog();
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

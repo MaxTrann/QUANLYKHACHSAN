@@ -237,6 +237,20 @@ warning 6002: The table/view 'HOTELS.dbo.V_FUNC_SYS_RIGHT' does not have a prima
     <Property Name="QUYEN" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'HOTELS.dbo.V_REP_SYS_RIGHT_REP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_REP_SYS_RIGHT_REP">
+    <Key>
+      <PropertyRef Name="REP_CODE" />
+      <PropertyRef Name="IDUSER" />
+    </Key>
+    <Property Name="REP_CODE" Type="int" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="REP_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="VISIBLED" Type="bit" />
+    <Property Name="IDUSER" Type="int" Nullable="false" />
+    <Property Name="QUYEN" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'HOTELS.dbo.V_USER_IN_GROUP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="V_USER_IN_GROUP">
     <Key>
@@ -303,6 +317,16 @@ warning 6002: The table/view 'HOTELS.dbo.V_USER_NOTIN_GROUP' does not have a pri
     [V_FUNC_SYS_RIGHT].[IDUSER] AS [IDUSER], 
     [V_FUNC_SYS_RIGHT].[QUYEN] AS [QUYEN]
     FROM [dbo].[V_FUNC_SYS_RIGHT] AS [V_FUNC_SYS_RIGHT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_REP_SYS_RIGHT_REP" EntityType="Self.V_REP_SYS_RIGHT_REP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_REP_SYS_RIGHT_REP].[REP_CODE] AS [REP_CODE], 
+    [V_REP_SYS_RIGHT_REP].[DESCRIPTION] AS [DESCRIPTION], 
+    [V_REP_SYS_RIGHT_REP].[REP_NAME] AS [REP_NAME], 
+    [V_REP_SYS_RIGHT_REP].[VISIBLED] AS [VISIBLED], 
+    [V_REP_SYS_RIGHT_REP].[IDUSER] AS [IDUSER], 
+    [V_REP_SYS_RIGHT_REP].[QUYEN] AS [QUYEN]
+    FROM [dbo].[V_REP_SYS_RIGHT_REP] AS [V_REP_SYS_RIGHT_REP]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_USER_IN_GROUP" EntityType="Self.V_USER_IN_GROUP" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

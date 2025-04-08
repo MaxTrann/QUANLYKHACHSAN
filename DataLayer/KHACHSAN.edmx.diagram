@@ -27,6 +27,7 @@
         <EntityTypeShape EntityType="KHACHSAN.V_USER_NOTIN_GROUP" Width="1.5" PointX="11.375" PointY="10.75" />
         <EntityTypeShape EntityType="KHACHSAN.V_USER_IN_GROUP" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="KHACHSAN.V_FUNC_SYS_RIGHT" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="KHACHSAN.V_REP_SYS_RIGHT_REP" Width="1.5" PointX="5.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
