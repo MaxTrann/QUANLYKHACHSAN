@@ -23,17 +23,26 @@ namespace THUEPHONG
         {
             InitializeComponent();
         }
-
+        public frmMain(tb_SYS_USER user)
+        {
+            InitializeComponent();
+            this._user = user;
+            this.Text = "PHẦN MỀM QUẢN LÝ KHÁCH SẠN - " + _user.FULLNAME;
+        }
+        tb_SYS_USER _user;
         TANG _tang;
         PHONG _phong;
         SYS_FUNC _func;
+        SYS_GROUP _sysGroup;
+        SYS_RIGHT _sysRight;
         GalleryItem item = null;
         private void frmMain_Load(object sender, EventArgs e)
         {
             _tang = new TANG();
             _phong = new PHONG();
             _func = new SYS_FUNC();
-            
+            _sysGroup = new SYS_GROUP();
+            _sysRight = new SYS_RIGHT();
             leftMenu();
             showRoom();
         }
@@ -105,73 +114,91 @@ namespace THUEPHONG
         private void navMain_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             string func_code = e.Link.Item.Tag.ToString();
-            switch (func_code) 
-            {
-                case "CONGTY":
-                    {
-                        frmCongTy frm = new frmCongTy();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "DONVI":
-                    {
-                        frmDonVi frm = new frmDonVi();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "TANG":
-                    {
-                        frmQuanLyTang frm = new frmQuanLyTang();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "LOAIPHONG":
-                    {
-                        frmLoaiPhong frm = new frmLoaiPhong();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "KHACHHANG":
-                    {
-                        frmKhachHang frm = new frmKhachHang();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "PHONG":
-                    {
-                        frmPhong frm = new frmPhong();
-                        // Đăng ký sự kiện để cập nhật danh sách phòng sau khi frmPhong đóng
-                        frm.OnDataUpdated += () => showRoom();
-                        frm.FormClosed += (s, args) => showRoom(); // Thêm sự kiện FormClosed để làm mới khi đóng form
-                        frm.ShowDialog();
-                        // Sau khi frmPhong đóng, gọi lại showRoom để chắc chắn cập nhật
-                        showRoom();
-                        break;
-                    }
-                case "SANPHAM":
-                    {
-                        frmSPDV frm = new frmSPDV();
-                        frm.ShowDialog();
-                        break;
-                    }
-                case "THIETBI":
-                    {
-                        frmThietBi frm = new frmThietBi();
-                        frm.ShowDialog(); break;
-                    }
-                case "PHONG_THIETBI":
-                    {
-                        frmPhong_ThietBi frm = new frmPhong_ThietBi();
-                        frm.ShowDialog(); break;
-                    }
-                case "DATPHONG":
-                    {
-                        frmDatPhong frm = new frmDatPhong();
-                        frm.ShowDialog(); break;
-                    }
 
+            var _group = _sysGroup.getGroupByMember(_user.IDUSER);
+            var _uRight = _sysRight.getRight(_user.IDUSER, func_code);
+
+            if (_group != null)
+            {
+                var _groupRight = _sysRight.getRight(_group.GROUP, func_code);
+                if (_uRight.USER_RIGHT < _groupRight.USER_RIGHT)
+                {
+                    _uRight.USER_RIGHT = _groupRight.USER_RIGHT;
+                }
             }
 
+            if (_uRight.USER_RIGHT == 0)
+            {
+                MessageBox.Show("Không có quyền thao tác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                switch (func_code)
+                {
+                    case "CONGTY":
+                        {
+                            frmCongTy frm = new frmCongTy(_user, _uRight.USER_RIGHT.Value);
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "DONVI":
+                        {
+                            frmDonVi frm = new frmDonVi();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "TANG":
+                        {
+                            frmQuanLyTang frm = new frmQuanLyTang();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "LOAIPHONG":
+                        {
+                            frmLoaiPhong frm = new frmLoaiPhong();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "KHACHHANG":
+                        {
+                            frmKhachHang frm = new frmKhachHang();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "PHONG":
+                        {
+                            frmPhong frm = new frmPhong();
+                            // Đăng ký sự kiện để cập nhật danh sách phòng sau khi frmPhong đóng
+                            frm.OnDataUpdated += () => showRoom();
+                            frm.FormClosed += (s, args) => showRoom(); // Thêm sự kiện FormClosed để làm mới khi đóng form
+                            frm.ShowDialog();
+                            // Sau khi frmPhong đóng, gọi lại showRoom để chắc chắn cập nhật
+                            showRoom();
+                            break;
+                        }
+                    case "SANPHAM":
+                        {
+                            frmSPDV frm = new frmSPDV();
+                            frm.ShowDialog();
+                            break;
+                        }
+                    case "THIETBI":
+                        {
+                            frmThietBi frm = new frmThietBi();
+                            frm.ShowDialog(); break;
+                        }
+                    case "PHONG_THIETBI":
+                        {
+                            frmPhong_ThietBi frm = new frmPhong_ThietBi();
+                            frm.ShowDialog(); break;
+                        }
+                    case "DATPHONG":
+                        {
+                            frmDatPhong frm = new frmDatPhong();
+                            frm.ShowDialog(); break;
+                        }
+                }
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

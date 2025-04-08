@@ -58,16 +58,16 @@ namespace THUEPHONG
             _datphongsanpham = new DATPHONG_SANPHAM();
             _khachhang = new KHACHHANG();
             _sanpham = new SPDV();
-            _param = new SYS_PARAM();
+
             _phong = new PHONG();
 
             lstDPSP = new List<OBJ_DPSP>();
             dtTuNgay.Value = myFunctions.GetFirstDayInMonth(DateTime.Now.Year, DateTime.Now.Month);
             dtDenNgay.Value = DateTime.Now;
 
-            var _pr = _param.getParam();
-            _macty = _pr.MACTY;
-            _madvi = _pr.MADVI;
+            
+            _macty = myFunctions._macty;
+            _madvi = myFunctions._madvi;
 
             loadKH();
             loadSP();

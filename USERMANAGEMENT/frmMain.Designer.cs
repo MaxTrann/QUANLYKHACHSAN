@@ -199,6 +199,8 @@
             // 
             // gvUser
             // 
+            this.gvUser.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvUser.Appearance.Row.Options.UseFont = true;
             this.gvUser.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.DISABLED,
             this.IDUSER,
@@ -210,6 +212,7 @@
             this.gvUser.GridControl = this.gcUser;
             this.gvUser.Name = "gvUser";
             this.gvUser.OptionsView.ShowGroupPanel = false;
+            this.gvUser.RowHeight = 28;
             this.gvUser.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvUser_CustomDrawCell);
             this.gvUser.DoubleClick += new System.EventHandler(this.gvUser_DoubleClick);
             // 

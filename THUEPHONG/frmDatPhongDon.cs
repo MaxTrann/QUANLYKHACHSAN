@@ -46,7 +46,7 @@ namespace THUEPHONG
             _datphongsp = new DATPHONG_SANPHAM();
             _phong = new PHONG();
             _sanpham = new SPDV();
-            _param = new SYS_PARAM();
+            
             lstDPSP = new List<OBJ_DPSP>();
             _phongHienTai = _phong.getItemFull(_idPhong);
             lblPhong.Text = _phongHienTai.TENPHONG + " - Đơn giá: " + _phongHienTai.DONGIA.GetValueOrDefault().ToString("n0") + " VNĐ";
@@ -60,9 +60,9 @@ namespace THUEPHONG
 
             spSoNguoi.Text = "1";
 
-            var _pr = _param.getParam();
-            _macty = _pr.MACTY;
-            _madvi = _pr.MADVI;
+            
+            _macty = myFunctions._macty;
+            _madvi = myFunctions._madvi;
 
             loadKH();
             loadSP();

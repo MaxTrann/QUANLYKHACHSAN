@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\usermanagement\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|solutionrelative:usermanagement\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\usermanagement\\frmphanquyenbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|solutionrelative:usermanagement\\frmphanquyenbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\usermanagement\\frmphanquyenchucnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|solutionrelative:usermanagement\\frmphanquyenchucnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\usermanagement\\frmphanquyenchucnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|solutionrelative:usermanagement\\frmphanquyenchucnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\usermanagement\\frmphanquyenbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C7F33BD3-03D4-437F-AEED-9C7D8A634D9F}|USERMANAGEMENT\\USERMANAGEMENT.csproj|solutionrelative:usermanagement\\frmphanquyenbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\businesslayer\\sys_right_rep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\sys_right_rep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\businesslayer\\view_user_in_group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\view_user_in_group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\businesslayer\\view_func_sys_right.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09D7D721-88C1-4E85-828D-DB569A0C39A0}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\view_func_sys_right.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|d:\\du lieu\\nam2-hk2\\laptrinhwindow\\quanlythuephong\\quanlykhachsan\\thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmcongty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,104 +39,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmPhanQuyenBaoCao.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenBaoCao.cs",
-              "RelativeDocumentMoniker": "USERMANAGEMENT\\frmPhanQuyenBaoCao.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenBaoCao.cs",
-              "RelativeToolTip": "USERMANAGEMENT\\frmPhanQuyenBaoCao.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAcwHIAAAABAAAAAAAAAA==",
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmMain.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmMain.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmMain.cs",
+              "RelativeToolTip": "THUEPHONG\\frmMain.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAswJMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T02:57:02.332Z",
+              "WhenOpened": "2025-04-08T15:30:10.066Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmPhanQuyenBaoCao.cs [Design]",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenBaoCao.cs",
-              "RelativeDocumentMoniker": "USERMANAGEMENT\\frmPhanQuyenBaoCao.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenBaoCao.cs [Design]",
-              "RelativeToolTip": "USERMANAGEMENT\\frmPhanQuyenBaoCao.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T02:55:53.525Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "frmPhanQuyenChucNang.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenChucNang.cs",
-              "RelativeDocumentMoniker": "USERMANAGEMENT\\frmPhanQuyenChucNang.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenChucNang.cs",
-              "RelativeToolTip": "USERMANAGEMENT\\frmPhanQuyenChucNang.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAvwI8AAAAMAAAAAAAAAA==",
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmMain.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmMain.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmMain.cs [Design]",
+              "RelativeToolTip": "THUEPHONG\\frmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T14:16:40.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmPhanQuyenChucNang.cs [Design]",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenChucNang.cs",
-              "RelativeDocumentMoniker": "USERMANAGEMENT\\frmPhanQuyenChucNang.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmPhanQuyenChucNang.cs [Design]",
-              "RelativeToolTip": "USERMANAGEMENT\\frmPhanQuyenChucNang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T14:11:40.351Z",
+              "WhenOpened": "2025-04-08T15:30:08.188Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmMain.cs",
-              "RelativeDocumentMoniker": "USERMANAGEMENT\\frmMain.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\USERMANAGEMENT\\frmMain.cs",
-              "RelativeToolTip": "USERMANAGEMENT\\frmMain.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAjwHkAAAAMAAAAAAAAAA==",
+              "Title": "frmCongTy.cs",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmCongTy.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs",
+              "RelativeToolTip": "THUEPHONG\\frmCongTy.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAwwG0AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T14:05:44.968Z",
+              "WhenOpened": "2025-04-08T15:25:24.999Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SYS_RIGHT_REP.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\SYS_RIGHT_REP.cs",
-              "RelativeDocumentMoniker": "BusinessLayer\\SYS_RIGHT_REP.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\SYS_RIGHT_REP.cs",
-              "RelativeToolTip": "BusinessLayer\\SYS_RIGHT_REP.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "frmCongTy.cs [Design]",
+              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs",
+              "RelativeDocumentMoniker": "THUEPHONG\\frmCongTy.cs",
+              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmCongTy.cs [Design]",
+              "RelativeToolTip": "THUEPHONG\\frmCongTy.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T03:16:45.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "VIEW_USER_IN_GROUP.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\VIEW_USER_IN_GROUP.cs",
-              "RelativeDocumentMoniker": "BusinessLayer\\VIEW_USER_IN_GROUP.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\VIEW_USER_IN_GROUP.cs",
-              "RelativeToolTip": "BusinessLayer\\VIEW_USER_IN_GROUP.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T03:12:58.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "VIEW_FUNC_SYS_RIGHT.cs",
-              "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\VIEW_FUNC_SYS_RIGHT.cs",
-              "RelativeDocumentMoniker": "BusinessLayer\\VIEW_FUNC_SYS_RIGHT.cs",
-              "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\BusinessLayer\\VIEW_FUNC_SYS_RIGHT.cs",
-              "RelativeToolTip": "BusinessLayer\\VIEW_FUNC_SYS_RIGHT.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T13:09:10.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T15:25:22.809Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

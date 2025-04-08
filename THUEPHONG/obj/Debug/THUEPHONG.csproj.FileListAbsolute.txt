@@ -227,3 +227,5 @@ D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.csproj.Up2Date
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.exe
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.pdb
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmLogin.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmSetParam.resources
