@@ -229,3 +229,8 @@ D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.pdb
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmLogin.resources
 D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmSetParam.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.frmBaoCao.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.MyControls.frmShowDonVi.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.MyControls.ucCongTy.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.MyControls.ucDonVi.resources
+D:\du lieu\Nam2-HK2\LapTrinhWindow\QUANLYTHUEPHONG\QuanLyKhachSan\THUEPHONG\obj\Debug\THUEPHONG.MyControls.ucTuNgay.resources

@@ -333,7 +333,8 @@ namespace THUEPHONG
                     tb_DatPhong_CT dpct = new tb_DatPhong_CT();
                     dpct.IDDP = _dp.IDDP;
                     dpct.IDPHONG = int.Parse(gvDatPhong.GetRowCellValue(i, "IDPHONG").ToString());
-                    dpct.SONGAYO = Math.Max((dtNgayTra.Value - dtNgayDat.Value).Days, 1);
+                    dpct.SONGAYO = dpct.SONGAYO = Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1);
+
                     dpct.DONGIA = int.Parse(gvDatPhong.GetRowCellValue(i, "DONGIA").ToString());
                     dpct.THANHTIEN = dpct.DONGIA * dpct.SONGAYO;
                     dpct.NGAY = DateTime.Now;

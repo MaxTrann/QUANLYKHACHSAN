@@ -208,6 +208,8 @@ namespace THUEPHONG
 
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
+            frmBaoCao frm = new frmBaoCao(_user);
+            frm.ShowDialog();
 
         }
 

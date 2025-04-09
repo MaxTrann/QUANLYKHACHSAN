@@ -64,7 +64,7 @@
             this.btnThoat.ImageOptions.Image = global::THUEPHONG.Properties.Resources.cancel_32x32;
             this.btnThoat.Location = new System.Drawing.Point(308, 229);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(133, 47);
+            this.btnThoat.Size = new System.Drawing.Size(149, 47);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -76,7 +76,7 @@
             this.btnLogin.ImageOptions.Image = global::THUEPHONG.Properties.Resources.apply_32x32;
             this.btnLogin.Location = new System.Drawing.Point(153, 229);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(133, 47);
+            this.btnLogin.Size = new System.Drawing.Size(149, 47);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);

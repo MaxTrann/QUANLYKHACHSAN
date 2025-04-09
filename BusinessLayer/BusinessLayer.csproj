@@ -68,6 +68,7 @@
     <Compile Include="SPDV.cs" />
     <Compile Include="SYS_GROUP.cs" />
     <Compile Include="SYS_PARAM.cs" />
+    <Compile Include="SYS_REPORT.cs" />
     <Compile Include="SYS_RIGHT.cs" />
     <Compile Include="SYS_RIGHT_REP.cs" />
     <Compile Include="SYS_USER.cs" />

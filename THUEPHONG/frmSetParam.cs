@@ -26,7 +26,7 @@ namespace THUEPHONG
             _congty = new CONGTY();
             _donvi = new DONVI();
             loadCongTy();
-            cboCongTy.SelectedValue = "CTME";
+            cboCongTy.SelectedValue = "CTUTE";
             cboCongTy.SelectedIndexChanged += CboCongTy_SelectedIndexChanged;
             loadDonVi();
         }
@@ -52,7 +52,7 @@ namespace THUEPHONG
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             string macty = cboCongTy.SelectedValue.ToString();
-            string madvi = (cboDonVi.Text.Trim() == "")?"~":cboDonVi.SelectedValue.ToString();
+            string madvi = (cboDonVi.Text.Trim() == "") ? "~" : cboDonVi.SelectedValue.ToString();
             SYS_PARAM _sysParam = new SYS_PARAM(macty, madvi);
             _sysParam.SaveFile();
             MessageBox.Show("Xác lập đơn vị sử dụng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -63,6 +63,6 @@ namespace THUEPHONG
             Application.Exit();
         }
 
-        
+
     }
 }

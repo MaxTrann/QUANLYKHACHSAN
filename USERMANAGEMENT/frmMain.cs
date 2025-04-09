@@ -31,7 +31,7 @@ namespace USERMANAGEMENT
             _sysUser = new SYS_USER();
             _isRoot = true;
             loadTreeView();
-            loadUser("CTME", "~");
+            loadUser("CTUTE", "~");
         }
         public void loadUser(string macty, string madvi)
         {
@@ -86,8 +86,8 @@ namespace USERMANAGEMENT
             else
             {
                 _isRoot = false;
-                _macty = _treeView.TreeView.SelectedNode.Name.Substring(0,4);
-                _madvi = _treeView.TreeView.SelectedNode.Name.Substring(5);
+                _macty = _treeView.TreeView.SelectedNode.Name.Substring(0,5);
+                _madvi = _treeView.TreeView.SelectedNode.Name.Substring(6);
             }
             loadUser(_macty, _madvi);
             _treeView.dropDown.Close();

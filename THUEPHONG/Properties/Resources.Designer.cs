@@ -93,6 +93,16 @@ namespace THUEPHONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap apply_32x322 {
+            get {
+                object obj = ResourceManager.GetObject("apply_32x322", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel_16x16 {
             get {
                 object obj = ResourceManager.GetObject("cancel_16x16", resourceCulture);
@@ -116,6 +126,16 @@ namespace THUEPHONG.Properties {
         internal static System.Drawing.Bitmap cancel_32x321 {
             get {
                 object obj = ResourceManager.GetObject("cancel_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel_32x322 {
+            get {
+                object obj = ResourceManager.GetObject("cancel_32x322", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

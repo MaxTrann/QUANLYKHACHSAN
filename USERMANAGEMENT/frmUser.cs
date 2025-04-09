@@ -87,7 +87,7 @@ namespace USERMANAGEMENT
         {
             if (_them)
             {
-                bool checkUser = _sysUser.checkUserExist(_macty, _madvi, txtUsername.Text.Trim());
+                bool checkUser = _sysUser.checkUserExist(_macty, _madvi,txtUsername.Text.Trim());
                 if (checkUser)
                 {
                     MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

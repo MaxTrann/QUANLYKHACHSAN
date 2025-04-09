@@ -77,23 +77,38 @@ namespace THUEPHONG
                 searchKH.EditValue = dp.IDKH;
                 dtNgayDat.Value = dp.NGAYDATPHONG.Value;
                 
-                if (dp.NGAYDATPHONG.Value.ToShortDateString() == DateTime.Now.ToShortDateString())
-                    dtNgayTra.Value = dp.NGAYDATPHONG.Value.AddDays(1);
-                else
-                    dtNgayTra.Value = DateTime.Now;
+                //if (dp.NGAYDATPHONG.Value.ToShortDateString() == DateTime.Now.ToShortDateString())
+                //    dtNgayTra.Value = dp.NGAYDATPHONG.Value.AddDays(1);
+                //else
+                //    dtNgayTra.Value = DateTime.Now;
+                dtNgayTra.Value = dp.NGAYTRAPHONG.Value;
                 cboTrangThai.SelectedValue = dp.STATUS;
                 spSoNguoi.Text = dp.SONGUOIO.ToString();
                 txtGhiChu.Text = dp.GHICHU.ToString();
                 txtThanhTien.Text = dp.SOTIEN.Value.ToString("N0");
 
             }
-            loadSPDV();
+            if (_them)
+            {
+                clearSPDV();
+            }
+            else 
+            { 
+                loadSPDV();
+            }
 
             dtNgayDat.ValueChanged += dtNgay_ValueChanged;
             dtNgayTra.ValueChanged += dtNgay_ValueChanged;
 
             TongTienCapNhat(); // Gọi lại hàm tính tổng tiền sau khi load xong
 
+        }
+        void clearSPDV()
+        {
+            lstDPSP = new List<OBJ_DPSP>();
+            gcSPDV.DataSource = null;
+            gcSPDV.DataSource = lstDPSP;
+            gcSPDV.RefreshDataSource();
         }
         void TongTienCapNhat()
         {
@@ -421,7 +436,8 @@ namespace THUEPHONG
 
                 dpct.IDDP = _dp.IDDP;
                 dpct.IDPHONG = _idPhong;
-                dpct.SONGAYO = Math.Max((dtNgayTra.Value - dtNgayDat.Value).Days, 1);
+                dpct.SONGAYO = Math.Max((dtNgayTra.Value.Date - dtNgayDat.Value.Date).Days, 1);
+
                 dpct.DONGIA = int.Parse(_phongHienTai.DONGIA.ToString());
                 dpct.THANHTIEN = dpct.DONGIA * dpct.SONGAYO;
                 dpct.NGAY = DateTime.Now;
