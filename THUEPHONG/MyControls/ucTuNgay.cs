@@ -16,5 +16,51 @@ namespace THUEPHONG.MyControls
         {
             InitializeComponent();
         }
+
+        private void ucTuNgay_Load(object sender, EventArgs e)
+        {
+            dtTuNgay.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            dtDenNgay.Value = DateTime.Now;
+        }
+
+        private void dtTuNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtTuNgay.Select();
+                return;
+            }
+        }
+
+        private void dtTuNgay_Leave(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtTuNgay.Select();
+                return;
+            }
+        }
+
+        private void dtDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtTuNgay.Select();
+                return;
+            }
+        }
+
+        private void dtDenNgay_Leave(object sender, EventArgs e)
+        {
+            if (dtTuNgay.Value > dtDenNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtTuNgay.Select();
+                return;
+            }
+        }
     }
 }

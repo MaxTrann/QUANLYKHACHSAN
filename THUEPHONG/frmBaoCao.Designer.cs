@@ -47,12 +47,12 @@
             this.splBaoCao.Location = new System.Drawing.Point(0, 0);
             this.splBaoCao.Name = "splBaoCao";
             // 
-            // splBaoCao.splBaoCao_Panel1
+            // splBaoCao.Panel1
             // 
             this.splBaoCao.Panel1.Controls.Add(this.lstDanhSach);
             this.splBaoCao.Panel1.Text = "Panel1";
             // 
-            // splBaoCao.splBaoCao_Panel2
+            // splBaoCao.Panel2
             // 
             this.splBaoCao.Panel2.Controls.Add(this.btnDong);
             this.splBaoCao.Panel2.Controls.Add(this.btnThucHien);
@@ -93,6 +93,7 @@
             this.btnThucHien.Size = new System.Drawing.Size(159, 56);
             this.btnThucHien.TabIndex = 0;
             this.btnThucHien.Text = "Thực hiện";
+            this.btnThucHien.Click += new System.EventHandler(this.btnThucHien_Click);
             // 
             // frmBaoCao
             // 

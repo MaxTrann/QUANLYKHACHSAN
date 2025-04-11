@@ -70,6 +70,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cboCongTy;
+        public System.Windows.Forms.ComboBox cboCongTy;
     }
 }

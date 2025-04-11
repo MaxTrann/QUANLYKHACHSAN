@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtDenNgay = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtTuNgay = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -43,9 +43,9 @@
             this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.Blue;
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
-            this.groupControl1.Controls.Add(this.dateTimePicker2);
+            this.groupControl1.Controls.Add(this.dtDenNgay);
             this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Controls.Add(this.dateTimePicker1);
+            this.groupControl1.Controls.Add(this.dtTuNgay);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
@@ -54,15 +54,17 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chọn khoảng thời gian";
             // 
-            // dateTimePicker2
+            // dtDenNgay
             // 
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(422, 49);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(130, 28);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dtDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtDenNgay.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDenNgay.Location = new System.Drawing.Point(422, 49);
+            this.dtDenNgay.Name = "dtDenNgay";
+            this.dtDenNgay.Size = new System.Drawing.Size(130, 28);
+            this.dtDenNgay.TabIndex = 3;
+            this.dtDenNgay.ValueChanged += new System.EventHandler(this.dtDenNgay_ValueChanged);
+            this.dtDenNgay.Leave += new System.EventHandler(this.dtDenNgay_Leave);
             // 
             // label2
             // 
@@ -75,15 +77,17 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Đến ngày:";
             // 
-            // dateTimePicker1
+            // dtTuNgay
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(149, 49);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(130, 28);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtTuNgay.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtTuNgay.Location = new System.Drawing.Point(149, 49);
+            this.dtTuNgay.Name = "dtTuNgay";
+            this.dtTuNgay.Size = new System.Drawing.Size(130, 28);
+            this.dtTuNgay.TabIndex = 1;
+            this.dtTuNgay.ValueChanged += new System.EventHandler(this.dtTuNgay_ValueChanged);
+            this.dtTuNgay.Leave += new System.EventHandler(this.dtTuNgay_Leave);
             // 
             // label1
             // 
@@ -103,6 +107,7 @@
             this.Controls.Add(this.groupControl1);
             this.Name = "ucTuNgay";
             this.Size = new System.Drawing.Size(607, 106);
+            this.Load += new System.EventHandler(this.ucTuNgay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -113,9 +118,9 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DateTimePicker dtDenNgay;
+        public System.Windows.Forms.DateTimePicker dtTuNgay;
     }
 }

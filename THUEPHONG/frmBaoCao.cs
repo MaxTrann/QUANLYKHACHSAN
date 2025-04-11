@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using BusinessLayer;
 using DataLayer;
 using THUEPHONG.MyControls;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
 
 namespace THUEPHONG
 {
@@ -94,6 +97,49 @@ namespace THUEPHONG
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnThucHien_Click(object sender, EventArgs e)
+        {
+            tb_SYS_REPORT rp = _sysReport.getItem(int.Parse(lstDanhSach.SelectedValue.ToString()));
+            Form frm = new Form();
+            CrystalReportViewer crv = new CrystalReportViewer();
+            crv.ShowGroupTreeButton = false;
+            crv.ShowParameterPanelButton = false;
+            crv.ToolPanelView = ToolPanelViewType.None;
+            TableLogOnInfo Thongtin;
+            ReportDocument doc = new ReportDocument();
+            doc.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\" + rp.REP_NAME + ".rpt");
+            Thongtin = doc.Database.Tables[0].LogOnInfo;
+            Thongtin.ConnectionInfo.ServerName = myFunctions._srv;
+            Thongtin.ConnectionInfo.DatabaseName = myFunctions._db;
+            Thongtin.ConnectionInfo.UserID = myFunctions._us;
+            Thongtin.ConnectionInfo.Password = myFunctions._pw;
+            doc.Database.Tables[0].ApplyLogOnInfo(Thongtin);
+
+            if (rp.TUNGAY == true)
+            {
+                doc.SetParameterValue("@NGAYD", _uTuNgay.dtTuNgay.Value);
+                doc.SetParameterValue("@NGAYC", _uTuNgay.dtDenNgay.Value);
+            }
+
+            if (rp.MACTY == true)
+            {
+                doc.SetParameterValue("@MACTY", _uCongTy.cboCongTy.SelectedValue.ToString());
+            }
+            if (rp.MADVI == true)
+            {
+                doc.SetParameterValue("@MACTY", _uCongTy.cboCongTy.SelectedValue.ToString());
+                doc.SetParameterValue("@MADVI", _uDonVi.cboDonVi.SelectedValue.ToString());
+            }
+            crv.Dock = DockStyle.Fill;
+            crv.ReportSource = doc;
+            crv.Refresh();
+            frm.Controls.Add(crv);
+            frm.Text = rp.DESCRIPTION;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+           
         }
     }
 }

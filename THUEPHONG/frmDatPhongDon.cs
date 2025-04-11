@@ -442,7 +442,7 @@ namespace THUEPHONG
                 dpct.THANHTIEN = dpct.DONGIA * dpct.SONGAYO;
                 dpct.NGAY = DateTime.Now;
 
-                var _dpct = _datphongct.add(dpct);
+                var _dpct = _datphongct.add(dpct); 
                 _phong.updateStatus((int)dpct.IDPHONG, true);
 
                 for (int j = 0; j < gvSPDV.RowCount; j++)
