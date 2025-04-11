@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\frmbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmdatphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\thuephong\\frmbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{66E95970-3EBA-49B3-9414-4C7C9ED5688B}|THUEPHONG\\THUEPHONG.csproj|solutionrelative:thuephong\\frmbaocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmDatPhong.cs",
               "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhong.cs",
               "RelativeDocumentMoniker": "THUEPHONG\\frmDatPhong.cs",
@@ -50,7 +50,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmDatPhong.cs [Design]",
               "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmDatPhong.cs",
               "RelativeDocumentMoniker": "THUEPHONG\\frmDatPhong.cs",
@@ -67,21 +67,22 @@
               "RelativeDocumentMoniker": "THUEPHONG\\frmBaoCao.cs",
               "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmBaoCao.cs",
               "RelativeToolTip": "THUEPHONG\\frmBaoCao.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAgwI8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAswIMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-10T16:21:36.884Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "frmBaoCao.cs [Design]",
               "DocumentMoniker": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmBaoCao.cs",
               "RelativeDocumentMoniker": "THUEPHONG\\frmBaoCao.cs",
               "ToolTip": "D:\\du lieu\\Nam2-HK2\\LapTrinhWindow\\QUANLYTHUEPHONG\\QuanLyKhachSan\\THUEPHONG\\frmBaoCao.cs [Design]",
               "RelativeToolTip": "THUEPHONG\\frmBaoCao.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T16:21:35.364Z"
+              "WhenOpened": "2025-04-10T16:21:35.364Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

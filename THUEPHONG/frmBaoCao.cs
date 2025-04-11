@@ -129,7 +129,7 @@ namespace THUEPHONG
             }
             if (rp.MADVI == true)
             {
-                doc.SetParameterValue("@MACTY", _uCongTy.cboCongTy.SelectedValue.ToString());
+                doc.SetParameterValue("@MACTY","CTUTE");
                 doc.SetParameterValue("@MADVI", _uDonVi.cboDonVi.SelectedValue.ToString());
             }
             crv.Dock = DockStyle.Fill;
