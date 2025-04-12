@@ -29,3 +29,5 @@ Migrations/
 *.dbmdl
 *.DS_Store
 Thumbs.db
+bin/
+obj/
