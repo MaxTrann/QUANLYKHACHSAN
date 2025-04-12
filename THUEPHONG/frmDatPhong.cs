@@ -136,7 +136,9 @@ namespace THUEPHONG
             gvPhong.ExpandAllGroups();
             gcSPDV.DataSource = _datphongsanpham.getAllByDatPhong(0);
             txtThanhTien.Text = "0";
-            lstDPSP.Clear(); // Reset danh sách sản phẩm/dịch vụ
+            lstDPSP.Clear();             // ✅ Xóa danh sách SP cũ
+            gcSPDV.DataSource = null;   // ✅ Reset grid SP rõ ràng
+            gcSPDV.RefreshDataSource(); // ✅ Làm mới lại UI
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -153,6 +155,8 @@ namespace THUEPHONG
             addReset();
             _idPhong = 0;
             _tenPhong = null;
+            lstDPSP.Clear();         // xóa danh sách SP trước
+            loadDPSP();              // cập nhật lại grid sản phẩm
             tabDanhDanh.SelectedTabPage = pageChiTiet;
         }
 
@@ -787,7 +791,11 @@ namespace THUEPHONG
         void loadDPSP()
         {
             gcSPDV.DataSource = null;
-            gcSPDV.DataSource = lstDPSP;
+            if (_idPhong != 0 && lstDPSP != null)
+            {
+                var data = lstDPSP.Where(x => x.IDPHONG == _idPhong).ToList();
+                gcSPDV.DataSource = data;
+            }
             gcSPDV.RefreshDataSource();
         }
 

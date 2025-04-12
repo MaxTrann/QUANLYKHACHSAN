@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using USERMANAGEMENT;
 namespace THUEPHONG
 {
     public partial class frmMain : DevExpress.XtraEditors.XtraForm
@@ -196,6 +196,10 @@ namespace THUEPHONG
                         {
                             frmDatPhong frm = new frmDatPhong(_user, _uRight.USER_RIGHT.Value);
                             frm.ShowDialog(); break;
+                        }
+                    case "NGUOIDUNG":
+                        {
+                            frmMain
                         }
                 }
             }

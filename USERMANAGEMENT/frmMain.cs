@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLayer;
+using DataLayer;
 using USERMANAGEMENT.MyComponents;
 
 namespace USERMANAGEMENT
@@ -17,6 +18,11 @@ namespace USERMANAGEMENT
         {
             InitializeComponent();
         }
+        //public frmMain(tb_SYS_USER user)
+        //{
+        //    InitializeComponent();
+        //    this.
+        //}
         MyTreeViewCombo _treeView;
         CONGTY _congty;
         DONVI _donvi;

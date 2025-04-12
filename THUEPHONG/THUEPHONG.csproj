@@ -295,6 +295,10 @@
       <Project>{1200b958-57c7-405b-b1a1-a6faf0724aa0}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\USERMANAGEMENT\USERMANAGEMENT.csproj">
+      <Project>{c7f33bd3-03d4-437f-aeed-9c7d8a634d9f}</Project>
+      <Name>USERMANAGEMENT</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\del_icon_32px.png" />
